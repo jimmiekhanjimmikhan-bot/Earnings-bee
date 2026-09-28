@@ -1,0 +1,2331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f59e0b">
+<title>EarningsBee — Earn Money Watching Videos</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#f59e0b;--primary-dark:#d97706;--primary-light:#fbbf24;
+  --primary-bg:#fef3c7;--primary-bg-2:#fffbeb;
+  --dark:#0a0e1a;--dark-2:#1a1f2e;
+  --text:#111827;--text-2:#4b5563;--text-3:#9ca3af;
+  --bg:#fefce8;--white:#fff;
+  --success:#10b981;--success-dark:#047857;
+  --danger:#ef4444;--danger-dark:#b91c1c;
+  --info:#3b82f6;--info-dark:#1d4ed8;
+  --purple:#8b5cf6;--purple-dark:#6d28d9;
+  --border:#f3f4f6;--border-2:#e5e7eb;--border-3:#fde68a;
+  --shadow-sm:0 1px 3px rgba(0,0,0,.06);
+  --shadow:0 4px 14px rgba(245,158,11,.15);
+  --shadow-md:0 10px 30px rgba(0,0,0,.08);
+  --shadow-lg:0 24px 60px rgba(0,0,0,.15);
+  --r-sm:8px;--r:12px;--r-lg:16px;--r-xl:24px;
+  --grad-primary:linear-gradient(135deg,#fbbf24,#f59e0b);
+  --grad-dark:linear-gradient(135deg,#0a0e1a,#1a1f2e);
+  --grad-success:linear-gradient(135deg,#10b981,#047857);
+  --grad-info:linear-gradient(135deg,#3b82f6,#1d4ed8);
+  --grad-purple:linear-gradient(135deg,#8b5cf6,#6d28d9);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4{font-weight:800;letter-spacing:-.02em;line-height:1.2}
+img{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;font-size:inherit;font-weight:inherit}
+input,textarea,select{width:100%;padding:12px 14px;border:1.5px solid var(--border-2);border-radius:var(--r);font-size:.9rem;font-family:inherit;background:var(--white);color:var(--text);outline:none;transition:.15s}
+input:focus,textarea:focus,select:focus{border-color:var(--primary);box-shadow:0 0 0 4px rgba(245,158,11,.15)}
+label{display:block;font-weight:600;font-size:.8rem;color:var(--text-2);margin:12px 0 6px}
+textarea{resize:vertical}
+::selection{background:var(--primary-light);color:var(--dark)}
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--primary-light);border-radius:6px}
+
+/* ============ SVG ICON SYSTEM ============ */
+.icon{width:1em;height:1em;display:inline-block;vertical-align:-.15em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.icon-xs{width:14px;height:14px}
+.icon-sm{width:16px;height:16px}
+.icon-md{width:20px;height:20px}
+.icon-lg{width:24px;height:24px}
+.icon-xl{width:28px;height:28px}
+.icon-2xl{width:36px;height:36px}
+.icon-3xl{width:48px;height:48px}
+.icon-fill{fill:currentColor;stroke:none}
+
+/* ============ AUTH SCREEN ============ */
+.auth{position:fixed;inset:0;z-index:5000;background:linear-gradient(135deg,#fef3c7 0%,#fde68a 50%,#fbbf24 100%);display:flex;align-items:center;justify-content:center;padding:20px;overflow-y:auto}
+.auth::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 15% 20%,rgba(255,255,255,.45),transparent 45%),radial-gradient(circle at 85% 80%,rgba(217,119,6,.3),transparent 45%);pointer-events:none}
+.auth-box{background:var(--white);border-radius:var(--r-xl);padding:36px 26px;max-width:440px;width:100%;box-shadow:0 30px 80px rgba(161,98,7,.28);position:relative;z-index:1;animation:authIn .5s ease}
+@keyframes authIn{from{opacity:0;transform:scale(.95) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.auth-logo{width:80px;height:80px;margin:0 auto 20px;background:var(--grad-primary);border-radius:22px;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(245,158,11,.45);animation:logoFloat 3s ease-in-out infinite}
+.auth-logo .icon{width:52px;height:52px;stroke:var(--dark);stroke-width:1.8}
+@keyframes logoFloat{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-6px) rotate(3deg)}}
+.auth-box h1{text-align:center;font-size:1.75rem;margin-bottom:6px;background:var(--grad-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.auth-sub{text-align:center;color:var(--text-3);font-size:.85rem;margin-bottom:24px}
+.auth-tabs{display:flex;background:var(--primary-bg-2);border-radius:var(--r);padding:4px;margin-bottom:22px}
+.auth-tab{flex:1;padding:11px;border-radius:9px;font-weight:700;font-size:.85rem;color:var(--text-3);transition:.25s;text-align:center}
+.auth-tab.active{background:var(--white);color:var(--dark);box-shadow:var(--shadow-sm)}
+.auth-pane{display:none}
+.auth-pane.active{display:block;animation:fadeIn .3s}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.auth-msg{font-size:.82rem;margin-top:12px;text-align:center;min-height:18px;font-weight:600}
+.auth-msg.err{color:var(--danger)}
+.auth-msg.ok{color:var(--success)}
+.forgot-link{display:block;text-align:right;color:var(--primary-dark);font-size:.78rem;font-weight:700;margin-top:6px;cursor:pointer}
+
+/* ============ BUTTONS ============ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border-radius:var(--r);font-size:.88rem;font-weight:700;transition:.15s;background:var(--grad-primary);color:var(--dark);box-shadow:0 4px 14px rgba(245,158,11,.35);white-space:nowrap;line-height:1.2;border:none;cursor:pointer}
+.btn:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(245,158,11,.45)}
+.btn:active{transform:translateY(0)}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none!important;box-shadow:none}
+.btn.block{width:100%}
+.btn.sm{padding:8px 14px;font-size:.76rem;border-radius:9px;gap:6px}
+.btn.lg{padding:14px 24px;font-size:.92rem;border-radius:var(--r-lg)}
+.btn.green{background:var(--grad-success);color:#fff;box-shadow:0 4px 14px rgba(16,185,129,.35)}
+.btn.red{background:linear-gradient(135deg,#ef4444,#b91c1c);color:#fff;box-shadow:0 4px 14px rgba(239,68,68,.35)}
+.btn.blue{background:var(--grad-info);color:#fff;box-shadow:0 4px 14px rgba(59,130,246,.35)}
+.btn.purple{background:var(--grad-purple);color:#fff;box-shadow:0 4px 14px rgba(139,92,246,.35)}
+.btn.dark{background:var(--grad-dark);color:#fff;box-shadow:0 4px 14px rgba(10,14,26,.3)}
+.btn.gray{background:linear-gradient(135deg,#9ca3af,#6b7280);color:#fff;box-shadow:none}
+.btn.outline{background:transparent;color:var(--text-2);border:1.5px solid var(--border-2);box-shadow:none}
+.btn.outline:hover{border-color:var(--primary);color:var(--primary-dark)}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap}
+.btn-row .btn{flex:1 1 auto}
+
+/* ============ APP SHELL ============ */
+.app{display:none}
+.app.active{display:block}
+.hdr{position:sticky;top:0;z-index:900;background:rgba(255,255,255,.95);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid var(--border-3);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.hdr-logo{display:flex;align-items:center;gap:11px;cursor:pointer;min-width:0}
+.hdr-logo-mark{width:42px;height:42px;border-radius:12px;background:var(--grad-primary);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 12px rgba(245,158,11,.4);animation:logoFloat 3s ease-in-out infinite}
+.hdr-logo-mark .icon{width:30px;height:30px;stroke:var(--dark);stroke-width:1.8}
+.hdr-logo-text h1{font-size:1.05rem;line-height:1.1;background:var(--grad-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hdr-logo-text span{font-size:.62rem;color:var(--text-3);font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.hdr-right{display:flex;gap:8px;align-items:center}
+.bal-pill{display:inline-flex;align-items:center;gap:6px;background:var(--primary-bg);color:var(--primary-dark);padding:8px 13px;border-radius:20px;font-weight:800;font-size:.82rem;border:1.5px solid var(--border-3);white-space:nowrap}
+.bal-pill .icon{width:15px;height:15px}
+.icon-btn{width:42px;height:42px;border-radius:12px;background:var(--white);border:1.5px solid var(--border-3);display:flex;align-items:center;justify-content:center;position:relative;color:var(--text-2);transition:.15s}
+.icon-btn:hover{background:var(--primary-bg);color:var(--primary-dark);transform:translateY(-1px)}
+.icon-btn .icon{width:20px;height:20px}
+.badge-dot{position:absolute;top:-4px;right:-4px;min-width:20px;height:20px;border-radius:10px;background:var(--danger);color:#fff;font-size:.62rem;font-weight:800;display:flex;align-items:center;justify-content:center;padding:0 5px;border:2px solid var(--white)}
+
+/* ============ MAIN LAYOUT ============ */
+.main{padding:16px;padding-bottom:100px;max-width:960px;margin:0 auto}
+.page{display:none}
+.page.active{display:block;animation:fadeIn .25s}
+.page-h{margin-bottom:18px}
+.page-h h2{font-size:1.5rem;color:var(--dark);display:flex;align-items:center;gap:10px}
+.page-h h2 .icon{width:26px;height:26px;color:var(--primary)}
+.page-h p{color:var(--text-3);font-size:.85rem;margin-top:4px}
+
+/* ============ CARDS ============ */
+.card{background:var(--white);border-radius:var(--r-lg);padding:18px;box-shadow:var(--shadow-sm);border:1.5px solid var(--border);margin-bottom:14px;transition:.15s}
+.card:hover{box-shadow:var(--shadow)}
+.card-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:10px}
+.card-h h3{font-size:1rem;color:var(--dark);display:flex;align-items:center;gap:8px}
+.card-h h3 .icon{width:20px;height:20px;color:var(--primary);stroke-width:2.2}
+
+/* ============ HERO BALANCE ============ */
+.hero{background:var(--grad-primary);border-radius:var(--r-xl);padding:24px;color:var(--dark);position:relative;overflow:hidden;margin-bottom:16px;box-shadow:0 12px 32px rgba(245,158,11,.35)}
+.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:280px;height:280px;background:radial-gradient(circle,rgba(255,255,255,.4),transparent 70%);border-radius:50%;pointer-events:none}
+.hero-label{font-size:.75rem;font-weight:700;opacity:.85;letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:6px}
+.hero-label .icon{width:14px;height:14px}
+.hero-amt{font-size:2.6rem;font-weight:900;line-height:1.05;margin:6px 0 6px;letter-spacing:-.03em;position:relative;display:flex;align-items:baseline;gap:6px}
+.hero-amt small{font-size:1rem;font-weight:700;opacity:.75}
+.hero-sub{font-size:.85rem;font-weight:600;opacity:.85}
+.hero-actions{display:flex;gap:8px;margin-top:18px;position:relative;z-index:1;flex-wrap:wrap}
+.hero-actions .btn{background:rgba(255,255,255,.97);color:var(--primary-dark);box-shadow:0 4px 14px rgba(0,0,0,.08)}
+.hero-actions .btn:hover{background:#fff}
+.hero-actions .btn .icon{width:16px;height:16px;stroke-width:2.2}
+
+/* ============ STATS ============ */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:16px}
+.stat{background:var(--white);border-radius:var(--r-lg);padding:16px 12px;border:1.5px solid var(--border);text-align:center;transition:.15s}
+.stat:hover{border-color:var(--border-3);transform:translateY(-2px);box-shadow:var(--shadow)}
+.stat-icon{width:38px;height:38px;border-radius:10px;margin:0 auto 8px;display:flex;align-items:center;justify-content:center}
+.stat-icon .icon{width:20px;height:20px;stroke-width:2.2}
+.stat-icon.yellow{background:var(--primary-bg);color:var(--primary-dark)}
+.stat-icon.blue{background:#dbeafe;color:var(--info-dark)}
+.stat-icon.green{background:#d1fae5;color:var(--success-dark)}
+.stat-icon.red{background:#fee2e2;color:var(--danger-dark)}
+.stat-icon.purple{background:#ede9fe;color:var(--purple-dark)}
+.stat-num{font-size:1.35rem;font-weight:900;color:var(--dark);line-height:1}
+.stat-lbl{font-size:.7rem;color:var(--text-3);font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-top:4px}
+
+/* ============ STREAK ============ */
+.streak{display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,#fef3c7,#fde68a);border-radius:var(--r-lg);padding:16px;margin-bottom:16px;border:1.5px dashed var(--border-3)}
+.streak-icon{width:52px;height:52px;border-radius:14px;background:var(--white);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 14px rgba(245,158,11,.2)}
+.streak-icon .icon{width:28px;height:28px;color:var(--primary-dark);stroke-width:2.2}
+.streak-info{flex:1;min-width:0}
+.streak-info h4{font-size:.95rem;color:var(--primary-dark);margin-bottom:3px}
+.streak-info p{font-size:.75rem;color:var(--text-2);font-weight:500}
+.streak-days{display:flex;gap:3px;margin-top:6px}
+.streak-days span{width:14px;height:14px;border-radius:4px;background:var(--white);border:1.5px solid var(--border-3)}
+.streak-days span.on{background:var(--grad-primary);border-color:transparent}
+
+/* ============ TASKS ============ */
+.task-list{display:flex;flex-direction:column;gap:10px}
+.task{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r-lg);padding:12px;display:flex;align-items:center;gap:12px;transition:.15s}
+.task:hover{border-color:var(--border-3);box-shadow:var(--shadow-sm)}
+.task.done{opacity:.65;background:var(--primary-bg-2)}
+.task-thumb{width:76px;height:56px;border-radius:11px;flex-shrink:0;background:var(--grad-primary);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.task-thumb img{width:100%;height:100%;object-fit:cover;border-radius:11px}
+.task-thumb .play-overlay{position:absolute;inset:0;background:rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:#fff;border-radius:11px}
+.task-thumb .play-overlay .icon{width:20px;height:20px;stroke-width:2.5;fill:currentColor}
+.task-thumb.icon-thumb .icon{width:26px;height:26px;stroke:var(--dark);stroke-width:2.2}
+.task-info{flex:1;min-width:0}
+.task-info h4{font-size:.87rem;margin-bottom:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--dark);font-weight:700}
+.task-info .meta{font-size:.72rem;color:var(--text-3);display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.task-reward{display:inline-flex;align-items:center;gap:3px;background:var(--primary-bg);color:var(--primary-dark);padding:3px 9px;border-radius:20px;font-weight:800;font-size:.7rem}
+.task-reward .icon{width:11px;height:11px;stroke-width:2.5}
+.task .btn{flex-shrink:0}
+
+/* ============ MISSIONS ============ */
+.mission{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r-lg);padding:14px;display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.mission-icon{width:46px;height:46px;border-radius:12px;background:var(--grad-purple);color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.mission-icon .icon{width:24px;height:24px}
+.mission-info{flex:1;min-width:0}
+.mission-info h4{font-size:.86rem;margin-bottom:3px;font-weight:700}
+.mission-info .meta{font-size:.72rem;color:var(--text-3);display:flex;align-items:center;gap:6px}
+.mission-bar{height:5px;background:var(--border-2);border-radius:5px;overflow:hidden;margin-top:6px}
+.mission-bar-fill{height:100%;background:var(--grad-purple);border-radius:5px;transition:.5s}
+
+/* ============ REFERRAL ============ */
+.ref-card{background:var(--grad-dark);color:#fff;border-radius:var(--r-xl);padding:24px;position:relative;overflow:hidden;margin-bottom:16px}
+.ref-card::before{content:'';position:absolute;top:-30px;right:-30px;width:180px;height:180px;background:var(--grad-primary);opacity:.15;border-radius:50%}
+.ref-card::after{content:'';position:absolute;bottom:-60px;left:-40px;width:200px;height:200px;background:var(--grad-purple);opacity:.08;border-radius:50%}
+.ref-card-h{display:flex;align-items:center;gap:12px;margin-bottom:8px;position:relative}
+.ref-card-icon{width:48px;height:48px;border-radius:12px;background:var(--grad-primary);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ref-card-icon .icon{width:26px;height:26px;stroke:var(--dark);stroke-width:2.2}
+.ref-card h3{color:var(--primary-light);font-size:1.15rem;margin-bottom:2px}
+.ref-card .ref-sub{font-size:.82rem;color:#9ca3af;position:relative}
+.ref-link{display:flex;gap:8px;background:rgba(255,255,255,.08);border-radius:var(--r);padding:6px;margin:16px 0 12px;position:relative;align-items:center}
+.ref-link input{background:transparent;border:none;color:var(--primary-light);font-weight:700;font-size:.75rem;padding:8px;font-family:ui-monospace,monospace;min-width:0}
+.ref-link input:focus{box-shadow:none}
+.ref-code{font-size:.78rem;color:#9ca3af;position:relative}
+.ref-code strong{color:var(--primary-light);font-family:ui-monospace,monospace;letter-spacing:.05em}
+
+/* ============ WITHDRAWAL ============ */
+.wd-options{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}
+.wd-opt{padding:14px 8px;border:2px solid var(--border-2);border-radius:var(--r);text-align:center;cursor:pointer;transition:.15s;background:var(--white)}
+.wd-opt:hover{border-color:var(--border-3)}
+.wd-opt.selected{border-color:var(--primary);background:var(--primary-bg);box-shadow:0 0 0 3px rgba(245,158,11,.15)}
+.wd-opt-icon{width:40px;height:40px;border-radius:10px;background:var(--primary-bg);color:var(--primary-dark);display:flex;align-items:center;justify-content:center;margin:0 auto 6px}
+.wd-opt-icon .icon{width:20px;height:20px;stroke-width:2.2}
+.wd-opt.selected .wd-opt-icon{background:var(--grad-primary);color:var(--dark)}
+.wd-opt-lbl{font-size:.7rem;font-weight:800;color:var(--dark)}
+
+/* ============ TIMER / STATUS BOX ============ */
+.timer-box{background:var(--grad-success);color:#fff;border-radius:var(--r-lg);padding:22px;text-align:center;margin-top:14px;box-shadow:0 12px 30px rgba(16,185,129,.3)}
+.timer-box .icon-top{width:44px;height:44px;margin:0 auto 8px;display:block;opacity:.9}
+.timer-box h3{color:#fff;font-size:1.05rem;margin-bottom:6px;font-weight:800}
+.timer-box .timer-lbl{font-size:.82rem;opacity:.9;font-weight:600;margin-top:8px}
+
+/* ============ PROFILE ============ */
+.prof-hd{background:var(--grad-primary);border-radius:var(--r-xl);padding:24px;text-align:center;color:var(--dark);margin-bottom:16px;box-shadow:0 12px 32px rgba(245,158,11,.35);position:relative;overflow:hidden}
+.prof-av{width:88px;height:88px;border-radius:50%;margin:0 auto 14px;background:var(--dark);color:var(--primary-light);display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:900;border:4px solid rgba(255,255,255,.5);box-shadow:0 8px 20px rgba(0,0,0,.15);overflow:hidden}
+.prof-av img{width:100%;height:100%;object-fit:cover}
+.prof-hd h3{font-size:1.35rem;margin-bottom:3px;font-weight:900}
+.prof-hd p{font-size:.85rem;opacity:.85;font-weight:600}
+
+/* ============ BOTTOM NAV ============ */
+.nav{position:fixed;bottom:0;left:0;right:0;z-index:800;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);border-top:1px solid var(--border-3);display:flex;justify-content:space-around;padding:8px 4px 10px;box-shadow:0 -4px 20px rgba(10,14,26,.06)}
+.nav-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 4px;border-radius:12px;font-size:.63rem;font-weight:700;color:var(--text-3);transition:.2s;min-width:0}
+.nav-item .icon{width:22px;height:22px;stroke-width:2}
+.nav-item.active{color:var(--primary-dark);background:var(--primary-bg)}
+.nav-item.active .icon{stroke-width:2.3}
+
+/* ============ FOOTER ============ */
+.footer{background:var(--grad-dark);color:#9ca3af;padding:40px 20px 24px;margin-top:24px;border-radius:var(--r-xl) var(--r-xl) 0 0}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:22px;max-width:960px;margin:0 auto 26px}
+.footer-col h5{color:#fff;font-size:.88rem;font-weight:800;margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.footer-col h5 .icon{width:15px;height:15px;color:var(--primary-light)}
+.footer-col button{display:flex;align-items:center;gap:6px;color:#9ca3af;font-size:.82rem;margin-bottom:8px;transition:.15s;text-align:left;padding:0}
+.footer-col button:hover{color:var(--primary-light);transform:translateX(3px)}
+.footer-col button .icon{width:14px;height:14px}
+.footer-brand{text-align:center;max-width:960px;margin:0 auto;padding-top:24px;border-top:1px solid rgba(255,255,255,.08)}
+.footer-brand-logo{width:56px;height:56px;margin:0 auto 12px;background:var(--grad-primary);border-radius:16px;display:flex;align-items:center;justify-content:center;animation:logoFloat 3s ease-in-out infinite}
+.footer-brand-logo .icon{width:36px;height:36px;stroke:var(--dark);stroke-width:1.8}
+.footer-brand h4{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:900}
+.footer-brand p{font-size:.78rem;color:#6b7280;margin-bottom:16px}
+.footer-socials{display:flex;justify-content:center;gap:10px;margin:16px 0}
+.footer-socials button{width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:#fff;transition:.2s}
+.footer-socials button .icon{width:18px;height:18px}
+.footer-socials button:hover{background:var(--primary);color:var(--dark);transform:translateY(-3px);box-shadow:0 10px 20px rgba(245,158,11,.4)}
+.footer-copy{font-size:.72rem;color:#4b5563;padding-top:16px;text-align:center}
+.secret-dot{display:inline-block;padding:6px 8px;color:#4b5563;cursor:default;user-select:none;transition:.2s;font-size:.8rem}
+.secret-dot.pulse{color:var(--primary);transform:scale(1.4)}
+
+/* ============ MODAL ============ */
+.modal-bg{position:fixed;inset:0;background:rgba(10,14,26,.85);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;z-index:2500;padding:16px;overflow-y:auto}
+.modal-bg.active{display:flex;animation:fadeIn .2s}
+.modal{background:var(--white);border-radius:var(--r-xl);max-width:480px;width:100%;max-height:92vh;overflow-y:auto;padding:26px;position:relative;animation:modalIn .3s}
+.modal.wide{max-width:800px}
+@keyframes modalIn{from{opacity:0;transform:scale(.95) translateY(15px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.close-x{position:absolute;top:14px;right:14px;width:38px;height:38px;border-radius:50%;background:var(--primary-bg-2);color:var(--text-3);display:flex;align-items:center;justify-content:center;transition:.15s}
+.close-x:hover{background:var(--danger);color:#fff;transform:rotate(90deg)}
+.close-x .icon{width:18px;height:18px;stroke-width:2.5}
+.modal h2{font-size:1.3rem;margin-bottom:6px;padding-right:44px;display:flex;align-items:center;gap:8px}
+.modal h2 .icon{width:22px;height:22px;color:var(--primary)}
+.modal-sub{color:var(--text-3);font-size:.85rem;margin-bottom:18px}
+
+/* ============ VIDEO MODAL ============ */
+.video-modal{position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.95);display:none;align-items:center;justify-content:center;padding:12px;overflow-y:auto}
+.video-modal.active{display:flex}
+.video-box{width:100%;max-width:820px;background:var(--white);border-radius:var(--r-xl);overflow:hidden;position:relative;margin:auto}
+.video-frame{position:relative;padding-bottom:56.25%;background:#000}
+.video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
+.video-close{position:absolute;top:12px;right:12px;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.95);color:var(--dark);display:flex;align-items:center;justify-content:center;z-index:20;box-shadow:0 4px 14px rgba(0,0,0,.3);transition:.15s}
+.video-close:hover{background:var(--danger);color:#fff;transform:rotate(90deg)}
+.video-close .icon{width:20px;height:20px;stroke-width:2.5}
+.video-meta{padding:18px 20px}
+.video-meta h3{font-size:1.05rem;margin-bottom:6px;font-weight:800}
+.video-meta .meta-sub{font-size:.78rem;color:var(--text-3);margin-bottom:14px}
+.video-progress-bar{height:6px;background:var(--border-2);border-radius:6px;overflow:hidden;margin-bottom:14px}
+.video-progress-fill{height:100%;background:var(--grad-primary);border-radius:6px;transition:width .3s linear;width:0%}
+.video-timer{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--primary-bg);padding:16px;border-radius:var(--r);font-weight:800;color:var(--primary-dark);font-size:.88rem}
+.video-timer .icon{width:18px;height:18px}
+.countdown-num{font-size:1.6rem;font-weight:900;color:var(--primary-dark);min-width:54px;text-align:center;font-variant-numeric:tabular-nums;font-family:ui-monospace,monospace}
+
+/* ============ TOAST ============ */
+.toast{position:fixed;bottom:100px;left:50%;transform:translateX(-50%) translateY(30px);background:var(--dark);color:#fff;padding:13px 22px;border-radius:var(--r);font-size:.85rem;font-weight:600;z-index:4000;opacity:0;transition:.3s cubic-bezier(.2,.9,.3,1.15);max-width:90vw;display:flex;align-items:center;gap:10px;pointer-events:none;box-shadow:var(--shadow-lg)}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.toast .icon{width:18px;height:18px;flex-shrink:0}
+.toast.success{background:var(--grad-success)}
+.toast.error{background:linear-gradient(135deg,#ef4444,#b91c1c)}
+.toast.warn{background:var(--grad-primary);color:var(--dark)}
+
+/* ============ EMPTY ============ */
+.empty{text-align:center;padding:36px 16px;color:var(--text-3)}
+.empty-icon{width:64px;height:64px;border-radius:50%;background:var(--primary-bg-2);color:var(--primary-light);display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.empty-icon .icon{width:32px;height:32px;stroke-width:1.8}
+.empty h3{font-size:.95rem;color:var(--text-2);margin-bottom:4px;font-weight:700}
+.empty p{font-size:.82rem}
+
+/* ============ ADMIN ============ */
+.admin-tab-bar{display:flex;gap:4px;overflow-x:auto;padding-bottom:6px;margin-bottom:16px;border-bottom:2px solid var(--border-2)}
+.admin-tab{padding:9px 14px;border-radius:10px 10px 0 0;font-size:.76rem;font-weight:700;color:var(--text-3);white-space:nowrap;background:transparent;display:inline-flex;align-items:center;gap:5px}
+.admin-tab .icon{width:15px;height:15px}
+.admin-tab.active{color:var(--primary-dark);background:var(--primary-bg)}
+.admin-item{background:var(--white);border:1.5px solid var(--border-2);border-radius:var(--r);padding:14px;margin-bottom:10px}
+.admin-item h4{font-size:.88rem;font-weight:800;margin-bottom:8px;color:var(--dark);display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.admin-item p{font-size:.76rem;color:var(--text-3);margin:4px 0;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.admin-item p strong{color:var(--text-2);font-weight:700}
+.admin-actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+
+/* ============ CONTENT PAGE ============ */
+.content-page h2{font-size:1.35rem;margin-bottom:16px;display:flex;align-items:center;gap:10px;color:var(--dark)}
+.content-page h2 .icon{width:26px;height:26px;color:var(--primary)}
+.content-page h3{font-size:1rem;margin:20px 0 8px;color:var(--primary-dark);display:flex;align-items:center;gap:8px;font-weight:800}
+.content-page h3 .icon{width:18px;height:18px}
+.content-page p{font-size:.88rem;color:var(--text-2);margin-bottom:10px;line-height:1.75}
+.content-page ul{margin:8px 0 14px 0;font-size:.88rem;color:var(--text-2);list-style:none}
+.content-page ul li{margin-bottom:8px;padding-left:24px;position:relative;display:flex;align-items:flex-start;gap:8px}
+.content-page ul li::before{content:'';position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:50%;background:var(--primary)}
+.content-page strong{color:var(--dark);font-weight:700}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:640px){
+  .hero-amt{font-size:2.15rem}
+  .auth-box{padding:28px 20px}
+  .main{padding:14px;padding-bottom:100px}
+  .wd-options{grid-template-columns:1fr;gap:8px}
+  .wd-opt{display:flex;align-items:center;gap:14px;text-align:left;padding:14px}
+  .wd-opt-icon{margin:0}
+  .footer-grid{grid-template-columns:repeat(2,1fr);gap:18px}
+  .task-thumb{width:64px;height:48px}
+  .hdr-logo-text span{display:none}
+  .bal-pill{padding:6px 10px;font-size:.74rem}
+}
+@media (max-width:400px){
+  .btn-row{flex-direction:column}
+  .btn-row .btn{width:100%}
+  .footer-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= SVG ICON SPRITE ================= -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+  <!-- ============ ANIMATED BEE ICON ============ -->
+  <symbol id="i-bee" viewBox="0 0 24 24">
+    <!-- Left wing (flapping) -->
+    <ellipse cx="5.5" cy="9.5" rx="3.3" ry="2.4" opacity="0.55">
+      <animateTransform attributeName="transform" type="rotate" 
+        values="-20 5.5 9.5;20 5.5 9.5;-20 5.5 9.5" dur="0.2s" repeatCount="indefinite"/>
+    </ellipse>
+    <!-- Right wing (flapping) -->
+    <ellipse cx="18.5" cy="9.5" rx="3.3" ry="2.4" opacity="0.55">
+      <animateTransform attributeName="transform" type="rotate" 
+        values="20 18.5 9.5;-20 18.5 9.5;20 18.5 9.5" dur="0.2s" repeatCount="indefinite"/>
+    </ellipse>
+    <!-- Antennae -->
+    <path d="M10.8 4.3 Q9.8 3 8.7 2.4"/>
+    <path d="M13.2 4.3 Q14.2 3 15.3 2.4"/>
+    <circle cx="8.7" cy="2.4" r="0.5" fill="currentColor" stroke="none"/>
+    <circle cx="15.3" cy="2.4" r="0.5" fill="currentColor" stroke="none"/>
+    <!-- Head -->
+    <circle cx="12" cy="5.8" r="2.2"/>
+    <circle cx="11.2" cy="5.6" r="0.35" fill="currentColor" stroke="none"/>
+    <circle cx="12.8" cy="5.6" r="0.35" fill="currentColor" stroke="none"/>
+    <!-- Body -->
+    <ellipse cx="12" cy="13.8" rx="4.2" ry="6"/>
+    <!-- Body stripes -->
+    <path d="M8.2 11.5 h7.6"/>
+    <path d="M7.95 13.8 h8.1"/>
+    <path d="M8.35 16.1 h7.3"/>
+    <path d="M9.3 18.4 h5.4"/>
+    <!-- Stinger -->
+    <path d="M12 19.8 v1.6"/>
+  </symbol>
+
+  <!-- Navigation -->
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 12l9-9 9 9"/><path d="M5 10v10a1 1 0 001 1h3a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1h3a1 1 0 001-1V10"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></symbol>
+  <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M21 12V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2h14a2 2 0 002-2v-5z"/><path d="M16 12h.01"/><path d="M3 10h18"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+  
+  <!-- Tasks / Video -->
+  <symbol id="i-video" viewBox="0 0 24 24"><rect x="2" y="6" width="14" height="12" rx="2"/><polygon points="22,8 16,12 22,16" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="6 4 20 12 6 20"/></symbol>
+  <symbol id="i-play-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+  <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M6 9H4a2 2 0 01-2-2V5a2 2 0 012-2h2"/><path d="M18 9h2a2 2 0 002-2V5a2 2 0 00-2-2h-2"/><path d="M6 3h12v6a6 6 0 11-12 0V3z"/><path d="M9 21h6M12 15v6"/></symbol>
+  <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></symbol>
+  
+  <!-- Actions -->
+  <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+  <symbol id="i-check-circle" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></symbol>
+  <symbol id="i-unlock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 019.9-1"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></symbol>
+  <symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></symbol>
+  <symbol id="i-edit" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4z"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></symbol>
+  <symbol id="i-upload" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></symbol>
+  
+  <!-- Arrows -->
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+  <symbol id="i-arrow-left" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></symbol>
+  <symbol id="i-chevron-right" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></symbol>
+  <symbol id="i-chevron-down" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></symbol>
+  
+  <!-- Info / Communication -->
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22 6 12 13 2 6"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></symbol>
+  <symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></symbol>
+  <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
+  
+  <!-- Money / Points -->
+  <symbol id="i-coin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 9.5h4.5a2 2 0 010 4H9M9 13.5h5"/></symbol>
+  <symbol id="i-dollar" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></symbol>
+  <symbol id="i-credit-card" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></symbol>
+  <symbol id="i-bank" viewBox="0 0 24 24"><path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6M10 10h.01M14 10h.01"/></symbol>
+  <symbol id="i-trending-up" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></symbol>
+  <symbol id="i-gift" viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></symbol>
+  
+  <!-- Settings / Admin -->
+  <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z"/></symbol>
+  <symbol id="i-crown" viewBox="0 0 24 24"><path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7z"/><line x1="4" y1="20" x2="20" y2="20"/></symbol>
+  <symbol id="i-log-out" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-key" viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 11-7.778 7.778 5.5 5.5 0 017.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></symbol>
+  <symbol id="i-ban" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></symbol>
+  <symbol id="i-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10"/></symbol>
+  
+  <!-- Social / Brand -->
+  <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></symbol>
+  <symbol id="i-youtube" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 001.94-2A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></symbol>
+  <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M20.52 3.449C12.831-3.984.106 1.407.101 11.893c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652c7.905 4.27 17.661-1.4 17.665-10.449 0-3.176-1.24-6.165-3.495-8.411z"/></symbol>
+  
+  <!-- Category / Filter -->
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
+  <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></symbol>
+  <symbol id="i-file-text" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></symbol>
+  <symbol id="i-sliders" viewBox="0 0 24 24"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></symbol>
+</defs>
+</svg>
+
+<!-- ================= AUTH SCREEN ================= -->
+<div class="auth" id="authScreen">
+  <div class="auth-box">
+    <div class="auth-logo">
+      <svg class="icon"><use href="#i-bee"/></svg>
+    </div>
+    <h1>EarningsBee</h1>
+    <p class="auth-sub">Watch videos. Complete tasks. Earn real money.</p>
+    
+    <div class="auth-tabs">
+      <div class="auth-tab active" id="tabLogin" onclick="switchAuth('login')">Login</div>
+      <div class="auth-tab" id="tabSignup" onclick="switchAuth('signup')">Sign Up</div>
+    </div>
+    
+    <div class="auth-pane active" id="paneLogin">
+      <label>Email</label>
+      <input type="email" id="loginEmail" placeholder="you@email.com" autocomplete="email">
+      <label>Password</label>
+      <input type="password" id="loginPass" placeholder="••••••••" autocomplete="current-password">
+      <span class="forgot-link" onclick="openForgot()">Forgot password?</span>
+      <button type="button" class="btn block lg" onclick="doLogin()" style="margin-top:20px">
+        <svg class="icon icon-sm"><use href="#i-log-out"/></svg> Login to Earn
+      </button>
+      <p class="auth-msg err" id="loginErr"></p>
+    </div>
+    
+    <div class="auth-pane" id="paneSignup">
+      <label>Full Name *</label>
+      <input type="text" id="suName" placeholder="Your full name" autocomplete="name">
+      <label>Email *</label>
+      <input type="email" id="suEmail" placeholder="you@email.com" autocomplete="email">
+      <label>Phone (JazzCash/EasyPaisa) *</label>
+      <input type="tel" id="suPhone" placeholder="03001234567" autocomplete="tel">
+      <label>Password * (min 6)</label>
+      <input type="password" id="suPass" placeholder="••••••••" autocomplete="new-password">
+      <label>Confirm Password *</label>
+      <input type="password" id="suPass2" placeholder="••••••••" autocomplete="new-password">
+      <label>Referral Code (optional)</label>
+      <input type="text" id="suRef" placeholder="Friend's code">
+      <button type="button" class="btn block lg" onclick="doSignup()" style="margin-top:20px">
+        <svg class="icon icon-sm"><use href="#i-user"/></svg> Create Account
+      </button>
+      <p class="auth-msg err" id="signupErr"></p>
+    </div>
+  </div>
+</div>
+
+<!-- ================= APP ================= -->
+<div class="app" id="appShell">
+  <header class="hdr">
+    <div class="hdr-logo" onclick="showPage('home')">
+      <div class="hdr-logo-mark">
+        <svg class="icon"><use href="#i-bee"/></svg>
+      </div>
+      <div class="hdr-logo-text">
+        <h1>EarningsBee</h1>
+        <span>Earn • Watch • Withdraw</span>
+      </div>
+    </div>
+    <div class="hdr-right">
+      <div class="bal-pill" id="headerBalance">
+        <svg class="icon"><use href="#i-coin"/></svg> 0
+      </div>
+      <button type="button" class="icon-btn" onclick="openNotifications()">
+        <svg class="icon"><use href="#i-bell"/></svg>
+        <span class="badge-dot" id="notifBadge" style="display:none">0</span>
+      </button>
+    </div>
+  </header>
+  
+  <main class="main">
+    
+    <!-- HOME -->
+    <section class="page active" id="page-home">
+      <div class="hero">
+        <div class="hero-label"><svg class="icon"><use href="#i-wallet"/></svg> Total Balance</div>
+        <div class="hero-amt" id="homeBalance">0 <small>pts</small></div>
+        <div class="hero-sub" id="homeBalancePkr">≈ Rs 0</div>
+        <div class="hero-actions">
+          <button type="button" class="btn sm" onclick="showPage('withdraw')"><svg class="icon"><use href="#i-wallet"/></svg> Withdraw</button>
+          <button type="button" class="btn sm" onclick="showPage('refer')"><svg class="icon"><use href="#i-gift"/></svg> Refer</button>
+          <button type="button" class="btn sm" onclick="showPage('tasks')"><svg class="icon"><use href="#i-grid"/></svg> Tasks</button>
+        </div>
+      </div>
+      
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-icon yellow"><svg class="icon"><use href="#i-video"/></svg></div>
+          <div class="stat-num" id="statVideos">0</div>
+          <div class="stat-lbl">Videos</div>
+        </div>
+        <div class="stat">
+          <div class="stat-icon blue"><svg class="icon"><use href="#i-monitor"/></svg></div>
+          <div class="stat-num" id="statAds">0</div>
+          <div class="stat-lbl">Ads</div>
+        </div>
+        <div class="stat">
+          <div class="stat-icon green"><svg class="icon"><use href="#i-check-circle"/></svg></div>
+          <div class="stat-num" id="statMissions">0</div>
+          <div class="stat-lbl">Missions</div>
+        </div>
+        <div class="stat">
+          <div class="stat-icon red"><svg class="icon"><use href="#i-zap"/></svg></div>
+          <div class="stat-num" id="statStreak">0</div>
+          <div class="stat-lbl">Streak</div>
+        </div>
+      </div>
+      
+      <div class="streak">
+        <div class="streak-icon"><svg class="icon"><use href="#i-zap"/></svg></div>
+        <div class="streak-info">
+          <h4 id="streakTitle">Start Your Streak!</h4>
+          <p id="streakSub">Watch 1 video daily to keep it alive</p>
+          <div class="streak-days" id="streakDays"></div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-h">
+          <h3><svg class="icon"><use href="#i-target"/></svg> Today's Missions</h3>
+          <span style="background:var(--primary-bg);color:var(--primary-dark);padding:3px 10px;border-radius:12px;font-size:.7rem;font-weight:800" id="missionBadge">0/3</span>
+        </div>
+        <div id="missionList"></div>
+      </div>
+      
+      <div class="card">
+        <div class="card-h">
+          <h3><svg class="icon"><use href="#i-video"/></svg> Watch Videos</h3>
+          <span style="font-size:.75rem;color:var(--text-3);font-weight:700" id="tasksRemaining">0 remaining</span>
+        </div>
+        <div class="task-list" id="homeVideos"></div>
+        <button type="button" class="btn outline block" style="margin-top:12px" onclick="showPage('tasks')">
+          View All <svg class="icon icon-sm"><use href="#i-arrow-right"/></svg>
+        </button>
+      </div>
+      
+      <div class="card">
+        <div class="card-h">
+          <h3><svg class="icon"><use href="#i-monitor"/></svg> Sponsored Ads</h3>
+        </div>
+        <div class="task-list" id="homeAds"></div>
+      </div>
+    </section>
+    
+    <!-- TASKS -->
+    <section class="page" id="page-tasks">
+      <div class="page-h">
+        <h2><svg class="icon"><use href="#i-grid"/></svg> All Tasks</h2>
+        <p>Har video complete karo aur points earn karo</p>
+      </div>
+      <div class="card">
+        <div class="card-h"><h3><svg class="icon"><use href="#i-video"/></svg> YouTube Videos</h3></div>
+        <div class="task-list" id="allVideos"></div>
+      </div>
+      <div class="card">
+        <div class="card-h"><h3><svg class="icon"><use href="#i-monitor"/></svg> Sponsored Ads</h3></div>
+        <div class="task-list" id="allAds"></div>
+      </div>
+    </section>
+    
+    <!-- REFER -->
+    <section class="page" id="page-refer">
+      <div class="page-h">
+        <h2><svg class="icon"><use href="#i-gift"/></svg> Refer & Earn</h2>
+        <p>Rs 100 per successful referral</p>
+      </div>
+      <div class="ref-card">
+        <div class="ref-card-h">
+          <div class="ref-card-icon"><svg class="icon"><use href="#i-gift"/></svg></div>
+          <div>
+            <h3>Rs 100 per friend</h3>
+            <p class="ref-sub">Invite karo, jab friend 2 din active rahe to Rs 100 milega.</p>
+          </div>
+        </div>
+        <div class="ref-link">
+          <input type="text" id="refLink" readonly>
+          <button type="button" class="btn sm" onclick="copyRefLink()"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+        </div>
+        <div class="ref-code">Your code: <strong id="refCode">—</strong></div>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-icon purple"><svg class="icon"><use href="#i-users"/></svg></div>
+          <div class="stat-num" id="refTotal">0</div>
+          <div class="stat-lbl">Total</div>
+        </div>
+        <div class="stat">
+          <div class="stat-icon green"><svg class="icon"><use href="#i-check-circle"/></svg></div>
+          <div class="stat-num" id="refActive">0</div>
+          <div class="stat-lbl">Qualified</div>
+        </div>
+        <div class="stat">
+          <div class="stat-icon yellow"><svg class="icon"><use href="#i-coin"/></svg></div>
+          <div class="stat-num" id="refEarned">Rs 0</div>
+          <div class="stat-lbl">Earned</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-h"><h3><svg class="icon"><use href="#i-users"/></svg> Your Referrals</h3></div>
+        <div id="refList"></div>
+      </div>
+    </section>
+    
+    <!-- WITHDRAW -->
+    <section class="page" id="page-withdraw">
+      <div class="page-h">
+        <h2><svg class="icon"><use href="#i-wallet"/></svg> Withdraw</h2>
+        <p>Points ko cash mein convert karein</p>
+      </div>
+      <div class="hero" style="background:var(--grad-success);color:#fff">
+        <div class="hero-label"><svg class="icon"><use href="#i-coin"/></svg> Available to Withdraw</div>
+        <div class="hero-amt" id="wdBalance">0 <small>pts</small></div>
+        <div class="hero-sub" id="wdBalancePkr">≈ Rs 0</div>
+      </div>
+      
+      <div class="card" id="wdFormCard">
+        <div class="card-h"><h3><svg class="icon"><use href="#i-upload"/></svg> Withdrawal Request</h3></div>
+        <p style="font-size:.78rem;color:var(--text-3);margin-bottom:14px">Minimum: 5000 points (Rs 500)</p>
+        <label>Payment Method</label>
+        <div class="wd-options">
+          <div class="wd-opt selected" data-m="jazzcash" onclick="selectWd('jazzcash')">
+            <div class="wd-opt-icon"><svg class="icon"><use href="#i-phone"/></svg></div>
+            <div class="wd-opt-lbl">JazzCash</div>
+          </div>
+          <div class="wd-opt" data-m="easypaisa" onclick="selectWd('easypaisa')">
+            <div class="wd-opt-icon"><svg class="icon"><use href="#i-phone"/></svg></div>
+            <div class="wd-opt-lbl">EasyPaisa</div>
+          </div>
+          <div class="wd-opt" data-m="bank" onclick="selectWd('bank')">
+            <div class="wd-opt-icon"><svg class="icon"><use href="#i-bank"/></svg></div>
+            <div class="wd-opt-lbl">Bank</div>
+          </div>
+        </div>
+        <div id="bankExtra" style="display:none">
+          <label>Bank</label>
+          <select id="wdBank">
+            <option value="">-- Select Bank --</option>
+            <option>Meezan Bank</option><option>HBL (Habib Bank)</option><option>UBL (United Bank)</option>
+            <option>Bank Alfalah</option><option>MCB Bank</option><option>Askari Bank</option>
+            <option>Faysal Bank</option><option>Standard Chartered</option><option>Bank Al Habib</option>
+            <option>JS Bank</option><option>Allied Bank</option><option>Soneri Bank</option>
+            <option>NBP (National Bank)</option><option>BankIslami</option><option>Dubai Islamic Bank</option>
+          </select>
+          <label>IBAN / Account Number</label>
+          <input type="text" id="wdIban" placeholder="PK00XXXX0000000000000000">
+        </div>
+        <label>Account Holder Name *</label>
+        <input type="text" id="wdName" placeholder="Full name as per account">
+        <label id="wdNumLabel">JazzCash Number *</label>
+        <input type="tel" id="wdNumber" placeholder="03001234567">
+        <label>Amount (points) *</label>
+        <input type="number" id="wdAmount" placeholder="Min 5000" min="5000" step="500" oninput="updateWdPkr()">
+        <div style="font-size:.78rem;color:var(--text-3);margin-top:6px" id="wdAmountPkr">≈ Rs 0</div>
+        <button type="button" class="btn green block lg" style="margin-top:16px" onclick="submitWithdrawal()">
+          <svg class="icon icon-sm"><use href="#i-send"/></svg> Submit Withdrawal
+        </button>
+      </div>
+      
+      <div id="wdStatusBox"></div>
+      
+      <div class="card">
+        <div class="card-h"><h3><svg class="icon"><use href="#i-clock"/></svg> Withdrawal History</h3></div>
+        <div id="wdHistory"></div>
+      </div>
+    </section>
+    
+    <!-- PROFILE -->
+    <section class="page" id="page-profile">
+      <div class="prof-hd">
+        <div class="prof-av" id="profAvatar">U</div>
+        <h3 id="profName">User</h3>
+        <p id="profEmail">user@email.com</p>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-icon yellow"><svg class="icon"><use href="#i-coin"/></svg></div>
+          <div class="stat-num" id="profPoints">0</div>
+          <div class="stat-lbl">Points</div>
+        </div>
+        <div class="stat">
+          <div class="stat-icon green"><svg class="icon"><use href="#i-trending-up"/></svg></div>
+          <div class="stat-num" id="profEarned">Rs 0</div>
+          <div class="stat-lbl">Earned</div>
+        </div>
+        <div class="stat">
+          <div class="stat-icon purple"><svg class="icon"><use href="#i-users"/></svg></div>
+          <div class="stat-num" id="profRefs">0</div>
+          <div class="stat-lbl">Refs</div>
+        </div>
+        <div class="stat">
+          <div class="stat-icon blue"><svg class="icon"><use href="#i-calendar"/></svg></div>
+          <div class="stat-num" id="profDays">0</div>
+          <div class="stat-lbl">Days</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-h"><h3><svg class="icon"><use href="#i-settings"/></svg> Account Settings</h3></div>
+        <div class="btn-row" style="flex-direction:column">
+          <button type="button" class="btn outline block" onclick="openEditProfile()"><svg class="icon icon-sm"><use href="#i-edit"/></svg> Edit Profile</button>
+          <button type="button" class="btn outline block" onclick="openChangePass()"><svg class="icon icon-sm"><use href="#i-key"/></svg> Change Password</button>
+          <button type="button" class="btn outline block" onclick="showPage('about')"><svg class="icon icon-sm"><use href="#i-info"/></svg> About Us</button>
+          <button type="button" class="btn outline block" onclick="showPage('contact')"><svg class="icon icon-sm"><use href="#i-mail"/></svg> Contact Support</button>
+          <button type="button" class="btn outline block" onclick="showPage('terms')"><svg class="icon icon-sm"><use href="#i-doc"/></svg> Terms & Conditions</button>
+          <button type="button" class="btn outline block" onclick="showPage('privacy')"><svg class="icon icon-sm"><use href="#i-shield"/></svg> Privacy Policy</button>
+          <button type="button" class="btn red block" onclick="doLogout()" style="margin-top:8px"><svg class="icon icon-sm"><use href="#i-log-out"/></svg> Logout</button>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ABOUT -->
+    <section class="page" id="page-about">
+      <div class="content-page">
+        <h2><svg class="icon"><use href="#i-info"/></svg> About EarningsBee</h2>
+        <p><strong>EarningsBee</strong> Pakistan ka pehla platform hai jahan aap YouTube videos dekh kar, sponsored ads watch kar ke, aur daily missions complete kar ke real cash earn kar sakte hain.</p>
+        <h3><svg class="icon"><use href="#i-target"/></svg> Hamara Mission</h3>
+        <p>Har Pakistani ko online earning ka asaan, safe, aur transparent zariya dena.</p>
+        <h3><svg class="icon"><use href="#i-star"/></svg> Kya Kya Kar Sakte Hain</h3>
+        <ul>
+          <li>YouTube videos dekh kar points earn karein — <strong>2 points per video</strong></li>
+          <li>Sponsored ads watch kar ke earning karein</li>
+          <li>Daily missions complete karein</li>
+          <li>Streak maintain karein — extra rewards</li>
+          <li>Dosto ko refer karein — Rs 100 per referral</li>
+        </ul>
+        <h3><svg class="icon"><use href="#i-coin"/></svg> Points System</h3>
+        <p><strong>50 points = Rs 5</strong>. Minimum withdrawal 5000 points (Rs 500).</p>
+        <h3><svg class="icon"><use href="#i-wallet"/></svg> Withdrawal Options</h3>
+        <p>JazzCash, EasyPaisa, aur Pakistani Banks — sab available.</p>
+        <h3><svg class="icon"><use href="#i-award"/></svg> Kyun EarningsBee?</h3>
+        <ul>
+          <li><strong>100% Free</strong> — koi investment nahi</li>
+          <li><strong>Fast Withdrawals</strong> — 24-72 hours</li>
+          <li><strong>Transparent Points</strong> — har earning track ho</li>
+          <li><strong>Referral Bonus</strong> — Rs 100 per friend</li>
+        </ul>
+        <h3><svg class="icon"><use href="#i-phone"/></svg> Support</h3>
+        <p>Email: support@earningsbee.pk<br>WhatsApp: +92 300 0000000</p>
+      </div>
+    </section>
+    
+    <!-- CONTACT -->
+    <section class="page" id="page-contact">
+      <div class="page-h">
+        <h2><svg class="icon"><use href="#i-mail"/></svg> Contact Support</h2>
+        <p>Koi sawal? Hum sunne ke liye hazir hain</p>
+      </div>
+      <div class="card">
+        <label>Your Name</label>
+        <input type="text" id="ctName" placeholder="Aapka naam">
+        <label>Email</label>
+        <input type="email" id="ctEmail" placeholder="you@email.com">
+        <label>Subject</label>
+        <input type="text" id="ctSubject" placeholder="Kis baare mein?">
+        <label>Message</label>
+        <textarea id="ctMsg" rows="4" style="resize:vertical" placeholder="Detail mein likhein..."></textarea>
+        <button type="button" class="btn block lg" style="margin-top:14px" onclick="sendContact()">
+          <svg class="icon icon-sm"><use href="#i-send"/></svg> Send Message
+        </button>
+      </div>
+      <div class="card">
+        <div class="card-h"><h3><svg class="icon"><use href="#i-info"/></svg> Direct Contact</h3></div>
+        <p style="font-size:.85rem;color:var(--text-2);margin-bottom:8px;display:flex;align-items:center;gap:8px"><svg class="icon icon-sm" style="color:var(--primary)"><use href="#i-mail"/></svg> support@earningsbee.pk</p>
+        <p style="font-size:.85rem;color:var(--text-2);margin-bottom:8px;display:flex;align-items:center;gap:8px"><svg class="icon icon-sm" style="color:var(--primary)"><use href="#i-phone"/></svg> +92 300 0000000</p>
+        <p style="font-size:.85rem;color:var(--text-2);display:flex;align-items:center;gap:8px"><svg class="icon icon-sm" style="color:var(--primary)"><use href="#i-clock"/></svg> 9 AM - 9 PM (Mon-Sat)</p>
+      </div>
+    </section>
+    
+    <!-- TERMS -->
+    <section class="page" id="page-terms">
+      <div class="content-page">
+        <h2><svg class="icon"><use href="#i-doc"/></svg> Terms & Conditions</h2>
+        <p><em>Last updated: 2026</em></p>
+        <h3>1. Account Rules</h3>
+        <p>Ek user, ek account. Fake accounts banane par permanent ban.</p>
+        <h3>2. Earning Policy</h3>
+        <p>Points sirf genuine activity se milte hain. Bots, VPN, ya auto-clickers prohibited hain.</p>
+        <h3>3. Withdrawal</h3>
+        <p>Minimum 5000 points. Withdrawal 24-72 hours mein process hoti hai.</p>
+        <h3>4. Referral Program</h3>
+        <p>Rs 100 per active referral. Referral 2 din tak active rahe tabhi reward milega.</p>
+        <h3>5. Fraud</h3>
+        <p>Fraud par account block aur legal action.</p>
+        <h3>6. Governing Law</h3>
+        <p>Pakistani law ke under govern kiya jayega.</p>
+      </div>
+    </section>
+    
+    <!-- PRIVACY -->
+    <section class="page" id="page-privacy">
+      <div class="content-page">
+        <h2><svg class="icon"><use href="#i-shield"/></svg> Privacy Policy</h2>
+        <h3>1. Information Collection</h3>
+        <p>Name, email, phone, aur payment details collect karte hain.</p>
+        <h3>2. Use of Data</h3>
+        <p>Sirf services provide karne aur withdrawals ke liye use hoti hai.</p>
+        <h3>3. Security</h3>
+        <p>Aapki data encrypted servers par safe hai.</p>
+        <h3>4. Third Party</h3>
+        <p>Kabhi bhi data sale nahi karte.</p>
+        <h3>5. Your Rights</h3>
+        <p>Apni data delete karwane ka haq hai.</p>
+        <h3>6. Contact</h3>
+        <p>privacy@earningsbee.pk</p>
+      </div>
+    </section>
+    
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h5><svg class="icon"><use href="#i-grid"/></svg> Quick Links</h5>
+          <button onclick="showPage('home')"><svg class="icon"><use href="#i-home"/></svg> Home</button>
+          <button onclick="showPage('tasks')"><svg class="icon"><use href="#i-video"/></svg> Tasks</button>
+          <button onclick="showPage('refer')"><svg class="icon"><use href="#i-gift"/></svg> Refer & Earn</button>
+          <button onclick="showPage('withdraw')"><svg class="icon"><use href="#i-wallet"/></svg> Withdraw</button>
+        </div>
+        <div class="footer-col">
+          <h5><svg class="icon"><use href="#i-info"/></svg> Company</h5>
+          <button onclick="showPage('about')"><svg class="icon"><use href="#i-info"/></svg> About Us</button>
+          <button onclick="showPage('contact')"><svg class="icon"><use href="#i-mail"/></svg> Contact Us</button>
+          <button onclick="openModal('careersModal')"><svg class="icon"><use href="#i-users"/></svg> Careers</button>
+        </div>
+        <div class="footer-col">
+          <h5><svg class="icon"><use href="#i-shield"/></svg> Legal</h5>
+          <button onclick="showPage('terms')"><svg class="icon"><use href="#i-doc"/></svg> Terms & Conditions</button>
+          <button onclick="showPage('privacy')"><svg class="icon"><use href="#i-shield"/></svg> Privacy Policy</button>
+          <button onclick="openModal('faqModal')"><svg class="icon"><use href="#i-help"/></svg> FAQ</button>
+        </div>
+        <div class="footer-col">
+          <h5><svg class="icon"><use href="#i-phone"/></svg> Support</h5>
+          <button onclick="showPage('contact')"><svg class="icon"><use href="#i-help"/></svg> Help Center</button>
+          <button onclick="window.open('https://wa.me/923000000000')"><svg class="icon"><use href="#i-whatsapp"/></svg> WhatsApp</button>
+          <button onclick="window.location.href='mailto:support@earningsbee.pk'"><svg class="icon"><use href="#i-mail"/></svg> Email Us</button>
+        </div>
+      </div>
+      <div class="footer-brand">
+        <div class="footer-brand-logo">
+          <svg class="icon"><use href="#i-bee"/></svg>
+        </div>
+        <h4>EarningsBee</h4>
+        <p>Pakistan ka trusted online earning platform</p>
+        <div class="footer-socials">
+          <button onclick="window.open('https://facebook.com')" title="Facebook"><svg class="icon"><use href="#i-facebook"/></svg></button>
+          <button onclick="window.open('https://youtube.com')" title="YouTube"><svg class="icon"><use href="#i-youtube"/></svg></button>
+          <button onclick="window.open('https://instagram.com')" title="Instagram"><svg class="icon"><use href="#i-instagram"/></svg></button>
+          <button onclick="window.open('https://wa.me/923000000000')" title="WhatsApp"><svg class="icon"><use href="#i-whatsapp"/></svg></button>
+        </div>
+        <div class="footer-copy">
+          © 2026 EarningsBee. All rights reserved.
+          <span class="secret-dot" id="secretDot" onclick="secretClick()">•</span>
+        </div>
+      </div>
+    </footer>
+    
+  </main>
+  
+  <!-- NAV -->
+  <nav class="nav">
+    <button type="button" class="nav-item active" data-page="home" onclick="showPage('home')">
+      <svg class="icon"><use href="#i-home"/></svg>
+      <span>Home</span>
+    </button>
+    <button type="button" class="nav-item" data-page="tasks" onclick="showPage('tasks')">
+      <svg class="icon"><use href="#i-grid"/></svg>
+      <span>Tasks</span>
+    </button>
+    <button type="button" class="nav-item" data-page="refer" onclick="showPage('refer')">
+      <svg class="icon"><use href="#i-users"/></svg>
+      <span>Refer</span>
+    </button>
+    <button type="button" class="nav-item" data-page="withdraw" onclick="showPage('withdraw')">
+      <svg class="icon"><use href="#i-wallet"/></svg>
+      <span>Withdraw</span>
+    </button>
+    <button type="button" class="nav-item" data-page="profile" onclick="showPage('profile')">
+      <svg class="icon"><use href="#i-user"/></svg>
+      <span>Profile</span>
+    </button>
+  </nav>
+</div>
+
+<!-- ================= VIDEO MODAL ================= -->
+<div class="video-modal" id="videoModal">
+  <div class="video-box">
+    <button type="button" class="video-close" onclick="closeVideo()"><svg class="icon"><use href="#i-x"/></svg></button>
+    <div class="video-frame" id="videoFrame"></div>
+    <div class="video-meta">
+      <h3 id="videoTitle">Video</h3>
+      <p class="meta-sub" id="videoDesc">Watch the complete video to earn points</p>
+      <div class="video-progress-bar"><div class="video-progress-fill" id="videoProgressFill"></div></div>
+      <div class="video-timer">
+        <svg class="icon"><use href="#i-clock"/></svg>
+        <span class="countdown-num" id="videoCount">30</span>
+        <span>seconds remaining</span>
+      </div>
+      <div style="text-align:center;margin-top:16px">
+        <button type="button" class="btn gray block lg" id="videoBtn" disabled>
+          <svg class="icon icon-sm"><use href="#i-clock"/></svg> Please wait...
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= NOTIFICATIONS ================= -->
+<div class="modal-bg" id="notifModal">
+  <div class="modal">
+    <button type="button" class="close-x" onclick="closeModal('notifModal')"><svg class="icon"><use href="#i-x"/></svg></button>
+    <h2><svg class="icon"><use href="#i-bell"/></svg> Notifications</h2>
+    <p class="modal-sub">Your recent activity</p>
+    <div id="notifList"></div>
+  </div>
+</div>
+
+<!-- ================= EDIT PROFILE ================= -->
+<div class="modal-bg" id="editProfileModal">
+  <div class="modal">
+    <button type="button" class="close-x" onclick="closeModal('editProfileModal')"><svg class="icon"><use href="#i-x"/></svg></button>
+    <h2><svg class="icon"><use href="#i-edit"/></svg> Edit Profile</h2>
+    <label>Full Name *</label>
+    <input type="text" id="epName">
+    <label>Phone *</label>
+    <input type="tel" id="epPhone">
+    <label>Profile Photo (optional)</label>
+    <input type="file" id="epPhoto" accept="image/*" onchange="handleProfilePhoto(this)">
+    <img id="epPhotoPreview" style="max-width:100px;border-radius:50%;margin-top:10px;display:none;border:3px solid var(--primary-light)">
+    <button type="button" class="btn block lg" style="margin-top:18px" onclick="saveEditProfile()">
+      <svg class="icon icon-sm"><use href="#i-check"/></svg> Save Changes
+    </button>
+  </div>
+</div>
+
+<!-- ================= CHANGE PASSWORD ================= -->
+<div class="modal-bg" id="changePassModal">
+  <div class="modal">
+    <button type="button" class="close-x" onclick="closeModal('changePassModal')"><svg class="icon"><use href="#i-x"/></svg></button>
+    <h2><svg class="icon"><use href="#i-key"/></svg> Change Password</h2>
+    <label>Current Password</label><input type="password" id="cpCurrent">
+    <label>New Password (min 6)</label><input type="password" id="cpNew">
+    <label>Confirm New Password</label><input type="password" id="cpNew2">
+    <p class="auth-msg err" id="cpErr"></p>
+    <button type="button" class="btn block" style="margin-top:14px" onclick="saveChangePass()">
+      <svg class="icon icon-sm"><use href="#i-lock"/></svg> Update Password
+    </button>
+  </div>
+</div>
+
+<!-- ================= FORGOT ================= -->
+<div class="modal-bg" id="forgotModal">
+  <div class="modal">
+    <button type="button" class="close-x" onclick="closeModal('forgotModal')"><svg class="icon"><use href="#i-x"/></svg></button>
+    <h2><svg class="icon"><use href="#i-key"/></svg> Forgot Password</h2>
+    <p class="modal-sub">Email do, reset code milega</p>
+    <label>Registered Email</label><input type="email" id="fgEmail">
+    <button type="button" class="btn block" style="margin-top:14px" onclick="requestReset()">
+      <svg class="icon icon-sm"><use href="#i-send"/></svg> Send Reset Code
+    </button>
+    <p class="auth-msg err" id="fgErr"></p>
+    <p class="auth-msg ok" id="fgOk"></p>
+    <div id="resetSection" style="display:none;margin-top:14px">
+      <label>Reset Code</label><input type="text" id="fgCode" placeholder="6-digit code">
+      <label>New Password</label><input type="password" id="fgNew">
+      <label>Confirm Password</label><input type="password" id="fgNew2">
+      <button type="button" class="btn green block" style="margin-top:14px" onclick="completeReset()">
+        <svg class="icon icon-sm"><use href="#i-check"/></svg> Reset Password
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= FAQ ================= -->
+<div class="modal-bg" id="faqModal">
+  <div class="modal">
+    <button type="button" class="close-x" onclick="closeModal('faqModal')"><svg class="icon"><use href="#i-x"/></svg></button>
+    <h2><svg class="icon"><use href="#i-help"/></svg> FAQ</h2>
+    <div class="content-page">
+      <h3>Points kaise milte hain?</h3>
+      <p>Videos dekh kar (2 points per video), ads watch kar ke, missions complete kar ke.</p>
+      <h3>Points ka rate kya hai?</h3>
+      <p><strong>50 points = Rs 5</strong>. Yani 10 points = Rs 1.</p>
+      <h3>Withdrawal kitni der mein?</h3>
+      <p>24-72 hours mein JazzCash/EasyPaisa/Bank mein.</p>
+      <h3>Minimum withdrawal?</h3>
+      <p>5000 points = Rs 500.</p>
+      <h3>Referral bonus?</h3>
+      <p>Rs 100 per active referral (2 din tak active rahe).</p>
+    </div>
+  </div>
+</div>
+
+<!-- ================= CAREERS ================= -->
+<div class="modal-bg" id="careersModal">
+  <div class="modal">
+    <button type="button" class="close-x" onclick="closeModal('careersModal')"><svg class="icon"><use href="#i-x"/></svg></button>
+    <h2><svg class="icon"><use href="#i-users"/></svg> Careers</h2>
+    <p class="modal-sub">Join our team</p>
+    <div class="content-page">
+      <p>Hum currently hiring hain:</p>
+      <ul>
+        <li>Content Writer (Remote)</li>
+        <li>Social Media Manager (Remote)</li>
+        <li>Customer Support (Lahore)</li>
+      </ul>
+      <p>Apply: careers@earningsbee.pk</p>
+    </div>
+  </div>
+</div>
+
+<!-- ================= ADMIN LOGIN ================= -->
+<div class="modal-bg" id="adminLoginModal">
+  <div class="modal">
+    <button type="button" class="close-x" onclick="closeModal('adminLoginModal')"><svg class="icon"><use href="#i-x"/></svg></button>
+    <h2><svg class="icon"><use href="#i-lock"/></svg> Admin Access</h2>
+    <p class="modal-sub">Restricted access</p>
+    <label>Username</label><input type="text" id="admUser" placeholder="Username">
+    <label>Password</label><input type="password" id="admPass" placeholder="••••••••">
+    <p class="auth-msg err" id="admErr"></p>
+    <button type="button" class="btn dark block lg" style="margin-top:14px" onclick="doAdminLogin()">
+      <svg class="icon icon-sm"><use href="#i-unlock"/></svg> Authenticate
+    </button>
+  </div>
+</div>
+
+<!-- ================= ADMIN PANEL ================= -->
+<div class="modal-bg" id="adminPanel">
+  <div class="modal wide">
+    <button type="button" class="close-x" onclick="closeModal('adminPanel')"><svg class="icon"><use href="#i-x"/></svg></button>
+    <h2><svg class="icon"><use href="#i-crown"/></svg> Admin Panel</h2>
+    <p class="modal-sub">Manage users, withdrawals, videos</p>
+    <div class="stats" id="adminStats"></div>
+    <div class="admin-tab-bar">
+      <button type="button" class="admin-tab active" data-tab="wd" onclick="switchAdminTab('wd')"><svg class="icon"><use href="#i-wallet"/></svg> Withdrawals</button>
+      <button type="button" class="admin-tab" data-tab="usr" onclick="switchAdminTab('usr')"><svg class="icon"><use href="#i-users"/></svg> Users</button>
+      <button type="button" class="admin-tab" data-tab="vid" onclick="switchAdminTab('vid')"><svg class="icon"><use href="#i-video"/></svg> Videos</button>
+      <button type="button" class="admin-tab" data-tab="set" onclick="switchAdminTab('set')"><svg class="icon"><use href="#i-settings"/></svg> Settings</button>
+    </div>
+    <div id="adminContent"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<script>// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyDYr2xo5GHO-_y1c5ZArCbBoIhSzhA_QYM",
+  authDomain: "earningsbee-60bf3.firebaseapp.com",
+  projectId: "earningsbee-60bf3",
+  storageBucket: "earningsbee-60bf3.firebasestorage.app",
+  messagingSenderId: "588932440540",
+  appId: "1:588932440540:web:7db532e97645471efaaf19",
+  measurementId: "G-0M724EW2FJ"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);</script>
+<script>
+'use strict';
+
+/* ============================================================
+   CONFIG — Video = 2 points, 50 points = Rs 5
+   Admin: Shoaib.TxG thunder / 12345678
+   ============================================================ */
+const CONFIG = {
+  pointsPerRupee: 10,         // 10 points = Rs 1  (50 pts = Rs 5)
+  videoReward: 2,              // Every video = 2 points
+  adReward: 1,                 // Every ad = 1 point
+  minWithdraw: 5000,
+  referralReward: 100,
+  referralActiveDays: 2,
+  welcomeBonus: 50,            // 50 points = Rs 5
+  withdrawalEtaHours: 72,
+  ADMIN_USER: 'Shoaib.TxG thunder',
+  ADMIN_PASS: '12345678'
+};
+
+let VIDEOS = [];
+let ADS = [];
+const MISSIONS = [
+  { id:'m1', title:'Watch 3 Videos', target:3, reward:6, icon:'i-video', type:'videos' },
+  { id:'m2', title:'Watch 2 Ads', target:2, reward:3, icon:'i-monitor', type:'ads' },
+  { id:'m3', title:'Complete 5 Tasks', target:5, reward:10, icon:'i-target', type:'tasks' }
+];
+
+let userData = null;
+let currentVideo = null;
+let videoTimer = null;
+let wdTimer = null;
+let wdMethod = 'jazzcash';
+let adminTab = 'wd';
+let clickBuffer = [];
+let tempProfilePhoto = '';
+
+const $ = id => document.getElementById(id);
+const today = () => new Date().toISOString().slice(0,10);
+const now = () => Date.now();
+const uid = () => 'EB' + Math.random().toString(36).slice(2,8).toUpperCase() + now().toString(36).slice(-4);
+const escapeHtml = s => String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const toRupees = p => Math.floor((p||0) / CONFIG.pointsPerRupee);
+const formatRupees = p => 'Rs ' + toRupees(p).toLocaleString('en-PK');
+const formatNum = n => Number(n||0).toLocaleString('en-PK');
+const ytThumb = id => id ? 'https://img.youtube.com/vi/' + id + '/mqdefault.jpg' : '';
+
+function iconHTML(name, cls){ return '<svg class="icon ' + (cls||'') + '"><use href="#' + name + '"/></svg>'; }
+
+function timeAgo(ts){
+  const d = now() - ts;
+  const m = Math.floor(d/60000);
+  if (m < 1) return 'just now';
+  if (m < 60) return m + 'm ago';
+  const h = Math.floor(m/60);
+  if (h < 24) return h + 'h ago';
+  return Math.floor(h/24) + 'd ago';
+}
+
+function showToast(msg, type){
+  const t = $('toast');
+  if (!t) return;
+  const icons = { success:'i-check-circle', error:'i-x', warn:'i-info' };
+  const iconName = icons[type] || 'i-info';
+  t.innerHTML = iconHTML(iconName) + '<span>' + escapeHtml(msg) + '</span>';
+  t.className = 'toast show ' + (type || '');
+  clearTimeout(t._t);
+  t._t = setTimeout(() => t.className = 'toast', 2800);
+}
+
+function openModal(id){ const el = $(id); if (el){ el.classList.add('active'); document.body.style.overflow = 'hidden'; } }
+function closeModal(id){ const el = $(id); if (el){ el.classList.remove('active'); document.body.style.overflow = ''; } }
+
+/* ============ STORAGE ============ */
+function getUsers(){ try { return JSON.parse(localStorage.getItem('eb_users') || '[]') || []; } catch(e){ return []; } }
+function saveUsers(u){ try { localStorage.setItem('eb_users', JSON.stringify(u)); return true; } catch(e){ showToast('Storage full!', 'error'); return false; } }
+function getSession(){ try { return JSON.parse(localStorage.getItem('eb_session') || 'null'); } catch(e){ return null; } }
+function setSession(u){
+  try {
+    if (u) localStorage.setItem('eb_session', JSON.stringify({ email: u.email }));
+    else localStorage.removeItem('eb_session');
+  } catch(e){}
+}
+function findUser(email){ return email ? getUsers().find(u => u.email === email) : null; }
+function persistUser(){
+  if (!userData) return;
+  const users = getUsers();
+  const idx = users.findIndex(u => u.email === userData.email);
+  if (idx >= 0){ users[idx] = userData; saveUsers(users); }
+}
+function loadVideos(){
+  try { VIDEOS = JSON.parse(localStorage.getItem('eb_videos') || 'null') || []; } catch(e){ VIDEOS = []; }
+  if (!VIDEOS.length){
+    VIDEOS = [
+      { id:'v1', title:'How to Earn Online in Pakistan', duration:30, youtubeId:'dQw4w9WgXcQ' },
+      { id:'v2', title:'Freelancing Success Story', duration:30, youtubeId:'dQw4w9WgXcQ' },
+      { id:'v3', title:'Crypto Trading Basics', duration:30, youtubeId:'dQw4w9WgXcQ' },
+      { id:'v4', title:'Digital Marketing Tips', duration:30, youtubeId:'dQw4w9WgXcQ' },
+      { id:'v5', title:'Passive Income Ideas 2026', duration:30, youtubeId:'dQw4w9WgXcQ' },
+      { id:'v6', title:'Amazon FBA Complete Guide', duration:30, youtubeId:'dQw4w9WgXcQ' }
+    ];
+    saveVideos();
+  }
+}
+function loadAds(){
+  try { ADS = JSON.parse(localStorage.getItem('eb_ads') || 'null') || []; } catch(e){ ADS = []; }
+  if (!ADS.length){
+    ADS = [
+      { id:'a1', title:'Shopping Deal — 50% Off', icon:'i-credit-card', duration:15 },
+      { id:'a2', title:'Mobile App Promo', icon:'i-phone', duration:15 },
+      { id:'a3', title:'Food Delivery Offer', icon:'i-gift', duration:15 },
+      { id:'a4', title:'Travel Package Deal', icon:'i-map-pin', duration:15 }
+    ];
+    saveAds();
+  }
+}
+function saveVideos(){ try { localStorage.setItem('eb_videos', JSON.stringify(VIDEOS)); } catch(e){} }
+function saveAds(){ try { localStorage.setItem('eb_ads', JSON.stringify(ADS)); } catch(e){} }
+
+/* ============ AUTH ============ */
+function switchAuth(tab){
+  const tL = $('tabLogin'), tS = $('tabSignup');
+  const pL = $('paneLogin'), pS = $('paneSignup');
+  if (tL) tL.classList.toggle('active', tab === 'login');
+  if (tS) tS.classList.toggle('active', tab === 'signup');
+  if (pL) pL.classList.toggle('active', tab === 'login');
+  if (pS) pS.classList.toggle('active', tab === 'signup');
+}
+
+function doSignup(){
+  try {
+    const name = ($('suName').value || '').trim();
+    const email = ($('suEmail').value || '').trim().toLowerCase();
+    const phone = ($('suPhone').value || '').trim();
+    const pass = $('suPass').value || '';
+    const pass2 = $('suPass2').value || '';
+    const refCode = ($('suRef').value || '').trim().toUpperCase();
+    const err = $('signupErr');
+    err.textContent = '';
+    
+    if (!name || !email || !phone || !pass){ err.textContent = 'All fields required'; return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ err.textContent = 'Invalid email'; return; }
+    if (pass.length < 6){ err.textContent = 'Password min 6 chars'; return; }
+    if (pass !== pass2){ err.textContent = 'Passwords do not match'; return; }
+    if (!/^03\d{9}$/.test(phone.replace(/\s/g,''))){ err.textContent = 'Phone: 03001234567'; return; }
+    
+    const users = getUsers();
+    if (users.find(u => u.email === email)){ err.textContent = 'Email already registered'; return; }
+    
+    let referredBy = null;
+    if (refCode){
+      const ref = users.find(u => u.referralCode === refCode);
+      if (ref) referredBy = ref.email;
+      else { err.textContent = 'Invalid referral code'; return; }
+    }
+    
+    const newUser = {
+      id: uid(), name, email, phone, password: pass,
+      referralCode: uid().slice(2,8), referredBy,
+      referralCount: 0, referralEarned: 0,
+      points: CONFIG.welcomeBonus, totalEarned: CONFIG.welcomeBonus,
+      videosWatched: 0, adsWatched: 0, missionsCompleted: 0,
+      tasksToday: [], todayDate: today(),
+      missionsClaimedToday: [], missionsClaimedDate: today(),
+      streak: 0, lastActiveDate: null,
+      createdAt: now(), activeDays: [],
+      photoDataUrl: '',
+      notifications: [{ id: uid(), title: 'Welcome to EarningsBee!', body: 'Aapko ' + CONFIG.welcomeBonus + ' points welcome bonus mil gaye (Rs ' + toRupees(CONFIG.welcomeBonus) + '). Videos dekh kar earning shuru karein!', ts: now(), read: false }],
+      withdrawals: [], pendingReferrals: [],
+      banned: false, banReason: ''
+    };
+    
+    users.push(newUser);
+    if (!saveUsers(users)) return;
+    
+    if (referredBy){
+      const rIdx = users.findIndex(u => u.email === referredBy);
+      if (rIdx >= 0){
+        users[rIdx].pendingReferrals = users[rIdx].pendingReferrals || [];
+        users[rIdx].pendingReferrals.push({ email, joinedAt: now(), qualified: false });
+        saveUsers(users);
+      }
+    }
+    
+    setSession(newUser);
+    initApp(newUser);
+    showToast('Account created successfully', 'success');
+  } catch(e){
+    console.error(e);
+    $('signupErr').textContent = 'Error: ' + e.message;
+  }
+}
+
+function doLogin(){
+  try {
+    const email = ($('loginEmail').value || '').trim().toLowerCase();
+    const pass = $('loginPass').value || '';
+    const err = $('loginErr');
+    err.textContent = '';
+    if (!email || !pass){ err.textContent = 'Email & password required'; return; }
+    const user = findUser(email);
+    if (!user){ err.textContent = 'Account not found. Please sign up.'; return; }
+    if (user.banned){ err.textContent = 'Account banned: ' + (user.banReason || 'Violation'); return; }
+    if (user.password !== pass){ err.textContent = 'Incorrect password'; return; }
+    setSession(user);
+    initApp(user);
+    showToast('Welcome back!', 'success');
+  } catch(e){
+    console.error(e);
+    $('loginErr').textContent = 'Error: ' + e.message;
+  }
+}
+
+function doLogout(){
+  if (!confirm('Logout from EarningsBee?')) return;
+  setSession(null);
+  userData = null;
+  $('appShell').classList.remove('active');
+  $('authScreen').style.display = 'flex';
+  $('loginEmail').value = ''; $('loginPass').value = '';
+  switchAuth('login');
+  clearInterval(wdTimer);
+}
+
+/* ============ INIT ============ */
+function initApp(user){
+  userData = findUser(user.email) || user;
+  if (!userData) return;
+  $('authScreen').style.display = 'none';
+  $('appShell').classList.add('active');
+  resetDaily();
+  checkRefs();
+  renderAll();
+  showPage('home');
+}
+
+function resetDaily(){
+  if (!userData) return;
+  if (userData.todayDate !== today()){
+    userData.todayDate = today();
+    userData.tasksToday = [];
+    userData.missionsClaimedToday = [];
+    userData.missionsClaimedDate = today();
+    if (userData.lastActiveDate){
+      const last = new Date(userData.lastActiveDate);
+      const t = new Date(today());
+      const diff = Math.floor((t - last) / 86400000);
+      if (diff > 1) userData.streak = 0;
+    }
+    persistUser();
+  }
+}
+
+function checkRefs(){
+  if (!userData) return;
+  const users = getUsers();
+  const idx = users.findIndex(u => u.email === userData.email);
+  if (idx < 0) return;
+  let changed = false;
+  if (users[idx].pendingReferrals){
+    users[idx].pendingReferrals.forEach(ref => {
+      if (ref.qualified) return;
+      const ru = users.find(u => u.email === ref.email);
+      if (!ru) return;
+      const days = (ru.activeDays || []).length;
+      if (days >= CONFIG.referralActiveDays){
+        ref.qualified = true;
+        users[idx].referralCount = (users[idx].referralCount || 0) + 1;
+        users[idx].referralEarned = (users[idx].referralEarned || 0) + CONFIG.referralReward;
+        users[idx].points = (users[idx].points || 0) + (CONFIG.referralReward * CONFIG.pointsPerRupee);
+        users[idx].totalEarned = (users[idx].totalEarned || 0) + (CONFIG.referralReward * CONFIG.pointsPerRupee);
+        users[idx].notifications.unshift({ id: uid(), title: 'Referral Bonus', body: 'Rs ' + CONFIG.referralReward + ' mil gaye — aapka referral 2 din active raha!', ts: now(), read: false });
+        changed = true;
+      }
+    });
+  }
+  if (changed){ saveUsers(users); userData = users[idx]; }
+}
+
+/* ============ NAV ============ */
+function showPage(page){
+  if (page === 'faq'){ openModal('faqModal'); return; }
+  if (page === 'careers'){ openModal('careersModal'); return; }
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const el = $('page-' + page);
+  if (el) el.classList.add('active');
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.toggle('active', n.dataset.page === page));
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (page === 'withdraw') renderWithdraw();
+  if (page === 'refer') renderRefer();
+  if (page === 'profile') renderProfile();
+}
+
+/* ============ RENDER ============ */
+function renderAll(){
+  if (!userData) return;
+  renderBalance();
+  renderStreak();
+  renderMissions();
+  renderTasks();
+  renderNotifications();
+}
+
+function renderBalance(){
+  const pts = userData.points || 0;
+  $('headerBalance').innerHTML = iconHTML('i-coin','icon-sm') + ' ' + formatNum(pts);
+  $('homeBalance').innerHTML = formatNum(pts) + ' <small>pts</small>';
+  $('homeBalancePkr').textContent = '≈ ' + formatRupees(pts);
+  $('statVideos').textContent = userData.videosWatched || 0;
+  $('statAds').textContent = userData.adsWatched || 0;
+  $('statMissions').textContent = userData.missionsCompleted || 0;
+  $('statStreak').textContent = userData.streak || 0;
+}
+
+function renderStreak(){
+  let daysHTML = '';
+  for (let i = 0; i < 7; i++){
+    daysHTML += '<span class="' + (i < (userData.streak || 0) ? 'on' : '') + '"></span>';
+  }
+  $('streakDays').innerHTML = daysHTML;
+  if (!userData.streak || userData.streak === 0){
+    $('streakTitle').textContent = 'Start Your Streak!';
+    $('streakSub').textContent = 'Watch 1 video daily to keep it alive';
+  } else {
+    $('streakTitle').textContent = userData.streak + ' Day Streak!';
+    $('streakSub').textContent = 'Keep it going — consistency is key';
+  }
+}
+
+function renderMissions(){
+  const tasks = userData.tasksToday || [];
+  const vT = tasks.filter(t => t.type === 'video').length;
+  const aT = tasks.filter(t => t.type === 'ad').length;
+  const tT = tasks.length;
+  const claimed = userData.missionsClaimedToday || [];
+  let completedCount = 0;
+  
+  $('missionList').innerHTML = MISSIONS.map(m => {
+    let cur = 0;
+    if (m.type === 'videos') cur = Math.min(vT, m.target);
+    else if (m.type === 'ads') cur = Math.min(aT, m.target);
+    else cur = Math.min(tT, m.target);
+    const done = cur >= m.target;
+    const claimed1 = claimed.includes(m.id);
+    if (done && claimed1) completedCount++;
+    const pct = Math.min(100, Math.round((cur / m.target) * 100));
+    return '<div class="mission">' +
+      '<div class="mission-icon">' + iconHTML(m.icon) + '</div>' +
+      '<div class="mission-info">' +
+        '<h4>' + m.title + '</h4>' +
+        '<div class="meta">' + iconHTML('i-coin','icon-xs') + ' ' + cur + '/' + m.target + ' • +' + m.reward + ' pts</div>' +
+        '<div class="mission-bar"><div class="mission-bar-fill" style="width:' + pct + '%"></div></div>' +
+      '</div>' +
+      '<button type="button" class="btn sm ' + (done && !claimed1 ? 'green' : 'gray') + '" onclick="claimMission(\'' + m.id + '\')" ' + (!done || claimed1 ? 'disabled' : '') + '>' +
+        (claimed1 ? iconHTML('i-check') : done ? 'Claim' : iconHTML('i-lock')) +
+      '</button>' +
+    '</div>';
+  }).join('');
+  $('missionBadge').textContent = completedCount + '/' + MISSIONS.length;
+}
+
+function videoTaskHTML(v, done){
+  const thumb = ytThumb(v.youtubeId);
+  const thumbHTML = thumb
+    ? '<div class="task-thumb"><img src="' + thumb + '" alt="" onerror="this.style.display=\'none\'"><div class="play-overlay">' + iconHTML('i-play') + '</div></div>'
+    : '<div class="task-thumb icon-thumb">' + iconHTML('i-video') + '</div>';
+  return '<div class="task ' + (done ? 'done' : '') + '">' +
+    thumbHTML +
+    '<div class="task-info">' +
+      '<h4>' + escapeHtml(v.title) + '</h4>' +
+      '<div class="meta">' + v.duration + 's watch ' +
+        '<span class="task-reward">' + iconHTML('i-coin','icon-xs') + ' +' + CONFIG.videoReward + ' pts</span>' +
+      '</div>' +
+    '</div>' +
+    '<button type="button" class="btn sm ' + (done ? 'gray' : '') + '" onclick="openVideo(\'' + v.id + '\',\'video\')" ' + (done ? 'disabled' : '') + '>' +
+      (done ? iconHTML('i-check') + ' Done' : iconHTML('i-play') + ' Watch') +
+    '</button>' +
+  '</div>';
+}
+
+function adTaskHTML(a, done){
+  return '<div class="task ' + (done ? 'done' : '') + '">' +
+    '<div class="task-thumb icon-thumb" style="background:linear-gradient(135deg,#3b82f6,#1d4ed8);color:#fff">' + iconHTML(a.icon || 'i-monitor') + '</div>' +
+    '<div class="task-info">' +
+      '<h4>' + escapeHtml(a.title) + '</h4>' +
+      '<div class="meta">' + a.duration + 's watch ' +
+        '<span class="task-reward">' + iconHTML('i-coin','icon-xs') + ' +' + CONFIG.adReward + ' pts</span>' +
+      '</div>' +
+    '</div>' +
+    '<button type="button" class="btn sm ' + (done ? 'gray' : '') + '" onclick="openVideo(\'' + a.id + '\',\'ad\')" ' + (done ? 'disabled' : '') + '>' +
+      (done ? iconHTML('i-check') + ' Done' : iconHTML('i-play') + ' Watch') +
+    '</button>' +
+  '</div>';
+}
+
+function renderTasks(){
+  const tasks = userData.tasksToday || [];
+  const vDone = tasks.filter(t => t.type === 'video').map(t => t.id);
+  const aDone = tasks.filter(t => t.type === 'ad').map(t => t.id);
+  
+  $('homeVideos').innerHTML = VIDEOS.slice(0,3).map(v => videoTaskHTML(v, vDone.includes(v.id))).join('') ||
+    '<div class="empty"><div class="empty-icon">' + iconHTML('i-video') + '</div><h3>No videos available</h3><p>Admin will add videos soon</p></div>';
+  $('homeAds').innerHTML = ADS.slice(0,2).map(a => adTaskHTML(a, aDone.includes(a.id))).join('') ||
+    '<div class="empty"><div class="empty-icon">' + iconHTML('i-monitor') + '</div><h3>No ads available</h3><p>Check back later</p></div>';
+  $('allVideos').innerHTML = VIDEOS.map(v => videoTaskHTML(v, vDone.includes(v.id))).join('') ||
+    '<div class="empty"><div class="empty-icon">' + iconHTML('i-video') + '</div><h3>No videos</h3><p>Admin will add videos soon</p></div>';
+  $('allAds').innerHTML = ADS.map(a => adTaskHTML(a, aDone.includes(a.id))).join('') ||
+    '<div class="empty"><div class="empty-icon">' + iconHTML('i-monitor') + '</div><h3>No ads</h3><p>Check back later</p></div>';
+  
+  const remaining = VIDEOS.length + ADS.length - tasks.length;
+  $('tasksRemaining').textContent = Math.max(0, remaining) + ' remaining';
+}
+
+function renderRefer(){
+  $('refLink').value = location.origin + location.pathname + '?ref=' + userData.referralCode;
+  $('refCode').textContent = userData.referralCode;
+  $('refTotal').textContent = (userData.pendingReferrals || []).length;
+  $('refActive').textContent = (userData.pendingReferrals || []).filter(r => r.qualified).length;
+  $('refEarned').textContent = 'Rs ' + (userData.referralEarned || 0);
+  
+  const refs = userData.pendingReferrals || [];
+  if (!refs.length){
+    $('refList').innerHTML = '<div class="empty"><div class="empty-icon">' + iconHTML('i-users') + '</div><h3>No referrals yet</h3><p>Share your link to start earning Rs 100 per friend</p></div>';
+    return;
+  }
+  $('refList').innerHTML = refs.map(r => {
+    const u = findUser(r.email);
+    const days = (u && u.activeDays) ? u.activeDays.length : 0;
+    return '<div class="admin-item">' +
+      '<h4>' + (r.qualified ? iconHTML('i-check-circle','icon-sm') : iconHTML('i-clock','icon-sm')) + ' ' + escapeHtml(u ? u.name : r.email) + '</h4>' +
+      '<p>' + (r.qualified ? '<strong style="color:var(--success)">Qualified • Rs 100 earned</strong>' : 'Pending • ' + days + '/' + CONFIG.referralActiveDays + ' days active') + '</p>' +
+    '</div>';
+  }).join('');
+}
+
+/* ============ WITHDRAW — TIMER HIDDEN ============ */
+function renderWithdraw(){
+  $('wdBalance').innerHTML = formatNum(userData.points) + ' <small>pts</small>';
+  $('wdBalancePkr').textContent = '≈ ' + formatRupees(userData.points);
+  
+  const wds = userData.withdrawals || [];
+  if (!wds.length){
+    $('wdHistory').innerHTML = '<div class="empty"><div class="empty-icon">' + iconHTML('i-wallet') + '</div><h3>No withdrawals yet</h3><p>Earn 5000+ points to withdraw</p></div>';
+  } else {
+    $('wdHistory').innerHTML = wds.slice().reverse().map(w => {
+      const statusIcon = w.status === 'completed' ? 'i-check-circle' : w.status === 'rejected' ? 'i-x' : 'i-clock';
+      const statusColor = w.status === 'completed' ? 'var(--success)' : w.status === 'rejected' ? 'var(--danger)' : 'var(--primary-dark)';
+      return '<div class="admin-item">' +
+        '<h4>' + iconHTML(statusIcon,'icon-sm') + ' Rs ' + toRupees(w.amount) + ' → ' + escapeHtml(w.method) + '</h4>' +
+        '<p>' + escapeHtml(w.account) + '</p>' +
+        '<p style="color:' + statusColor + ';font-weight:800">' + w.status.toUpperCase() + '</p>' +
+        '<p style="font-size:.68rem">' + timeAgo(w.ts) + '</p>' +
+      '</div>';
+    }).join('');
+  }
+  
+  const active = wds.find(w => w.status === 'pending' || w.status === 'processing');
+  if (active){
+    $('wdStatusBox').innerHTML = '<div class="timer-box">' +
+      '<svg class="icon icon-top"><use href="#i-check-circle"/></svg>' +
+      '<h3>' + (active.status === 'processing' ? 'Aapka withdrawal process ho raha hai' : 'Aapka withdrawal approval ka intezar kar raha hai') + '</h3>' +
+      '<div class="timer-lbl">Complete hone par aapko notification milegi</div>' +
+    '</div>';
+  } else {
+    $('wdStatusBox').innerHTML = '';
+    clearInterval(wdTimer);
+  }
+}
+
+function renderProfile(){
+  $('profName').textContent = userData.name;
+  $('profEmail').textContent = userData.email;
+  const av = $('profAvatar');
+  if (userData.photoDataUrl){
+    av.innerHTML = '<img src="' + userData.photoDataUrl + '" alt="">';
+  } else {
+    av.textContent = (userData.name || 'U').charAt(0).toUpperCase();
+  }
+  $('profPoints').textContent = formatNum(userData.points);
+  $('profEarned').textContent = 'Rs ' + toRupees(userData.totalEarned || 0).toLocaleString();
+  $('profRefs').textContent = userData.referralCount || 0;
+  $('profDays').textContent = Math.floor((now() - userData.createdAt) / 86400000) + 1;
+}
+
+function renderNotifications(){
+  const notifs = userData.notifications || [];
+  const unread = notifs.filter(n => !n.read).length;
+  const badge = $('notifBadge');
+  if (unread > 0){ badge.style.display = 'flex'; badge.textContent = unread; }
+  else badge.style.display = 'none';
+  
+  if (!notifs.length){
+    $('notifList').innerHTML = '<div class="empty"><div class="empty-icon">' + iconHTML('i-bell') + '</div><h3>No notifications</h3><p>Your activity will show here</p></div>';
+    return;
+  }
+  $('notifList').innerHTML = notifs.map(n => 
+    '<div class="admin-item" style="' + (n.read ? '' : 'background:var(--primary-bg-2);border-color:var(--border-3)') + '">' +
+      '<h4>' + iconHTML('i-bell','icon-sm') + ' ' + escapeHtml(n.title) + '</h4>' +
+      '<p>' + escapeHtml(n.body) + '</p>' +
+      '<p style="font-size:.68rem;color:var(--text-3)">' + timeAgo(n.ts) + '</p>' +
+    '</div>'
+  ).join('');
+}
+
+function openNotifications(){
+  (userData.notifications || []).forEach(n => n.read = true);
+  persistUser();
+  renderNotifications();
+  openModal('notifModal');
+}
+
+/* ============ VIDEO ============ */
+function openVideo(id, type){
+  const item = type === 'video' ? VIDEOS.find(v => v.id === id) : ADS.find(a => a.id === id);
+  if (!item) return;
+  const tasks = userData.tasksToday || [];
+  if (tasks.find(t => t.id === id)){ showToast('Already watched today', 'warn'); return; }
+  
+  currentVideo = { ...item, type };
+  const reward = type === 'video' ? CONFIG.videoReward : CONFIG.adReward;
+  currentVideo.reward = reward;
+  
+  $('videoTitle').textContent = item.title;
+  $('videoDesc').textContent = type === 'video' ? 'YouTube video — poora dekhein aur ' + reward + ' points payein' : 'Sponsored ad — ' + reward + ' points payein';
+  
+  if (type === 'video' && item.youtubeId){
+    $('videoFrame').innerHTML = '<iframe src="https://www.youtube.com/embed/' + item.youtubeId + '?autoplay=1&mute=1&controls=1&modestbranding=1&rel=0&playsinline=1" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+  } else {
+    const icon = item.icon || 'i-monitor';
+    $('videoFrame').innerHTML = '<div style="position:absolute;inset:0;background:linear-gradient(135deg,#1e3a8a,#3b82f6);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;padding:20px;text-align:center">' +
+      '<div style="margin-bottom:16px">' + iconHTML(icon,'icon-3xl') + '</div>' +
+      '<h3 style="font-size:1.2rem;font-weight:800">' + escapeHtml(item.title) + '</h3>' +
+      '<p style="opacity:.85;margin-top:8px;font-size:.85rem">Sponsored Content</p>' +
+      '<p style="opacity:.6;margin-top:20px;font-size:.75rem">Ad playing...</p>' +
+    '</div>';
+  }
+  
+  let secs = item.duration;
+  $('videoCount').textContent = secs;
+  $('videoProgressFill').style.width = '0%';
+  const btn = $('videoBtn');
+  btn.disabled = true;
+  btn.className = 'btn gray block lg';
+  btn.innerHTML = iconHTML('i-clock','icon-sm') + ' Please wait ' + secs + 's';
+  btn.onclick = null;
+  
+  openModal('videoModal');
+  clearInterval(videoTimer);
+  videoTimer = setInterval(() => {
+    secs--;
+    if (secs < 0) secs = 0;
+    const el = $('videoCount');
+    if (el) el.textContent = secs;
+    const pct = ((item.duration - secs) / item.duration) * 100;
+    const pf = $('videoProgressFill');
+    if (pf) pf.style.width = pct + '%';
+    const b = $('videoBtn');
+    if (b && secs > 0) b.innerHTML = iconHTML('i-clock','icon-sm') + ' Please wait ' + secs + 's';
+    if (secs <= 0){
+      clearInterval(videoTimer);
+      const b2 = $('videoBtn');
+      if (b2){
+        b2.disabled = false;
+        b2.className = 'btn green block lg';
+        b2.innerHTML = iconHTML('i-check-circle','icon-sm') + ' Claim +' + reward + ' points';
+        b2.onclick = () => { award(reward, type, id); closeVideo(); };
+      }
+    }
+  }, 1000);
+}
+
+function closeVideo(){
+  clearInterval(videoTimer);
+  $('videoFrame').innerHTML = '';
+  closeModal('videoModal');
+  currentVideo = null;
+}
+
+function award(points, type, id){
+  userData.points = (userData.points || 0) + points;
+  userData.totalEarned = (userData.totalEarned || 0) + points;
+  userData.tasksToday = userData.tasksToday || [];
+  userData.tasksToday.push({ id, type, points, ts: now() });
+  if (type === 'video') userData.videosWatched = (userData.videosWatched || 0) + 1;
+  else userData.adsWatched = (userData.adsWatched || 0) + 1;
+  
+  if (userData.lastActiveDate !== today()){
+    if (userData.lastActiveDate){
+      const last = new Date(userData.lastActiveDate);
+      const t = new Date(today());
+      const diff = Math.floor((t - last) / 86400000);
+      if (diff === 1) userData.streak = (userData.streak || 0) + 1;
+      else if (diff > 1) userData.streak = 1;
+    } else userData.streak = 1;
+    userData.lastActiveDate = today();
+  }
+  
+  userData.activeDays = userData.activeDays || [];
+  if (!userData.activeDays.includes(today())) userData.activeDays.push(today());
+  
+  persistUser();
+  if (userData.referredBy) checkRefs();
+  renderAll();
+  showToast('+' + points + ' points earned!', 'success');
+}
+
+function claimMission(id){
+  const m = MISSIONS.find(x => x.id === id);
+  if (!m) return;
+  userData.missionsClaimedToday = userData.missionsClaimedToday || [];
+  if (userData.missionsClaimedDate !== today()){
+    userData.missionsClaimedToday = [];
+    userData.missionsClaimedDate = today();
+  }
+  if (userData.missionsClaimedToday.includes(id)){ showToast('Already claimed', 'warn'); return; }
+  userData.points += m.reward;
+  userData.totalEarned += m.reward;
+  userData.missionsCompleted = (userData.missionsCompleted || 0) + 1;
+  userData.missionsClaimedToday.push(id);
+  persistUser();
+  renderAll();
+  showToast('Mission complete! +' + m.reward + ' points', 'success');
+}
+
+/* ============ REFERRAL COPY ============ */
+function copyRefLink(){
+  const input = $('refLink');
+  input.select();
+  input.setSelectionRange(0, 99999);
+  try {
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(input.value).then(() => showToast('Link copied to clipboard', 'success'));
+    } else {
+      document.execCommand('copy');
+      showToast('Link copied', 'success');
+    }
+  } catch(e){ showToast('Please copy manually', 'warn'); }
+}
+
+/* ============ WITHDRAWAL ============ */
+function selectWd(m){
+  wdMethod = m;
+  document.querySelectorAll('.wd-opt').forEach(o => o.classList.toggle('selected', o.dataset.m === m));
+  $('bankExtra').style.display = m === 'bank' ? 'block' : 'none';
+  $('wdNumLabel').textContent = m === 'jazzcash' ? 'JazzCash Number *' : m === 'easypaisa' ? 'EasyPaisa Number *' : 'Phone *';
+}
+
+function updateWdPkr(){
+  const amt = parseInt($('wdAmount').value) || 0;
+  $('wdAmountPkr').textContent = '≈ Rs ' + toRupees(amt).toLocaleString();
+}
+
+function submitWithdrawal(){
+  try {
+    const name = $('wdName').value.trim();
+    const number = $('wdNumber').value.trim();
+    const amount = parseInt($('wdAmount').value) || 0;
+    
+    if (!name){ showToast('Name required', 'error'); return; }
+    if (!number){ showToast('Number required', 'error'); return; }
+    if (amount < CONFIG.minWithdraw){ showToast('Minimum ' + CONFIG.minWithdraw + ' points', 'error'); return; }
+    if (amount > userData.points){ showToast('Not enough points', 'error'); return; }
+    
+    let account = number;
+    if (wdMethod === 'bank'){
+      const bank = $('wdBank').value;
+      const iban = $('wdIban').value.trim();
+      if (!bank){ showToast('Select bank', 'error'); return; }
+      if (!iban){ showToast('Enter IBAN', 'error'); return; }
+      account = bank + ' • ' + iban;
+    }
+    
+    const active = (userData.withdrawals || []).find(w => w.status === 'pending' || w.status === 'processing');
+    if (active){ showToast('Already have pending withdrawal', 'warn'); return; }
+    
+    const wd = {
+      id: uid(), method: wdMethod, account, name, number, amount,
+      status: 'pending', ts: now(), etaTs: now() + CONFIG.withdrawalEtaHours * 3600000
+    };
+    userData.withdrawals = userData.withdrawals || [];
+    userData.withdrawals.push(wd);
+    userData.points -= amount;
+    userData.notifications.unshift({ id: uid(), title: 'Withdrawal Requested', body: 'Rs ' + toRupees(amount) + ' ka withdrawal request submit hua. Approval ke baad aapko notification milegi.', ts: now(), read: false });
+    persistUser();
+    
+    $('wdName').value = ''; $('wdNumber').value = ''; $('wdAmount').value = '';
+    $('wdAmountPkr').textContent = '≈ Rs 0';
+    if (wdMethod === 'bank'){ $('wdBank').value = ''; $('wdIban').value = ''; }
+    
+    renderAll();
+    renderWithdraw();
+    alert('Withdrawal Submitted!\n\nAmount: Rs ' + toRupees(amount) + '\nMethod: ' + wdMethod.toUpperCase() + '\nAccount: ' + account + '\n\nAapko notification milegi jab admin approve karega.');
+    showToast('Withdrawal submitted', 'success');
+  } catch(e){
+    console.error(e);
+    showToast('Error: ' + e.message, 'error');
+  }
+}
+
+/* ============ EDIT PROFILE ============ */
+function openEditProfile(){
+  $('epName').value = userData.name;
+  $('epPhone').value = userData.phone;
+  tempProfilePhoto = userData.photoDataUrl || '';
+  const prev = $('epPhotoPreview');
+  if (tempProfilePhoto){ prev.src = tempProfilePhoto; prev.style.display = 'block'; }
+  else { prev.style.display = 'none'; }
+  openModal('editProfileModal');
+}
+
+function handleProfilePhoto(input){
+  const file = input.files[0];
+  if (!file) return;
+  if (file.size > 2 * 1024 * 1024){ showToast('Max 2MB', 'error'); return; }
+  const r = new FileReader();
+  r.onload = e => {
+    tempProfilePhoto = e.target.result;
+    const prev = $('epPhotoPreview');
+    prev.src = tempProfilePhoto;
+    prev.style.display = 'block';
+  };
+  r.readAsDataURL(file);
+}
+
+function saveEditProfile(){
+  const n = $('epName').value.trim();
+  const p = $('epPhone').value.trim();
+  if (!n || !p){ showToast('All fields required', 'error'); return; }
+  userData.name = n;
+  userData.phone = p;
+  userData.photoDataUrl = tempProfilePhoto;
+  persistUser();
+  renderProfile();
+  closeModal('editProfileModal');
+  showToast('Profile updated', 'success');
+}
+
+function openChangePass(){ $('cpCurrent').value=''; $('cpNew').value=''; $('cpNew2').value=''; $('cpErr').textContent=''; openModal('changePassModal'); }
+function saveChangePass(){
+  const cur = $('cpCurrent').value;
+  const nw = $('cpNew').value;
+  const nw2 = $('cpNew2').value;
+  $('cpErr').textContent = '';
+  if (cur !== userData.password){ $('cpErr').textContent = 'Current password incorrect'; return; }
+  if (nw.length < 6){ $('cpErr').textContent = 'Minimum 6 characters'; return; }
+  if (nw !== nw2){ $('cpErr').textContent = 'Passwords do not match'; return; }
+  userData.password = nw;
+  persistUser();
+  closeModal('changePassModal');
+  showToast('Password updated', 'success');
+}
+
+/* ============ FORGOT ============ */
+let resetCodes = {};
+try { resetCodes = JSON.parse(localStorage.getItem('eb_reset') || '{}'); } catch(e){ resetCodes = {}; }
+
+function openForgot(){
+  $('fgEmail').value = ''; $('fgCode').value = ''; $('fgNew').value = ''; $('fgNew2').value = '';
+  $('fgErr').textContent = ''; $('fgOk').textContent = '';
+  $('resetSection').style.display = 'none';
+  openModal('forgotModal');
+}
+
+function requestReset(){
+  const email = $('fgEmail').value.trim().toLowerCase();
+  $('fgErr').textContent = ''; $('fgOk').textContent = '';
+  if (!email){ $('fgErr').textContent = 'Email required'; return; }
+  const user = findUser(email);
+  if (!user){ $('fgErr').textContent = 'No account found'; return; }
+  const code = Math.floor(100000 + Math.random() * 900000).toString();
+  resetCodes[email] = { code, exp: now() + 15*60000 };
+  try { localStorage.setItem('eb_reset', JSON.stringify(resetCodes)); } catch(e){}
+  $('fgOk').innerHTML = 'Reset code: <strong style="font-size:1.2rem">' + code + '</strong>';
+  $('resetSection').style.display = 'block';
+}
+
+function completeReset(){
+  const email = $('fgEmail').value.trim().toLowerCase();
+  const code = $('fgCode').value.trim();
+  const nw = $('fgNew').value;
+  const nw2 = $('fgNew2').value;
+  $('fgErr').textContent = '';
+  const st = resetCodes[email];
+  if (!st || st.code !== code){ $('fgErr').textContent = 'Invalid code'; return; }
+  if (now() > st.exp){ $('fgErr').textContent = 'Code expired'; return; }
+  if (nw.length < 6){ $('fgErr').textContent = 'Minimum 6 characters'; return; }
+  if (nw !== nw2){ $('fgErr').textContent = 'Passwords do not match'; return; }
+  const users = getUsers();
+  const idx = users.findIndex(u => u.email === email);
+  if (idx < 0){ $('fgErr').textContent = 'User not found'; return; }
+  users[idx].password = nw;
+  saveUsers(users);
+  delete resetCodes[email];
+  try { localStorage.setItem('eb_reset', JSON.stringify(resetCodes)); } catch(e){}
+  closeModal('forgotModal');
+  showToast('Password reset — please login', 'success');
+  $('loginEmail').value = email;
+  switchAuth('login');
+}
+
+/* ============ CONTACT ============ */
+function sendContact(){
+  const name = $('ctName').value.trim();
+  const email = $('ctEmail').value.trim();
+  const msg = $('ctMsg').value.trim();
+  if (!name || !email || !msg){ showToast('Please fill all fields', 'error'); return; }
+  $('ctName').value = ''; $('ctEmail').value = ''; $('ctSubject').value = ''; $('ctMsg').value = '';
+  showToast('Message sent successfully', 'success');
+}
+
+/* ============ ADMIN ============ */
+function secretClick(){
+  const t = now();
+  clickBuffer = clickBuffer.filter(x => t - x < 3000);
+  clickBuffer.push(t);
+  const dot = $('secretDot');
+  if (dot){
+    dot.classList.add('pulse');
+    setTimeout(() => dot.classList.remove('pulse'), 300);
+  }
+  if (clickBuffer.length >= 5){
+    clickBuffer = [];
+    openModal('adminLoginModal');
+  }
+}
+
+function doAdminLogin(){
+  const u = $('admUser').value.trim();
+  const p = $('admPass').value;
+  $('admErr').textContent = '';
+  if (u === CONFIG.ADMIN_USER && p === CONFIG.ADMIN_PASS){
+    $('admUser').value = ''; $('admPass').value = '';
+    closeModal('adminLoginModal');
+    openModal('adminPanel');
+    renderAdmin();
+    showToast('Admin logged in', 'success');
+  } else {
+    $('admErr').textContent = 'Invalid credentials';
+  }
+}
+
+function switchAdminTab(tab){
+  adminTab = tab;
+  document.querySelectorAll('.admin-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === tab));
+  renderAdmin();
+}
+
+function renderAdmin(){
+  const users = getUsers();
+  const allWd = [];
+  users.forEach(u => (u.withdrawals || []).forEach(w => allWd.push({ ...w, email: u.email, name: u.name, phone: u.phone })));
+  
+  const pending = allWd.filter(w => w.status === 'pending').length;
+  const processing = allWd.filter(w => w.status === 'processing').length;
+  const completed = allWd.filter(w => w.status === 'completed').length;
+  
+  $('adminStats').innerHTML =
+    '<div class="stat"><div class="stat-icon yellow">' + iconHTML('i-users') + '</div><div class="stat-num">' + users.length + '</div><div class="stat-lbl">Users</div></div>' +
+    '<div class="stat"><div class="stat-icon blue">' + iconHTML('i-clock') + '</div><div class="stat-num">' + pending + '</div><div class="stat-lbl">Pending</div></div>' +
+    '<div class="stat"><div class="stat-icon purple">' + iconHTML('i-refresh') + '</div><div class="stat-num">' + processing + '</div><div class="stat-lbl">Processing</div></div>' +
+    '<div class="stat"><div class="stat-icon green">' + iconHTML('i-check-circle') + '</div><div class="stat-num">' + completed + '</div><div class="stat-lbl">Completed</div></div>';
+  
+  const c = $('adminContent');
+  
+  if (adminTab === 'wd'){
+    if (!allWd.length){
+      c.innerHTML = '<div class="empty"><div class="empty-icon">' + iconHTML('i-wallet') + '</div><h3>No withdrawals</h3></div>';
+      return;
+    }
+    c.innerHTML = allWd.sort((a,b) => b.ts - a.ts).map(w =>
+      '<div class="admin-item">' +
+        '<h4>' + iconHTML('i-user','icon-sm') + ' ' + escapeHtml(w.name) + ' • Rs ' + toRupees(w.amount) + '</h4>' +
+        '<p>' + iconHTML('i-mail','icon-xs') + ' <strong>Email:</strong> ' + escapeHtml(w.email) + '</p>' +
+        '<p>' + iconHTML('i-wallet','icon-xs') + ' <strong>Method:</strong> ' + escapeHtml(w.method) + '</p>' +
+        '<p>' + iconHTML('i-credit-card','icon-xs') + ' <strong>Account:</strong> ' + escapeHtml(w.account) + '</p>' +
+        '<p>' + iconHTML('i-phone','icon-xs') + ' <strong>Phone:</strong> ' + escapeHtml(w.number) + '</p>' +
+        '<p><strong>Status:</strong> <span style="color:' + (w.status === 'completed' ? 'var(--success)' : w.status === 'rejected' ? 'var(--danger)' : 'var(--primary-dark)') + ';font-weight:800">' + w.status.toUpperCase() + '</span></p>' +
+        '<p style="font-size:.68rem">' + timeAgo(w.ts) + '</p>' +
+        '<div class="admin-actions">' +
+          (w.status === 'pending' ? '<button type="button" class="btn sm blue" onclick="adMarkProc(\'' + w.id + '\',\'' + w.email + '\')">' + iconHTML('i-play','icon-xs') + ' Process</button>' : '') +
+          (w.status !== 'completed' && w.status !== 'rejected' ? '<button type="button" class="btn sm green" onclick="adComplete(\'' + w.id + '\',\'' + w.email + '\')">' + iconHTML('i-check','icon-xs') + ' Complete</button>' : '') +
+          (w.status !== 'completed' && w.status !== 'rejected' ? '<button type="button" class="btn sm red" onclick="adReject(\'' + w.id + '\',\'' + w.email + '\')">' + iconHTML('i-x','icon-xs') + ' Reject</button>' : '') +
+        '</div>' +
+      '</div>'
+    ).join('');
+  }
+  else if (adminTab === 'usr'){
+    if (!users.length){
+      c.innerHTML = '<div class="empty"><div class="empty-icon">' + iconHTML('i-users') + '</div><h3>No users</h3></div>';
+      return;
+    }
+    c.innerHTML = users.map(u =>
+      '<div class="admin-item">' +
+        '<h4>' + iconHTML('i-user','icon-sm') + ' ' + escapeHtml(u.name) + (u.banned ? ' <span style="background:var(--danger);color:#fff;padding:2px 8px;border-radius:10px;font-size:.65rem">BANNED</span>' : '') + '</h4>' +
+        '<p>' + iconHTML('i-mail','icon-xs') + ' ' + escapeHtml(u.email) + '</p>' +
+        '<p>' + iconHTML('i-phone','icon-xs') + ' ' + escapeHtml(u.phone) + '</p>' +
+        '<p>' + iconHTML('i-coin','icon-xs') + ' ' + formatNum(u.points) + ' pts (Rs ' + toRupees(u.points) + ')</p>' +
+        '<p>' + iconHTML('i-users','icon-xs') + ' Refs: ' + (u.referralCount || 0) + ' • Streak: ' + (u.streak || 0) + '</p>' +
+        '<div class="admin-actions">' +
+          '<button type="button" class="btn sm blue" onclick="adAddPoints(\'' + u.email + '\')">' + iconHTML('i-plus','icon-xs') + ' Points</button>' +
+          (u.banned ? '<button type="button" class="btn sm green" onclick="adUnban(\'' + u.email + '\')">' + iconHTML('i-check','icon-xs') + ' Unban</button>' : '<button type="button" class="btn sm red" onclick="adBan(\'' + u.email + '\')">' + iconHTML('i-ban','icon-xs') + ' Ban</button>') +
+        '</div>' +
+      '</div>'
+    ).join('');
+  }
+  else if (adminTab === 'vid'){
+    c.innerHTML =
+      '<div class="admin-item" style="background:var(--primary-bg);border-color:var(--border-3)">' +
+        '<h4>' + iconHTML('i-info','icon-sm') + ' Tip</h4>' +
+        '<p>YouTube URL se sirf Video ID daalein. Example: youtube.com/watch?v=<strong>dQw4w9WgXcQ</strong></p>' +
+      '</div>' +
+      '<h3 style="font-size:.95rem;margin:14px 0 10px">' + iconHTML('i-video') + ' Videos (' + VIDEOS.length + ')</h3>' +
+      VIDEOS.map(v =>
+        '<div class="admin-item">' +
+          '<h4>' + escapeHtml(v.title) + '</h4>' +
+          '<p>' + iconHTML('i-youtube','icon-xs') + ' <strong>ID:</strong> ' + escapeHtml(v.youtubeId || '—') + '</p>' +
+          '<p>' + iconHTML('i-clock','icon-xs') + ' Duration: ' + v.duration + 's • Reward: ' + CONFIG.videoReward + ' pts</p>' +
+          '<div class="admin-actions">' +
+            '<button type="button" class="btn sm blue" onclick="adEditVideo(\'' + v.id + '\')">' + iconHTML('i-edit','icon-xs') + ' Edit</button>' +
+            '<button type="button" class="btn sm red" onclick="adDelVideo(\'' + v.id + '\')">' + iconHTML('i-trash','icon-xs') + ' Delete</button>' +
+          '</div>' +
+        '</div>'
+      ).join('') +
+      '<button type="button" class="btn green block" onclick="adAddVideo()">' + iconHTML('i-plus','icon-sm') + ' Add New Video</button>' +
+      '<h3 style="font-size:.95rem;margin:20px 0 10px">' + iconHTML('i-monitor') + ' Ads (' + ADS.length + ')</h3>' +
+      ADS.map(a =>
+        '<div class="admin-item">' +
+          '<h4>' + escapeHtml(a.title) + '</h4>' +
+          '<p>' + iconHTML('i-clock','icon-xs') + ' ' + a.duration + 's • Reward: ' + CONFIG.adReward + ' pts</p>' +
+          '<div class="admin-actions">' +
+            '<button type="button" class="btn sm red" onclick="adDelAd(\'' + a.id + '\')">' + iconHTML('i-trash','icon-xs') + ' Delete</button>' +
+          '</div>' +
+        '</div>'
+      ).join('') +
+      '<button type="button" class="btn blue block" onclick="adAddAd()" style="margin-top:12px">' + iconHTML('i-plus','icon-sm') + ' Add New Ad</button>';
+  }
+  else if (adminTab === 'set'){
+    c.innerHTML =
+      '<div class="admin-item">' +
+        '<h4>' + iconHTML('i-settings','icon-sm') + ' Platform Config</h4>' +
+        '<p><strong>Video Reward:</strong> ' + CONFIG.videoReward + ' points per video</p>' +
+        '<p><strong>Ad Reward:</strong> ' + CONFIG.adReward + ' points per ad</p>' +
+        '<p><strong>Points Rate:</strong> 50 points = Rs 5</p>' +
+        '<p><strong>Min Withdrawal:</strong> ' + CONFIG.minWithdraw + ' pts (Rs ' + toRupees(CONFIG.minWithdraw) + ')</p>' +
+        '<p><strong>Referral Reward:</strong> Rs ' + CONFIG.referralReward + '</p>' +
+        '<p><strong>Referral Active Days:</strong> ' + CONFIG.referralActiveDays + '</p>' +
+        '<p><strong>Welcome Bonus:</strong> ' + CONFIG.welcomeBonus + ' pts</p>' +
+      '</div>' +
+      '<div class="admin-item">' +
+        '<h4>' + iconHTML('i-download','icon-sm') + ' Backup & Reset</h4>' +
+        '<div class="admin-actions">' +
+          '<button type="button" class="btn sm blue" onclick="exportData()">' + iconHTML('i-download','icon-xs') + ' Export JSON</button>' +
+          '<button type="button" class="btn sm red" onclick="resetAll()">' + iconHTML('i-trash','icon-xs') + ' Reset All</button>' +
+        '</div>' +
+      '</div>' +
+      '<div class="admin-item">' +
+        '<h4>' + iconHTML('i-lock','icon-sm') + ' Admin Credentials</h4>' +
+        '<p>Username: <strong>' + CONFIG.ADMIN_USER + '</strong></p>' +
+        '<p>Password: <strong>' + CONFIG.ADMIN_PASS + '</strong></p>' +
+      '</div>';
+  }
+}
+
+function adMarkProc(id, email){
+  const users = getUsers();
+  const uIdx = users.findIndex(u => u.email === email);
+  if (uIdx < 0) return;
+  const w = users[uIdx].withdrawals.find(x => x.id === id);
+  if (!w) return;
+  w.status = 'processing';
+  users[uIdx].notifications.unshift({ id: uid(), title: 'Withdrawal Processing', body: 'Aapka withdrawal process ho raha hai.', ts: now(), read: false });
+  saveUsers(users);
+  renderAdmin();
+  showToast('Marked as processing', 'success');
+}
+
+function adComplete(id, email){
+  const users = getUsers();
+  const uIdx = users.findIndex(u => u.email === email);
+  if (uIdx < 0) return;
+  const w = users[uIdx].withdrawals.find(x => x.id === id);
+  if (!w) return;
+  w.status = 'completed';
+  w.completedAt = now();
+  users[uIdx].notifications.unshift({ id: uid(), title: 'Withdrawal Completed', body: 'Rs ' + toRupees(w.amount) + ' aapke account mein bhej diye gaye.', ts: now(), read: false });
+  saveUsers(users);
+  renderAdmin();
+  showToast('Withdrawal completed', 'success');
+}
+
+function adReject(id, email){
+  const reason = prompt('Rejection reason:', 'Invalid details');
+  if (!reason) return;
+  const users = getUsers();
+  const uIdx = users.findIndex(u => u.email === email);
+  if (uIdx < 0) return;
+  const w = users[uIdx].withdrawals.find(x => x.id === id);
+  if (!w) return;
+  w.status = 'rejected';
+  w.reason = reason;
+  users[uIdx].points += w.amount;
+  users[uIdx].notifications.unshift({ id: uid(), title: 'Withdrawal Rejected', body: 'Reason: ' + reason + '. Aapke points wapas kar diye gaye.', ts: now(), read: false });
+  saveUsers(users);
+  renderAdmin();
+  showToast('Withdrawal rejected', 'warn');
+}
+
+function adAddPoints(email){
+  const a = prompt('Points to add:', '500');
+  if (!a) return;
+  const pts = parseInt(a);
+  if (!pts || pts <= 0) return;
+  const users = getUsers();
+  const idx = users.findIndex(u => u.email === email);
+  if (idx < 0) return;
+  users[idx].points = (users[idx].points || 0) + pts;
+  users[idx].totalEarned = (users[idx].totalEarned || 0) + pts;
+  saveUsers(users);
+  renderAdmin();
+  showToast('Added ' + pts + ' points', 'success');
+}
+
+function adBan(email){
+  const r = prompt('Ban reason:', 'Violation of terms');
+  if (!r) return;
+  const users = getUsers();
+  const idx = users.findIndex(u => u.email === email);
+  if (idx < 0) return;
+  users[idx].banned = true;
+  users[idx].banReason = r;
+  saveUsers(users);
+  renderAdmin();
+  showToast('User banned', 'warn');
+}
+
+function adUnban(email){
+  const users = getUsers();
+  const idx = users.findIndex(u => u.email === email);
+  if (idx < 0) return;
+  users[idx].banned = false;
+  users[idx].banReason = '';
+  saveUsers(users);
+  renderAdmin();
+  showToast('User unbanned', 'success');
+}
+
+function adEditVideo(id){
+  const v = VIDEOS.find(x => x.id === id);
+  if (!v) return;
+  const title = prompt('Title:', v.title);
+  if (!title) return;
+  const ytid = prompt('YouTube ID:', v.youtubeId || '');
+  const dur = parseInt(prompt('Duration (seconds):', v.duration)) || v.duration;
+  v.title = title;
+  v.youtubeId = ytid || v.youtubeId;
+  v.duration = dur;
+  saveVideos();
+  renderAdmin();
+  renderAll();
+  showToast('Video updated', 'success');
+}
+
+function adDelVideo(id){
+  if (!confirm('Delete this video?')) return;
+  VIDEOS = VIDEOS.filter(v => v.id !== id);
+  saveVideos();
+  renderAdmin();
+  renderAll();
+  showToast('Video deleted', 'warn');
+}
+
+function adAddVideo(){
+  const title = prompt('Video title:');
+  if (!title) return;
+  const ytid = prompt('YouTube Video ID (e.g. dQw4w9WgXcQ):', 'dQw4w9WgXcQ');
+  if (!ytid) return;
+  const dur = parseInt(prompt('Watch duration (seconds):', '30')) || 30;
+  VIDEOS.push({ id: 'v' + now(), title, youtubeId: ytid, duration: dur });
+  saveVideos();
+  renderAdmin();
+  renderAll();
+  showToast('Video added — ' + CONFIG.videoReward + ' points reward', 'success');
+}
+
+function adAddAd(){
+  const title = prompt('Ad title:');
+  if (!title) return;
+  const dur = parseInt(prompt('Duration (seconds):', '15')) || 15;
+  const icons = ['i-credit-card','i-phone','i-gift','i-map-pin','i-monitor'];
+  const icon = icons[Math.floor(Math.random()*icons.length)];
+  ADS.push({ id: 'a' + now(), title, icon, duration: dur });
+  saveAds();
+  renderAdmin();
+  renderAll();
+  showToast('Ad added — ' + CONFIG.adReward + ' points reward', 'success');
+}
+
+function adDelAd(id){
+  if (!confirm('Delete this ad?')) return;
+  ADS = ADS.filter(a => a.id !== id);
+  saveAds();
+  renderAdmin();
+  renderAll();
+  showToast('Ad deleted', 'warn');
+}
+
+function exportData(){
+  const data = { users: getUsers(), videos: VIDEOS, ads: ADS, exportedAt: new Date().toISOString() };
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'earningsbee-backup.json';
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('Data exported', 'success');
+}
+
+function resetAll(){
+  if (!confirm('Delete ALL data?')) return;
+  if (!confirm('This cannot be undone. REALLY sure?')) return;
+  try { ['eb_users','eb_session','eb_videos','eb_ads','eb_reset'].forEach(k => localStorage.removeItem(k)); } catch(e){}
+  location.reload();
+}
+
+/* ============ URL REF ============ */
+function handleUrlRef(){
+  const params = new URLSearchParams(location.search);
+  const ref = params.get('ref');
+  if (ref && $('suRef')){
+    setTimeout(() => { $('suRef').value = ref; switchAuth('signup'); }, 200);
+  }
+}
+
+/* ============ INIT ============ */
+window.addEventListener('DOMContentLoaded', () => {
+  try {
+    loadVideos();
+    loadAds();
+    handleUrlRef();
+    
+    const session = getSession();
+    if (session && session.email){
+      const u = findUser(session.email);
+      if (u) initApp(u);
+      else setSession(null);
+    }
+    
+    document.querySelectorAll('.modal-bg').forEach(m => {
+      m.addEventListener('click', e => { if (e.target === m) closeModal(m.id); });
+    });
+    
+    const vm = $('videoModal');
+    if (vm) vm.addEventListener('click', e => { if (e.target === vm) closeVideo(); });
+  } catch(e){ console.error(e); }
+});
+
+/* ============ GLOBALS ============ */
+window.switchAuth = switchAuth;
+window.doLogin = doLogin;
+window.doSignup = doSignup;
+window.doLogout = doLogout;
+window.showPage = showPage;
+window.openVideo = openVideo;
+window.closeVideo = closeVideo;
+window.claimMission = claimMission;
+window.copyRefLink = copyRefLink;
+window.selectWd = selectWd;
+window.updateWdPkr = updateWdPkr;
+window.submitWithdrawal = submitWithdrawal;
+window.openNotifications = openNotifications;
+window.openEditProfile = openEditProfile;
+window.saveEditProfile = saveEditProfile;
+window.handleProfilePhoto = handleProfilePhoto;
+window.openChangePass = openChangePass;
+window.saveChangePass = saveChangePass;
+window.openForgot = openForgot;
+window.requestReset = requestReset;
+window.completeReset = completeReset;
+window.sendContact = sendContact;
+window.closeModal = closeModal;
+window.openModal = openModal;
+window.doAdminLogin = doAdminLogin;
+window.switchAdminTab = switchAdminTab;
+window.adMarkProc = adMarkProc;
+window.adComplete = adComplete;
+window.adReject = adReject;
+window.adAddPoints = adAddPoints;
+window.adBan = adBan;
+window.adUnban = adUnban;
+window.adEditVideo = adEditVideo;
+window.adDelVideo = adDelVideo;
+window.adAddVideo = adAddVideo;
+window.adAddAd = adAddAd;
+window.adDelAd = adDelAd;
+window.exportData = exportData;
+window.resetAll = resetAll;
+window.secretClick = secretClick;
+</script>
+</body>
+</html>
