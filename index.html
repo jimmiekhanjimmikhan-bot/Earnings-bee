@@ -43,25 +43,12 @@ textarea{resize:vertical}
 ::-webkit-scrollbar{width:6px;height:6px}
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:var(--primary-light);border-radius:6px}
-
-/* ============ AD SLOTS ============ */
 .ad-slot{display:flex;align-items:center;justify-content:center;margin:16px 0;overflow:hidden;max-width:100%;min-height:50px;position:relative;border-radius:var(--r);background:var(--primary-bg-2);border:1px dashed var(--border-3);padding:6px}
 .ad-slot iframe{max-width:100%;border:0;display:block;margin:0 auto}
 .ad-slot.ad-inline{margin:14px 0}
-.ad-slot.ad-fluid{min-height:auto;padding:8px}
-
-/* ============ SVG ICON SYSTEM ============ */
 .icon{width:1em;height:1em;display:inline-block;vertical-align:-.15em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
-.icon-xs{width:14px;height:14px}
-.icon-sm{width:16px;height:16px}
-.icon-md{width:20px;height:20px}
-.icon-lg{width:24px;height:24px}
-.icon-xl{width:28px;height:28px}
-.icon-2xl{width:36px;height:36px}
-.icon-3xl{width:48px;height:48px}
-.icon-fill{fill:currentColor;stroke:none}
-
-/* ============ AUTH SCREEN ============ */
+.icon-xs{width:14px;height:14px}.icon-sm{width:16px;height:16px}.icon-md{width:20px;height:20px}.icon-lg{width:24px;height:24px}
+.icon-xl{width:28px;height:28px}.icon-2xl{width:36px;height:36px}.icon-3xl{width:48px;height:48px}
 .auth{position:fixed;inset:0;z-index:5000;background:linear-gradient(135deg,#fef3c7 0%,#fde68a 50%,#fbbf24 100%);display:flex;align-items:center;justify-content:center;padding:20px;overflow-y:auto}
 .auth::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 15% 20%,rgba(255,255,255,.45),transparent 45%),radial-gradient(circle at 85% 80%,rgba(217,119,6,.3),transparent 45%);pointer-events:none}
 .auth-box{background:var(--white);border-radius:var(--r-xl);padding:36px 26px;max-width:440px;width:100%;box-shadow:0 30px 80px rgba(161,98,7,.28);position:relative;z-index:1;animation:authIn .5s ease}
@@ -74,21 +61,16 @@ textarea{resize:vertical}
 .auth-tabs{display:flex;background:var(--primary-bg-2);border-radius:var(--r);padding:4px;margin-bottom:22px}
 .auth-tab{flex:1;padding:11px;border-radius:9px;font-weight:700;font-size:.85rem;color:var(--text-3);transition:.25s;text-align:center}
 .auth-tab.active{background:var(--white);color:var(--dark);box-shadow:var(--shadow-sm)}
-.auth-pane{display:none}
-.auth-pane.active{display:block;animation:fadeIn .3s}
+.auth-pane{display:none}.auth-pane.active{display:block;animation:fadeIn .3s}
 @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 .auth-msg{font-size:.82rem;margin-top:12px;text-align:center;min-height:18px;font-weight:600}
-.auth-msg.err{color:var(--danger)}
-.auth-msg.ok{color:var(--success)}
+.auth-msg.err{color:var(--danger)}.auth-msg.ok{color:var(--success)}
 .forgot-link{display:block;text-align:right;color:var(--primary-dark);font-size:.78rem;font-weight:700;margin-top:6px;cursor:pointer}
-
-/* ============ BUTTONS ============ */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border-radius:var(--r);font-size:.88rem;font-weight:700;transition:.15s;background:var(--grad-primary);color:var(--dark);box-shadow:0 4px 14px rgba(245,158,11,.35);white-space:nowrap;line-height:1.2;border:none;cursor:pointer}
 .btn:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(245,158,11,.45)}
 .btn:active{transform:translateY(0)}
 .btn:disabled{opacity:.5;cursor:not-allowed;transform:none!important;box-shadow:none}
-.btn.block{width:100%}
-.btn.sm{padding:8px 14px;font-size:.76rem;border-radius:9px;gap:6px}
+.btn.block{width:100%}.btn.sm{padding:8px 14px;font-size:.76rem;border-radius:9px;gap:6px}
 .btn.lg{padding:14px 24px;font-size:.92rem;border-radius:var(--r-lg)}
 .btn.green{background:var(--grad-success);color:#fff;box-shadow:0 4px 14px rgba(16,185,129,.35)}
 .btn.red{background:linear-gradient(135deg,#ef4444,#b91c1c);color:#fff;box-shadow:0 4px 14px rgba(239,68,68,.35)}
@@ -98,13 +80,9 @@ textarea{resize:vertical}
 .btn.gray{background:linear-gradient(135deg,#9ca3af,#6b7280);color:#fff;box-shadow:none}
 .btn.outline{background:transparent;color:var(--text-2);border:1.5px solid var(--border-2);box-shadow:none}
 .btn.outline:hover{border-color:var(--primary);color:var(--primary-dark)}
-.btn-row{display:flex;gap:8px;flex-wrap:wrap}
-.btn-row .btn{flex:1 1 auto}
-
-/* ============ APP SHELL ============ */
-.app{display:none}
-.app.active{display:block}
-.hdr{position:sticky;top:0;z-index:900;background:rgba(255,255,255,.95);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid var(--border-3);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap}.btn-row .btn{flex:1 1 auto}
+.app{display:none}.app.active{display:block}
+.hdr{position:sticky;top:0;z-index:900;background:rgba(255,255,255,.95);backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid var(--border-3);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
 .hdr-logo{display:flex;align-items:center;gap:11px;cursor:pointer;min-width:0}
 .hdr-logo-mark{width:42px;height:42px;border-radius:12px;background:var(--grad-primary);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 12px rgba(245,158,11,.4);animation:logoFloat 3s ease-in-out infinite}
 .hdr-logo-mark .icon{width:30px;height:30px;stroke:var(--dark);stroke-width:1.8}
@@ -117,24 +95,17 @@ textarea{resize:vertical}
 .icon-btn:hover{background:var(--primary-bg);color:var(--primary-dark);transform:translateY(-1px)}
 .icon-btn .icon{width:20px;height:20px}
 .badge-dot{position:absolute;top:-4px;right:-4px;min-width:20px;height:20px;border-radius:10px;background:var(--danger);color:#fff;font-size:.62rem;font-weight:800;display:flex;align-items:center;justify-content:center;padding:0 5px;border:2px solid var(--white)}
-
-/* ============ MAIN LAYOUT ============ */
 .main{padding:16px;padding-bottom:100px;max-width:960px;margin:0 auto}
-.page{display:none}
-.page.active{display:block;animation:fadeIn .25s}
+.page{display:none}.page.active{display:block;animation:fadeIn .25s}
 .page-h{margin-bottom:18px}
 .page-h h2{font-size:1.5rem;color:var(--dark);display:flex;align-items:center;gap:10px}
 .page-h h2 .icon{width:26px;height:26px;color:var(--primary)}
 .page-h p{color:var(--text-3);font-size:.85rem;margin-top:4px}
-
-/* ============ CARDS ============ */
 .card{background:var(--white);border-radius:var(--r-lg);padding:18px;box-shadow:var(--shadow-sm);border:1.5px solid var(--border);margin-bottom:14px;transition:.15s}
 .card:hover{box-shadow:var(--shadow)}
 .card-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:10px}
 .card-h h3{font-size:1rem;color:var(--dark);display:flex;align-items:center;gap:8px}
 .card-h h3 .icon{width:20px;height:20px;color:var(--primary);stroke-width:2.2}
-
-/* ============ HERO BALANCE ============ */
 .hero{background:var(--grad-primary);border-radius:var(--r-xl);padding:24px;color:var(--dark);position:relative;overflow:hidden;margin-bottom:16px;box-shadow:0 12px 32px rgba(245,158,11,.35)}
 .hero::before{content:'';position:absolute;top:-50%;right:-20%;width:280px;height:280px;background:radial-gradient(circle,rgba(255,255,255,.4),transparent 70%);border-radius:50%;pointer-events:none}
 .hero-label{font-size:.75rem;font-weight:700;opacity:.85;letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:6px}
@@ -146,8 +117,6 @@ textarea{resize:vertical}
 .hero-actions .btn{background:rgba(255,255,255,.97);color:var(--primary-dark);box-shadow:0 4px 14px rgba(0,0,0,.08)}
 .hero-actions .btn:hover{background:#fff}
 .hero-actions .btn .icon{width:16px;height:16px;stroke-width:2.2}
-
-/* ============ STATS ============ */
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:16px}
 .stat{background:var(--white);border-radius:var(--r-lg);padding:16px 12px;border:1.5px solid var(--border);text-align:center;transition:.15s}
 .stat:hover{border-color:var(--border-3);transform:translateY(-2px);box-shadow:var(--shadow)}
@@ -160,8 +129,6 @@ textarea{resize:vertical}
 .stat-icon.purple{background:#ede9fe;color:var(--purple-dark)}
 .stat-num{font-size:1.35rem;font-weight:900;color:var(--dark);line-height:1}
 .stat-lbl{font-size:.7rem;color:var(--text-3);font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-top:4px}
-
-/* ============ STREAK ============ */
 .streak{display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,#fef3c7,#fde68a);border-radius:var(--r-lg);padding:16px;margin-bottom:16px;border:1.5px dashed var(--border-3)}
 .streak-icon{width:52px;height:52px;border-radius:14px;background:var(--white);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 14px rgba(245,158,11,.2)}
 .streak-icon .icon{width:28px;height:28px;color:var(--primary-dark);stroke-width:2.2}
@@ -171,8 +138,6 @@ textarea{resize:vertical}
 .streak-days{display:flex;gap:3px;margin-top:6px}
 .streak-days span{width:14px;height:14px;border-radius:4px;background:var(--white);border:1.5px solid var(--border-3)}
 .streak-days span.on{background:var(--grad-primary);border-color:transparent}
-
-/* ============ TASKS ============ */
 .task-list{display:flex;flex-direction:column;gap:10px}
 .task{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r-lg);padding:12px;display:flex;align-items:center;gap:12px;transition:.15s}
 .task:hover{border-color:var(--border-3);box-shadow:var(--shadow-sm)}
@@ -188,8 +153,6 @@ textarea{resize:vertical}
 .task-reward{display:inline-flex;align-items:center;gap:3px;background:var(--primary-bg);color:var(--primary-dark);padding:3px 9px;border-radius:20px;font-weight:800;font-size:.7rem}
 .task-reward .icon{width:11px;height:11px;stroke-width:2.5}
 .task .btn{flex-shrink:0}
-
-/* ============ MISSIONS ============ */
 .mission{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r-lg);padding:14px;display:flex;align-items:center;gap:12px;margin-bottom:10px}
 .mission-icon{width:46px;height:46px;border-radius:12px;background:var(--grad-purple);color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .mission-icon .icon{width:24px;height:24px}
@@ -198,8 +161,6 @@ textarea{resize:vertical}
 .mission-info .meta{font-size:.72rem;color:var(--text-3);display:flex;align-items:center;gap:6px}
 .mission-bar{height:5px;background:var(--border-2);border-radius:5px;overflow:hidden;margin-top:6px}
 .mission-bar-fill{height:100%;background:var(--grad-purple);border-radius:5px;transition:.5s}
-
-/* ============ REFERRAL ============ */
 .ref-card{background:var(--grad-dark);color:#fff;border-radius:var(--r-xl);padding:24px;position:relative;overflow:hidden;margin-bottom:16px}
 .ref-card::before{content:'';position:absolute;top:-30px;right:-30px;width:180px;height:180px;background:var(--grad-primary);opacity:.15;border-radius:50%}
 .ref-card::after{content:'';position:absolute;bottom:-60px;left:-40px;width:200px;height:200px;background:var(--grad-purple);opacity:.08;border-radius:50%}
@@ -213,8 +174,6 @@ textarea{resize:vertical}
 .ref-link input:focus{box-shadow:none}
 .ref-code{font-size:.78rem;color:#9ca3af;position:relative}
 .ref-code strong{color:var(--primary-light);font-family:ui-monospace,monospace;letter-spacing:.05em}
-
-/* ============ WITHDRAWAL ============ */
 .wd-options{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}
 .wd-opt{padding:14px 8px;border:2px solid var(--border-2);border-radius:var(--r);text-align:center;cursor:pointer;transition:.15s;background:var(--white)}
 .wd-opt:hover{border-color:var(--border-3)}
@@ -223,28 +182,20 @@ textarea{resize:vertical}
 .wd-opt-icon .icon{width:20px;height:20px;stroke-width:2.2}
 .wd-opt.selected .wd-opt-icon{background:var(--grad-primary);color:var(--dark)}
 .wd-opt-lbl{font-size:.7rem;font-weight:800;color:var(--dark)}
-
-/* ============ TIMER / STATUS BOX ============ */
 .timer-box{background:var(--grad-success);color:#fff;border-radius:var(--r-lg);padding:22px;text-align:center;margin-top:14px;box-shadow:0 12px 30px rgba(16,185,129,.3)}
 .timer-box .icon-top{width:44px;height:44px;margin:0 auto 8px;display:block;opacity:.9}
 .timer-box h3{color:#fff;font-size:1.05rem;margin-bottom:6px;font-weight:800}
 .timer-box .timer-lbl{font-size:.82rem;opacity:.9;font-weight:600;margin-top:8px}
-
-/* ============ PROFILE ============ */
 .prof-hd{background:var(--grad-primary);border-radius:var(--r-xl);padding:24px;text-align:center;color:var(--dark);margin-bottom:16px;box-shadow:0 12px 32px rgba(245,158,11,.35);position:relative;overflow:hidden}
 .prof-av{width:88px;height:88px;border-radius:50%;margin:0 auto 14px;background:var(--dark);color:var(--primary-light);display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:900;border:4px solid rgba(255,255,255,.5);box-shadow:0 8px 20px rgba(0,0,0,.15);overflow:hidden}
 .prof-av img{width:100%;height:100%;object-fit:cover}
 .prof-hd h3{font-size:1.35rem;margin-bottom:3px;font-weight:900}
 .prof-hd p{font-size:.85rem;opacity:.85;font-weight:600}
-
-/* ============ BOTTOM NAV ============ */
 .nav{position:fixed;bottom:0;left:0;right:0;z-index:800;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);border-top:1px solid var(--border-3);display:flex;justify-content:space-around;padding:8px 4px 10px;box-shadow:0 -4px 20px rgba(10,14,26,.06)}
 .nav-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 4px;border-radius:12px;font-size:.63rem;font-weight:700;color:var(--text-3);transition:.2s;min-width:0}
 .nav-item .icon{width:22px;height:22px;stroke-width:2}
 .nav-item.active{color:var(--primary-dark);background:var(--primary-bg)}
 .nav-item.active .icon{stroke-width:2.3}
-
-/* ============ FOOTER ============ */
 .footer{background:var(--grad-dark);color:#9ca3af;padding:40px 20px 24px;margin-top:24px;border-radius:var(--r-xl) var(--r-xl) 0 0}
 .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:22px;max-width:960px;margin:0 auto 26px}
 .footer-col h5{color:#fff;font-size:.88rem;font-weight:800;margin-bottom:12px;display:flex;align-items:center;gap:6px}
@@ -264,8 +215,6 @@ textarea{resize:vertical}
 .footer-copy{font-size:.72rem;color:#4b5563;padding-top:16px;text-align:center}
 .secret-dot{display:inline-block;padding:6px 8px;color:#4b5563;cursor:default;user-select:none;transition:.2s;font-size:.8rem}
 .secret-dot.pulse{color:var(--primary);transform:scale(1.4)}
-
-/* ============ MODAL ============ */
 .modal-bg{position:fixed;inset:0;background:rgba(10,14,26,.85);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;z-index:2500;padding:16px;overflow-y:auto}
 .modal-bg.active{display:flex;animation:fadeIn .2s}
 .modal{background:var(--white);border-radius:var(--r-xl);max-width:480px;width:100%;max-height:92vh;overflow-y:auto;padding:26px;position:relative;animation:modalIn .3s}
@@ -277,8 +226,6 @@ textarea{resize:vertical}
 .modal h2{font-size:1.3rem;margin-bottom:6px;padding-right:44px;display:flex;align-items:center;gap:8px}
 .modal h2 .icon{width:22px;height:22px;color:var(--primary)}
 .modal-sub{color:var(--text-3);font-size:.85rem;margin-bottom:18px}
-
-/* ============ VIDEO MODAL ============ */
 .video-modal{position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.95);display:none;align-items:center;justify-content:center;padding:12px;overflow-y:auto}
 .video-modal.active{display:flex}
 .video-box{width:100%;max-width:820px;background:var(--white);border-radius:var(--r-xl);overflow:hidden;position:relative;margin:auto}
@@ -295,23 +242,17 @@ textarea{resize:vertical}
 .video-timer{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--primary-bg);padding:16px;border-radius:var(--r);font-weight:800;color:var(--primary-dark);font-size:.88rem}
 .video-timer .icon{width:18px;height:18px}
 .countdown-num{font-size:1.6rem;font-weight:900;color:var(--primary-dark);min-width:54px;text-align:center;font-variant-numeric:tabular-nums;font-family:ui-monospace,monospace}
-
-/* ============ TOAST ============ */
 .toast{position:fixed;bottom:100px;left:50%;transform:translateX(-50%) translateY(30px);background:var(--dark);color:#fff;padding:13px 22px;border-radius:var(--r);font-size:.85rem;font-weight:600;z-index:4000;opacity:0;transition:.3s cubic-bezier(.2,.9,.3,1.15);max-width:90vw;display:flex;align-items:center;gap:10px;pointer-events:none;box-shadow:var(--shadow-lg)}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 .toast .icon{width:18px;height:18px;flex-shrink:0}
 .toast.success{background:var(--grad-success)}
 .toast.error{background:linear-gradient(135deg,#ef4444,#b91c1c)}
 .toast.warn{background:var(--grad-primary);color:var(--dark)}
-
-/* ============ EMPTY ============ */
 .empty{text-align:center;padding:36px 16px;color:var(--text-3)}
 .empty-icon{width:64px;height:64px;border-radius:50%;background:var(--primary-bg-2);color:var(--primary-light);display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
 .empty-icon .icon{width:32px;height:32px;stroke-width:1.8}
 .empty h3{font-size:.95rem;color:var(--text-2);margin-bottom:4px;font-weight:700}
 .empty p{font-size:.82rem}
-
-/* ============ ADMIN ============ */
 .admin-tab-bar{display:flex;gap:4px;overflow-x:auto;padding-bottom:6px;margin-bottom:16px;border-bottom:2px solid var(--border-2)}
 .admin-tab{padding:9px 14px;border-radius:10px 10px 0 0;font-size:.76rem;font-weight:700;color:var(--text-3);white-space:nowrap;background:transparent;display:inline-flex;align-items:center;gap:5px}
 .admin-tab .icon{width:15px;height:15px}
@@ -321,8 +262,6 @@ textarea{resize:vertical}
 .admin-item p{font-size:.76rem;color:var(--text-3);margin:4px 0;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 .admin-item p strong{color:var(--text-2);font-weight:700}
 .admin-actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
-
-/* ============ CONTENT PAGE ============ */
 .content-page h2{font-size:1.35rem;margin-bottom:16px;display:flex;align-items:center;gap:10px;color:var(--dark)}
 .content-page h2 .icon{width:26px;height:26px;color:var(--primary)}
 .content-page h3{font-size:1rem;margin:20px 0 8px;color:var(--primary-dark);display:flex;align-items:center;gap:8px;font-weight:800}
@@ -332,8 +271,9 @@ textarea{resize:vertical}
 .content-page ul li{margin-bottom:8px;padding-left:24px;position:relative;display:flex;align-items:flex-start;gap:8px}
 .content-page ul li::before{content:'';position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:50%;background:var(--primary)}
 .content-page strong{color:var(--dark);font-weight:700}
-
-/* ============ RESPONSIVE ============ */
+.cloud-status{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;font-weight:700;padding:4px 10px;border-radius:20px;background:var(--primary-bg);color:var(--primary-dark);border:1.5px solid var(--border-3)}
+.cloud-status.online{background:#d1fae5;color:var(--success-dark);border-color:#6ee7b7}
+.cloud-status.offline{background:#fee2e2;color:var(--danger-dark);border-color:#fca5a5}
 @media (max-width:640px){
   .hero-amt{font-size:2.15rem}
   .auth-box{padding:28px 20px}
@@ -347,19 +287,16 @@ textarea{resize:vertical}
   .bal-pill{padding:6px 10px;font-size:.74rem}
 }
 @media (max-width:400px){
-  .btn-row{flex-direction:column}
-  .btn-row .btn{width:100%}
+  .btn-row{flex-direction:column}.btn-row .btn{width:100%}
   .footer-grid{grid-template-columns:1fr}
 }
 </style>
 
-<!-- ================= POPUNDER SCRIPTS ================= -->
 <script src="https://pl31561619.profitableratecpmnetwork.com/61/33/38/61333832aeef1427ebd03c3e9d54414b.js"></script>
 <script src="https://pl31561618.profitableratecpmnetwork.com/31/ed/db/31eddbc58148983aa54182c660b221e9.js"></script>
 </head>
 <body>
 
-<!-- ================= SVG ICON SPRITE ================= -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
 <defs>
   <symbol id="i-bee" viewBox="0 0 24 24">
@@ -433,6 +370,7 @@ textarea{resize:vertical}
   <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></symbol>
   <symbol id="i-file-text" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></symbol>
   <symbol id="i-sliders" viewBox="0 0 24 24"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></symbol>
 </defs>
 </svg>
 
@@ -458,18 +396,12 @@ textarea{resize:vertical}
       <p class="auth-msg err" id="loginErr"></p>
     </div>
     <div class="auth-pane" id="paneSignup">
-      <label>Full Name *</label>
-      <input type="text" id="suName" placeholder="Your full name" autocomplete="name">
-      <label>Email *</label>
-      <input type="email" id="suEmail" placeholder="you@email.com" autocomplete="email">
-      <label>Phone (JazzCash/EasyPaisa) *</label>
-      <input type="tel" id="suPhone" placeholder="03001234567" autocomplete="tel">
-      <label>Password * (min 6)</label>
-      <input type="password" id="suPass" placeholder="••••••••" autocomplete="new-password">
-      <label>Confirm Password *</label>
-      <input type="password" id="suPass2" placeholder="••••••••" autocomplete="new-password">
-      <label>Referral Code (optional)</label>
-      <input type="text" id="suRef" placeholder="Friend's code">
+      <label>Full Name *</label><input type="text" id="suName" placeholder="Your full name" autocomplete="name">
+      <label>Email *</label><input type="email" id="suEmail" placeholder="you@email.com" autocomplete="email">
+      <label>Phone (JazzCash/EasyPaisa) *</label><input type="tel" id="suPhone" placeholder="03001234567" autocomplete="tel">
+      <label>Password * (min 6)</label><input type="password" id="suPass" placeholder="••••••••" autocomplete="new-password">
+      <label>Confirm Password *</label><input type="password" id="suPass2" placeholder="••••••••" autocomplete="new-password">
+      <label>Referral Code (optional)</label><input type="text" id="suRef" placeholder="Friend's code">
       <button type="button" class="btn block lg" onclick="doSignup()" style="margin-top:20px">
         <svg class="icon icon-sm"><use href="#i-user"/></svg> Create Account
       </button>
@@ -496,7 +428,6 @@ textarea{resize:vertical}
 
   <main class="main">
 
-    <!-- HOME -->
     <section class="page active" id="page-home">
       <div class="hero">
         <div class="hero-label"><svg class="icon"><use href="#i-wallet"/></svg> Total Balance</div>
@@ -509,7 +440,10 @@ textarea{resize:vertical}
         </div>
       </div>
 
-      <!-- AD SLOT 1 -->
+      <div style="text-align:center;margin-bottom:10px">
+        <span class="cloud-status" id="cloudStatus"><svg class="icon icon-xs"><use href="#i-cloud"/></svg> Cloud: <span id="cloudStatusText">checking...</span></span>
+      </div>
+
       <div class="ad-slot ad-inline">
         <script type="text/javascript">atOptions = {'key':'edf75c29a771be45179507e50ef26457','format':'iframe','height':250,'width':300,'params':{}};</script>
         <script src="https://www.highrevenueformat.com/edf75c29a771be45179507e50ef26457/invoke.js"></script>
@@ -531,7 +465,6 @@ textarea{resize:vertical}
         </div>
       </div>
 
-      <!-- AD SLOT 2 -->
       <div class="ad-slot ad-inline">
         <script type="text/javascript">atOptions = {'key':'77fccbb240114401799c96ae2f7003ef','format':'iframe','height':50,'width':320,'params':{}};</script>
         <script src="https://www.highrevenueformat.com/77fccbb240114401799c96ae2f7003ef/invoke.js"></script>
@@ -545,7 +478,6 @@ textarea{resize:vertical}
         <div id="missionList"></div>
       </div>
 
-      <!-- AD SLOT 3 -->
       <div class="ad-slot ad-inline">
         <script type="text/javascript">atOptions = {'key':'8f38aebd53e1c3172438558ec96f2a47','format':'iframe','height':60,'width':468,'params':{}};</script>
         <script src="https://www.highrevenueformat.com/8f38aebd53e1c3172438558ec96f2a47/invoke.js"></script>
@@ -562,7 +494,6 @@ textarea{resize:vertical}
         </button>
       </div>
 
-      <!-- AD SLOT 4 -->
       <div class="ad-slot ad-inline">
         <script type="text/javascript">atOptions = {'key':'eae81809406355b5364f9474a875ee93','format':'iframe','height':90,'width':728,'params':{}};</script>
         <script src="https://www.highrevenueformat.com/eae81809406355b5364f9474a875ee93/invoke.js"></script>
@@ -574,14 +505,12 @@ textarea{resize:vertical}
       </div>
     </section>
 
-    <!-- TASKS -->
     <section class="page" id="page-tasks">
       <div class="page-h">
         <h2><svg class="icon"><use href="#i-grid"/></svg> All Tasks</h2>
         <p>Har video complete karo aur points earn karo</p>
       </div>
 
-      <!-- AD SLOT 5 -->
       <div class="ad-slot ad-inline">
         <script type="text/javascript">atOptions = {'key':'77fccbb240114401799c96ae2f7003ef','format':'iframe','height':50,'width':320,'params':{}};</script>
         <script src="https://www.highrevenueformat.com/77fccbb240114401799c96ae2f7003ef/invoke.js"></script>
@@ -596,14 +525,12 @@ textarea{resize:vertical}
         <div class="task-list" id="allAds"></div>
       </div>
 
-      <!-- AD SLOT 6 -->
       <div class="ad-slot ad-inline">
         <script type="text/javascript">atOptions = {'key':'41e71b234b2b632d20a43d66ba5f1c35','format':'iframe','height':300,'width':160,'params':{}};</script>
         <script src="https://www.highrevenueformat.com/41e71b234b2b632d20a43d66ba5f1c35/invoke.js"></script>
       </div>
     </section>
 
-    <!-- REFER -->
     <section class="page" id="page-refer">
       <div class="page-h">
         <h2><svg class="icon"><use href="#i-gift"/></svg> Refer & Earn</h2>
@@ -624,7 +551,6 @@ textarea{resize:vertical}
         <div class="ref-code">Your code: <strong id="refCode">—</strong></div>
       </div>
 
-      <!-- AD SLOT 7 -->
       <div class="ad-slot ad-inline">
         <script type="text/javascript">atOptions = {'key':'edf75c29a771be45179507e50ef26457','format':'iframe','height':250,'width':300,'params':{}};</script>
         <script src="https://www.highrevenueformat.com/edf75c29a771be45179507e50ef26457/invoke.js"></script>
@@ -641,7 +567,6 @@ textarea{resize:vertical}
       </div>
     </section>
 
-    <!-- WITHDRAW -->
     <section class="page" id="page-withdraw">
       <div class="page-h">
         <h2><svg class="icon"><use href="#i-wallet"/></svg> Withdraw</h2>
@@ -653,7 +578,6 @@ textarea{resize:vertical}
         <div class="hero-sub" id="wdBalancePkr">≈ Rs 0</div>
       </div>
 
-      <!-- AD SLOT 8 -->
       <div class="ad-slot ad-inline">
         <script type="text/javascript">atOptions = {'key':'8f38aebd53e1c3172438558ec96f2a47','format':'iframe','height':60,'width':468,'params':{}};</script>
         <script src="https://www.highrevenueformat.com/8f38aebd53e1c3172438558ec96f2a47/invoke.js"></script>
@@ -681,10 +605,8 @@ textarea{resize:vertical}
           <label>IBAN / Account Number</label>
           <input type="text" id="wdIban" placeholder="PK00XXXX0000000000000000">
         </div>
-        <label>Account Holder Name *</label>
-        <input type="text" id="wdName" placeholder="Full name as per account">
-        <label id="wdNumLabel">JazzCash Number *</label>
-        <input type="tel" id="wdNumber" placeholder="03001234567">
+        <label>Account Holder Name *</label><input type="text" id="wdName" placeholder="Full name as per account">
+        <label id="wdNumLabel">JazzCash Number *</label><input type="tel" id="wdNumber" placeholder="03001234567">
         <label>Amount (points) *</label>
         <input type="number" id="wdAmount" placeholder="Min 5000" min="5000" step="500" oninput="updateWdPkr()">
         <div style="font-size:.78rem;color:var(--text-3);margin-top:6px" id="wdAmountPkr">≈ Rs 0</div>
@@ -700,14 +622,12 @@ textarea{resize:vertical}
         <div id="wdHistory"></div>
       </div>
 
-      <!-- AD SLOT 9 -->
       <div class="ad-slot ad-inline">
         <script type="text/javascript">atOptions = {'key':'92ca28cb5ca74d665c58537afa561df0','format':'iframe','height':600,'width':160,'params':{}};</script>
         <script src="https://www.highrevenueformat.com/92ca28cb5ca74d665c58537afa561df0/invoke.js"></script>
       </div>
     </section>
 
-    <!-- PROFILE -->
     <section class="page" id="page-profile">
       <div class="prof-hd">
         <div class="prof-av" id="profAvatar">U</div>
@@ -734,13 +654,11 @@ textarea{resize:vertical}
       </div>
     </section>
 
-    <!-- ABOUT -->
     <section class="page" id="page-about">
       <div class="content-page">
         <h2><svg class="icon"><use href="#i-info"/></svg> About EarningsBee</h2>
         <p><strong>EarningsBee</strong> Pakistan ka pehla platform hai jahan aap YouTube videos dekh kar, sponsored ads watch kar ke, aur daily missions complete kar ke real cash earn kar sakte hain.</p>
 
-        <!-- AD SLOT 10 -->
         <div class="ad-slot ad-inline">
           <script type="text/javascript">atOptions = {'key':'edf75c29a771be45179507e50ef26457','format':'iframe','height':250,'width':300,'params':{}};</script>
           <script src="https://www.highrevenueformat.com/edf75c29a771be45179507e50ef26457/invoke.js"></script>
@@ -772,7 +690,6 @@ textarea{resize:vertical}
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section class="page" id="page-contact">
       <div class="page-h">
         <h2><svg class="icon"><use href="#i-mail"/></svg> Contact Support</h2>
@@ -795,7 +712,6 @@ textarea{resize:vertical}
       </div>
     </section>
 
-    <!-- TERMS -->
     <section class="page" id="page-terms">
       <div class="content-page">
         <h2><svg class="icon"><use href="#i-doc"/></svg> Terms & Conditions</h2>
@@ -809,7 +725,6 @@ textarea{resize:vertical}
       </div>
     </section>
 
-    <!-- PRIVACY -->
     <section class="page" id="page-privacy">
       <div class="content-page">
         <h2><svg class="icon"><use href="#i-shield"/></svg> Privacy Policy</h2>
@@ -822,10 +737,7 @@ textarea{resize:vertical}
       </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="footer">
-
-      <!-- AD SLOT 11 -->
       <div class="ad-slot ad-inline" style="background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.12)">
         <script type="text/javascript">atOptions = {'key':'eae81809406355b5364f9474a875ee93','format':'iframe','height':90,'width':728,'params':{}};</script>
         <script src="https://www.highrevenueformat.com/eae81809406355b5364f9474a875ee93/invoke.js"></script>
@@ -886,7 +798,6 @@ textarea{resize:vertical}
   </nav>
 </div>
 
-<!-- ================= VIDEO MODAL ================= -->
 <div class="video-modal" id="videoModal">
   <div class="video-box">
     <button type="button" class="video-close" onclick="closeVideo()"><svg class="icon"><use href="#i-x"/></svg></button>
@@ -909,7 +820,6 @@ textarea{resize:vertical}
   </div>
 </div>
 
-<!-- ================= NOTIFICATIONS ================= -->
 <div class="modal-bg" id="notifModal">
   <div class="modal">
     <button type="button" class="close-x" onclick="closeModal('notifModal')"><svg class="icon"><use href="#i-x"/></svg></button>
@@ -919,7 +829,6 @@ textarea{resize:vertical}
   </div>
 </div>
 
-<!-- ================= EDIT PROFILE ================= -->
 <div class="modal-bg" id="editProfileModal">
   <div class="modal">
     <button type="button" class="close-x" onclick="closeModal('editProfileModal')"><svg class="icon"><use href="#i-x"/></svg></button>
@@ -935,7 +844,6 @@ textarea{resize:vertical}
   </div>
 </div>
 
-<!-- ================= CHANGE PASSWORD ================= -->
 <div class="modal-bg" id="changePassModal">
   <div class="modal">
     <button type="button" class="close-x" onclick="closeModal('changePassModal')"><svg class="icon"><use href="#i-x"/></svg></button>
@@ -950,7 +858,6 @@ textarea{resize:vertical}
   </div>
 </div>
 
-<!-- ================= FORGOT ================= -->
 <div class="modal-bg" id="forgotModal">
   <div class="modal">
     <button type="button" class="close-x" onclick="closeModal('forgotModal')"><svg class="icon"><use href="#i-x"/></svg></button>
@@ -973,7 +880,6 @@ textarea{resize:vertical}
   </div>
 </div>
 
-<!-- ================= FAQ ================= -->
 <div class="modal-bg" id="faqModal">
   <div class="modal">
     <button type="button" class="close-x" onclick="closeModal('faqModal')"><svg class="icon"><use href="#i-x"/></svg></button>
@@ -988,7 +894,6 @@ textarea{resize:vertical}
   </div>
 </div>
 
-<!-- ================= CAREERS ================= -->
 <div class="modal-bg" id="careersModal">
   <div class="modal">
     <button type="button" class="close-x" onclick="closeModal('careersModal')"><svg class="icon"><use href="#i-x"/></svg></button>
@@ -1006,7 +911,6 @@ textarea{resize:vertical}
   </div>
 </div>
 
-<!-- ================= ADMIN LOGIN ================= -->
 <div class="modal-bg" id="adminLoginModal">
   <div class="modal">
     <button type="button" class="close-x" onclick="closeModal('adminLoginModal')"><svg class="icon"><use href="#i-x"/></svg></button>
@@ -1021,12 +925,17 @@ textarea{resize:vertical}
   </div>
 </div>
 
-<!-- ================= ADMIN PANEL ================= -->
 <div class="modal-bg" id="adminPanel">
   <div class="modal wide">
     <button type="button" class="close-x" onclick="closeModal('adminPanel')"><svg class="icon"><use href="#i-x"/></svg></button>
     <h2><svg class="icon"><use href="#i-crown"/></svg> Admin Panel</h2>
     <p class="modal-sub">Manage users, withdrawals, videos</p>
+    <div style="text-align:center;margin-bottom:12px">
+      <span class="cloud-status" id="cloudStatusAdmin"><svg class="icon icon-xs"><use href="#i-cloud"/></svg> Cloud: <span id="cloudStatusTextAdmin">—</span></span>
+      <button type="button" class="btn sm blue" onclick="manualCloudSync()" style="margin-left:8px">
+        <svg class="icon icon-xs"><use href="#i-refresh"/></svg> Sync Now
+      </button>
+    </div>
     <div class="stats" id="adminStats"></div>
     <div class="admin-tab-bar">
       <button type="button" class="admin-tab active" data-tab="wd" onclick="switchAdminTab('wd')"><svg class="icon"><use href="#i-wallet"/></svg> Withdrawals</button>
@@ -1040,17 +949,18 @@ textarea{resize:vertical}
 
 <div class="toast" id="toast"></div>
 
-<!-- ================= SOCIAL BAR / NATIVE AD ================= -->
 <script async="async" data-cfasync="false" src="https://pl31561620.profitableratecpmnetwork.com/a9b7e749926ac19813c13c44c690659e/invoke.js"></script>
 <div id="container-a9b7e749926ac19813c13c44c690659e"></div>
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics.js";
+import { getDatabase } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDYr2xo5GHO-_y1c5ZArCbBoIhSzhA_QYM",
   authDomain: "earningsbee-60bf3.firebaseapp.com",
+  databaseURL: "https://earningsbee-60bf3-default-rtdb.firebaseio.com",
   projectId: "earningsbee-60bf3",
   storageBucket: "earningsbee-60bf3.firebasestorage.app",
   messagingSenderId: "588932440540",
@@ -1060,11 +970,15 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+const database = getDatabase(app);
+
+// Expose URL for REST API sync
+window.__RTDB_URL = firebaseConfig.databaseURL;
 </script>
 <script>
 'use strict';
 
-/* ============================================================
+/* ============================================================ 
    CONFIG
    ============================================================ */
 const CONFIG = {
@@ -1080,6 +994,94 @@ const CONFIG = {
   ADMIN_PASS: '12345678'
 };
 
+/* ============ FIREBASE CLOUD SYNC ============ */
+const RTDB_URL = window.__RTDB_URL || 'https://earningsbee-60bf3-default-rtdb.firebaseio.com';
+
+async function fbFetchUsers(){
+  if (!RTDB_URL) return null;
+  try {
+    const r = await fetch(RTDB_URL + '/users.json');
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    const data = await r.json();
+    if (!data) return [];
+    return Object.values(data);
+  } catch(e){ console.warn('FB fetch:', e.message); return null; }
+}
+
+async function fbPushUser(user){
+  if (!RTDB_URL || !user || !user.id) return false;
+  try {
+    const r = await fetch(RTDB_URL + '/users/' + encodeURIComponent(user.id) + '.json', {
+      method: 'PUT', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(user)
+    });
+    return r.ok;
+  } catch(e){ return false; }
+}
+
+async function fbPushVideos(){
+  if (!RTDB_URL) return false;
+  try {
+    const r = await fetch(RTDB_URL + '/videos.json', {method:'PUT', headers:{'Content-Type':'application/json'}, body:JSON.stringify(VIDEOS)});
+    return r.ok;
+  } catch(e){ return false; }
+}
+
+async function fbPushAds(){
+  if (!RTDB_URL) return false;
+  try {
+    const r = await fetch(RTDB_URL + '/ads.json', {method:'PUT', headers:{'Content-Type':'application/json'}, body:JSON.stringify(ADS)});
+    return r.ok;
+  } catch(e){ return false; }
+}
+
+async function syncFromCloud(silent){
+  if (!RTDB_URL){ updateCloudStatus('offline', 'Not configured'); return null; }
+  try {
+    const cloudUsers = await fbFetchUsers();
+    if (cloudUsers === null){
+      updateCloudStatus('offline', 'Offline');
+      if (!silent) showToast('Cloud sync fail — internet check karo', 'warn');
+      return null;
+    }
+    const localUsers = getUsers();
+    const cloudIds = new Set(cloudUsers.map(u => u.id));
+    const localOnly = localUsers.filter(u => !cloudIds.has(u.id));
+    const merged = [...cloudUsers, ...localOnly];
+    try { localStorage.setItem('eb_users', JSON.stringify(merged)); } catch(e){}
+
+    try {
+      const vr = await fetch(RTDB_URL + '/videos.json');
+      const vdata = await vr.json();
+      if (Array.isArray(vdata) && vdata.length){ VIDEOS = vdata; try { localStorage.setItem('eb_videos', JSON.stringify(VIDEOS)); } catch(e){} }
+    } catch(e){}
+    try {
+      const ar = await fetch(RTDB_URL + '/ads.json');
+      const adata = await ar.json();
+      if (Array.isArray(adata) && adata.length){ ADS = adata; try { localStorage.setItem('eb_ads', JSON.stringify(ADS)); } catch(e){} }
+    } catch(e){}
+    updateCloudStatus('online', 'Synced');
+    return merged;
+  } catch(e){ updateCloudStatus('offline', 'Error'); return null; }
+}
+
+function updateCloudStatus(state, text){
+  ['cloudStatus','cloudStatusAdmin'].forEach(id => {
+    const el = $(id);
+    if (!el) return;
+    el.classList.remove('online','offline');
+    el.classList.add(state);
+    const txt = $(id + 'Text');
+    if (txt) txt.textContent = text;
+  });
+}
+
+async function manualCloudSync(){
+  showToast('Syncing...', 'warn');
+  await syncFromCloud();
+  renderAdmin();
+  showToast('Cloud sync complete', 'success');
+}
+
 let VIDEOS = [];
 let ADS = [];
 const MISSIONS = [
@@ -1092,7 +1094,7 @@ let userData = null;
 let currentVideo = null;
 let videoTimer = null;
 let wdTimer = null;
-let wdMethod = 'jazcash';
+let wdMethod = 'jazzcash';
 let adminTab = 'wd';
 let clickBuffer = [];
 let tempProfilePhoto = '';
@@ -1106,15 +1108,12 @@ const toRupees = p => Math.floor((p||0) / CONFIG.pointsPerRupee);
 const formatRupees = p => 'Rs ' + toRupees(p).toLocaleString('en-PK');
 const formatNum = n => Number(n||0).toLocaleString('en-PK');
 
-/* ⭐ FIX: YouTube ID extractor — full URL ya sirf ID dono accept karta hai */
 function extractYouTubeId(input){
   if (!input) return '';
   input = String(input).trim();
-  // Agar sirf 11-char ID hai
   if (/^[a-zA-Z0-9_-]{11}$/.test(input)) return input;
-  // URL formats parse karo
   const patterns = [
-    /(?:youtube\.com\/watch\?[^#]*?v=|youtu\.be\/|youtube\.com\/embed\/|youtube\.com\/shorts\/|youtube\.com\/v\/)([a-zA-Z0-9_-]{11})/,
+    /(?:youtube\.com\/(?:watch\?(?:[^#]*&)?v=|embed\/|shorts\/|live\/|v\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/,
     /[?&]v=([a-zA-Z0-9_-]{11})/
   ];
   for (let i = 0; i < patterns.length; i++){
@@ -1124,7 +1123,6 @@ function extractYouTubeId(input){
   return input;
 }
 
-/* ⭐ FIX: Thumbnail ab extract karta hai ID pehle */
 function ytThumb(id){
   const ytId = extractYouTubeId(id);
   return /^[a-zA-Z0-9_-]{11}$/.test(ytId) ? 'https://img.youtube.com/vi/' + ytId + '/mqdefault.jpg' : '';
@@ -1155,7 +1153,6 @@ function showToast(msg, type){
 function openModal(id){ const el = $(id); if (el){ el.classList.add('active'); document.body.style.overflow = 'hidden'; } }
 function closeModal(id){ const el = $(id); if (el){ el.classList.remove('active'); document.body.style.overflow = ''; } }
 
-/* ============ STORAGE ============ */
 function getUsers(){ try { return JSON.parse(localStorage.getItem('eb_users') || '[]') || []; } catch(e){ return []; } }
 function saveUsers(u){ try { localStorage.setItem('eb_users', JSON.stringify(u)); return true; } catch(e){ showToast('Storage full!', 'error'); return false; } }
 function getSession(){ try { return JSON.parse(localStorage.getItem('eb_session') || 'null'); } catch(e){ return null; } }
@@ -1168,39 +1165,43 @@ function persistUser(){
   const users = getUsers();
   const idx = users.findIndex(u => u.email === userData.email);
   if (idx >= 0){ users[idx] = userData; saveUsers(users); }
+  fbPushUser(userData);
 }
 
-/* ⭐ FIX: Default videos ab DIFFERENT YouTube IDs ke saath */
+const DEFAULT_VIDEOS = [
+  { id:'v1', title:'How to Earn Online in Pakistan', duration:30, youtubeId:'dQw4w9WgXcQ' },
+  { id:'v2', title:'Freelancing Success Story',       duration:30, youtubeId:'9bZkp7q19f0' },
+  { id:'v3', title:'Crypto Trading Basics',           duration:30, youtubeId:'kJQP7kiw5Fk' },
+  { id:'v4', title:'Digital Marketing Tips',          duration:30, youtubeId:'JGwWNGJdvx8' },
+  { id:'v5', title:'Passive Income Ideas 2026',       duration:30, youtubeId:'RgKAFK5djSk' },
+  { id:'v6', title:'Amazon FBA Complete Guide',       duration:30, youtubeId:'OPf0YbXqDm0' }
+];
+const DEFAULT_ADS = [
+  { id:'a1', title:'Shopping Deal — 50% Off', icon:'i-credit-card', duration:15 },
+  { id:'a2', title:'Mobile App Promo', icon:'i-phone', duration:15 },
+  { id:'a3', title:'Food Delivery Offer', icon:'i-gift', duration:15 },
+  { id:'a4', title:'Travel Package Deal', icon:'i-map-pin', duration:15 }
+];
+
 function loadVideos(){
-  try { VIDEOS = JSON.parse(localStorage.getItem('eb_videos') || 'null') || []; } catch(e){ VIDEOS = []; }
-  if (!VIDEOS.length){
-    VIDEOS = [
-      { id:'v1', title:'How to Earn Online in Pakistan', duration:30, youtubeId:'dQw4w9WgXcQ' },
-      { id:'v2', title:'Freelancing Success Story',       duration:30, youtubeId:'9bZkp7q19f0' },
-      { id:'v3', title:'Crypto Trading Basics',           duration:30, youtubeId:'kJQP7kiw5Fk' },
-      { id:'v4', title:'Digital Marketing Tips',          duration:30, youtubeId:'JGwWNGJdvx8' },
-      { id:'v5', title:'Passive Income Ideas 2026',       duration:30, youtubeId:'RgKAFK5djSk' },
-      { id:'v6', title:'Amazon FBA Complete Guide',       duration:30, youtubeId:'OPf0YbXqDm0' }
-    ];
-    saveVideos();
+  try { VIDEOS = JSON.parse(localStorage.getItem('eb_videos') || '[]') || []; } catch(e){ VIDEOS = []; }
+  const initialized = localStorage.getItem('eb_videos_init');
+  if (!initialized){
+    if (!VIDEOS.length){ VIDEOS = DEFAULT_VIDEOS.map(v => ({...v})); saveVideos(); }
+    try { localStorage.setItem('eb_videos_init', '1'); } catch(e){}
   }
 }
 function loadAds(){
-  try { ADS = JSON.parse(localStorage.getItem('eb_ads') || 'null') || []; } catch(e){ ADS = []; }
-  if (!ADS.length){
-    ADS = [
-      { id:'a1', title:'Shopping Deal — 50% Off', icon:'i-credit-card', duration:15 },
-      { id:'a2', title:'Mobile App Promo', icon:'i-phone', duration:15 },
-      { id:'a3', title:'Food Delivery Offer', icon:'i-gift', duration:15 },
-      { id:'a4', title:'Travel Package Deal', icon:'i-map-pin', duration:15 }
-    ];
-    saveAds();
+  try { ADS = JSON.parse(localStorage.getItem('eb_ads') || '[]') || []; } catch(e){ ADS = []; }
+  const initialized = localStorage.getItem('eb_ads_init');
+  if (!initialized){
+    if (!ADS.length){ ADS = DEFAULT_ADS.map(a => ({...a})); saveAds(); }
+    try { localStorage.setItem('eb_ads_init', '1'); } catch(e){}
   }
 }
-function saveVideos(){ try { localStorage.setItem('eb_videos', JSON.stringify(VIDEOS)); } catch(e){} }
-function saveAds(){ try { localStorage.setItem('eb_ads', JSON.stringify(ADS)); } catch(e){} }
+function saveVideos(){ try { localStorage.setItem('eb_videos', JSON.stringify(VIDEOS)); } catch(e){} fbPushVideos(); }
+function saveAds(){ try { localStorage.setItem('eb_ads', JSON.stringify(ADS)); } catch(e){} fbPushAds(); }
 
-/* ============ AUTH ============ */
 function switchAuth(tab){
   const tL = $('tabLogin'), tS = $('tabSignup');
   const pL = $('paneLogin'), pS = $('paneSignup');
@@ -1210,7 +1211,7 @@ function switchAuth(tab){
   if (pS) pS.classList.toggle('active', tab === 'signup');
 }
 
-function doSignup(){
+async function doSignup(){
   try {
     const name = ($('suName').value || '').trim();
     const email = ($('suEmail').value || '').trim().toLowerCase();
@@ -1258,22 +1259,24 @@ function doSignup(){
         saveUsers(users);
       }
     }
+    await fbPushUser(newUser);
     setSession(newUser);
     initApp(newUser);
-    showToast('Account created successfully', 'success');
+    showToast('Account created & cloud synced ✓', 'success');
   } catch(e){
     console.error(e);
     $('signupErr').textContent = 'Error: ' + e.message;
   }
 }
 
-function doLogin(){
+async function doLogin(){
   try {
     const email = ($('loginEmail').value || '').trim().toLowerCase();
     const pass = $('loginPass').value || '';
     const err = $('loginErr');
     err.textContent = '';
     if (!email || !pass){ err.textContent = 'Email & password required'; return; }
+    await syncFromCloud(true);
     const user = findUser(email);
     if (!user){ err.textContent = 'Account not found. Please sign up.'; return; }
     if (user.banned){ err.textContent = 'Account banned: ' + (user.banReason || 'Violation'); return; }
@@ -1298,7 +1301,7 @@ function doLogout(){
   clearInterval(wdTimer);
 }
 
-function initApp(user){
+async function initApp(user){
   userData = findUser(user.email) || user;
   if (!userData) return;
   $('authScreen').style.display = 'none';
@@ -1307,6 +1310,8 @@ function initApp(user){
   checkRefs();
   renderAll();
   showPage('home');
+  await syncFromCloud(true);
+  if (userData){ userData = findUser(userData.email) || userData; renderAll(); }
 }
 
 function resetDaily(){
@@ -1367,11 +1372,7 @@ function showPage(page){
 
 function renderAll(){
   if (!userData) return;
-  renderBalance();
-  renderStreak();
-  renderMissions();
-  renderTasks();
-  renderNotifications();
+  renderBalance(); renderStreak(); renderMissions(); renderTasks(); renderNotifications();
 }
 
 function renderBalance(){
@@ -1387,9 +1388,7 @@ function renderBalance(){
 
 function renderStreak(){
   let daysHTML = '';
-  for (let i = 0; i < 7; i++){
-    daysHTML += '<span class="' + (i < (userData.streak || 0) ? 'on' : '') + '"></span>';
-  }
+  for (let i = 0; i < 7; i++) daysHTML += '<span class="' + (i < (userData.streak || 0) ? 'on' : '') + '"></span>';
   $('streakDays').innerHTML = daysHTML;
   if (!userData.streak || userData.streak === 0){
     $('streakTitle').textContent = 'Start Your Streak!';
@@ -1416,67 +1415,29 @@ function renderMissions(){
     const claimed1 = claimed.includes(m.id);
     if (done && claimed1) completedCount++;
     const pct = Math.min(100, Math.round((cur / m.target) * 100));
-    return '<div class="mission">' +
-      '<div class="mission-icon">' + iconHTML(m.icon) + '</div>' +
-      '<div class="mission-info">' +
-        '<h4>' + m.title + '</h4>' +
-        '<div class="meta">' + iconHTML('i-coin','icon-xs') + ' ' + cur + '/' + m.target + ' • +' + m.reward + ' pts</div>' +
-        '<div class="mission-bar"><div class="mission-bar-fill" style="width:' + pct + '%"></div></div>' +
-      '</div>' +
-      '<button type="button" class="btn sm ' + (done && !claimed1 ? 'green' : 'gray') + '" onclick="claimMission(\'' + m.id + '\')" ' + (!done || claimed1 ? 'disabled' : '') + '>' +
-        (claimed1 ? iconHTML('i-check') : done ? 'Claim' : iconHTML('i-lock')) +
-      '</button>' +
-    '</div>';
+    return '<div class="mission"><div class="mission-icon">' + iconHTML(m.icon) + '</div><div class="mission-info"><h4>' + m.title + '</h4><div class="meta">' + iconHTML('i-coin','icon-xs') + ' ' + cur + '/' + m.target + ' • +' + m.reward + ' pts</div><div class="mission-bar"><div class="mission-bar-fill" style="width:' + pct + '%"></div></div></div><button type="button" class="btn sm ' + (done && !claimed1 ? 'green' : 'gray') + '" onclick="claimMission(\'' + m.id + '\')" ' + (!done || claimed1 ? 'disabled' : '') + '>' + (claimed1 ? iconHTML('i-check') : done ? 'Claim' : iconHTML('i-lock')) + '</button></div>';
   }).join('');
   $('missionBadge').textContent = completedCount + '/' + MISSIONS.length;
 }
 
 function videoTaskHTML(v, done){
   const thumb = ytThumb(v.youtubeId);
-  const thumbHTML = thumb
-    ? '<div class="task-thumb"><img src="' + thumb + '" alt="" onerror="this.style.display=\'none\'"><div class="play-overlay">' + iconHTML('i-play') + '</div></div>'
-    : '<div class="task-thumb icon-thumb">' + iconHTML('i-video') + '</div>';
-  return '<div class="task ' + (done ? 'done' : '') + '">' +
-    thumbHTML +
-    '<div class="task-info">' +
-      '<h4>' + escapeHtml(v.title) + '</h4>' +
-      '<div class="meta">' + v.duration + 's watch ' +
-        '<span class="task-reward">' + iconHTML('i-coin','icon-xs') + ' +' + CONFIG.videoReward + ' pts</span>' +
-      '</div>' +
-    '</div>' +
-    '<button type="button" class="btn sm ' + (done ? 'gray' : '') + '" onclick="openVideo(\'' + v.id + '\',\'video\')" ' + (done ? 'disabled' : '') + '>' +
-      (done ? iconHTML('i-check') + ' Done' : iconHTML('i-play') + ' Watch') +
-    '</button>' +
-  '</div>';
+  const thumbHTML = thumb ? '<div class="task-thumb"><img src="' + thumb + '" alt="" onerror="this.style.display=\'none\'"><div class="play-overlay">' + iconHTML('i-play') + '</div></div>' : '<div class="task-thumb icon-thumb">' + iconHTML('i-video') + '</div>';
+  return '<div class="task ' + (done ? 'done' : '') + '">' + thumbHTML + '<div class="task-info"><h4>' + escapeHtml(v.title) + '</h4><div class="meta">' + v.duration + 's watch <span class="task-reward">' + iconHTML('i-coin','icon-xs') + ' +' + CONFIG.videoReward + ' pts</span></div></div><button type="button" class="btn sm ' + (done ? 'gray' : '') + '" onclick="openVideo(\'' + v.id + '\',\'video\')" ' + (done ? 'disabled' : '') + '>' + (done ? iconHTML('i-check') + ' Done' : iconHTML('i-play') + ' Watch') + '</button></div>';
 }
 
 function adTaskHTML(a, done){
-  return '<div class="task ' + (done ? 'done' : '') + '">' +
-    '<div class="task-thumb icon-thumb" style="background:linear-gradient(135deg,#3b82f6,#1d4ed8);color:#fff">' + iconHTML(a.icon || 'i-monitor') + '</div>' +
-    '<div class="task-info">' +
-      '<h4>' + escapeHtml(a.title) + '</h4>' +
-      '<div class="meta">' + a.duration + 's watch ' +
-        '<span class="task-reward">' + iconHTML('i-coin','icon-xs') + ' +' + CONFIG.adReward + ' pts</span>' +
-      '</div>' +
-    '</div>' +
-    '<button type="button" class="btn sm ' + (done ? 'gray' : '') + '" onclick="openVideo(\'' + a.id + '\',\'ad\')" ' + (done ? 'disabled' : '') + '>' +
-      (done ? iconHTML('i-check') + ' Done' : iconHTML('i-play') + ' Watch') +
-    '</button>' +
-  '</div>';
+  return '<div class="task ' + (done ? 'done' : '') + '"><div class="task-thumb icon-thumb" style="background:linear-gradient(135deg,#3b82f6,#1d4ed8);color:#fff">' + iconHTML(a.icon || 'i-monitor') + '</div><div class="task-info"><h4>' + escapeHtml(a.title) + '</h4><div class="meta">' + a.duration + 's watch <span class="task-reward">' + iconHTML('i-coin','icon-xs') + ' +' + CONFIG.adReward + ' pts</span></div></div><button type="button" class="btn sm ' + (done ? 'gray' : '') + '" onclick="openVideo(\'' + a.id + '\',\'ad\')" ' + (done ? 'disabled' : '') + '>' + (done ? iconHTML('i-check') + ' Done' : iconHTML('i-play') + ' Watch') + '</button></div>';
 }
 
 function renderTasks(){
   const tasks = userData.tasksToday || [];
   const vDone = tasks.filter(t => t.type === 'video').map(t => t.id);
   const aDone = tasks.filter(t => t.type === 'ad').map(t => t.id);
-  $('homeVideos').innerHTML = VIDEOS.slice(0,3).map(v => videoTaskHTML(v, vDone.includes(v.id))).join('') ||
-    '<div class="empty"><div class="empty-icon">' + iconHTML('i-video') + '</div><h3>No videos available</h3><p>Admin will add videos soon</p></div>';
-  $('homeAds').innerHTML = ADS.slice(0,2).map(a => adTaskHTML(a, aDone.includes(a.id))).join('') ||
-    '<div class="empty"><div class="empty-icon">' + iconHTML('i-monitor') + '</div><h3>No ads available</h3><p>Check back later</p></div>';
-  $('allVideos').innerHTML = VIDEOS.map(v => videoTaskHTML(v, vDone.includes(v.id))).join('') ||
-    '<div class="empty"><div class="empty-icon">' + iconHTML('i-video') + '</div><h3>No videos</h3><p>Admin will add videos soon</p></div>';
-  $('allAds').innerHTML = ADS.map(a => adTaskHTML(a, aDone.includes(a.id))).join('') ||
-    '<div class="empty"><div class="empty-icon">' + iconHTML('i-monitor') + '</div><h3>No ads</h3><p>Check back later</p></div>';
+  $('homeVideos').innerHTML = VIDEOS.slice(0,3).map(v => videoTaskHTML(v, vDone.includes(v.id))).join('') || '<div class="empty"><div class="empty-icon">' + iconHTML('i-video') + '</div><h3>No videos available</h3></div>';
+  $('homeAds').innerHTML = ADS.slice(0,2).map(a => adTaskHTML(a, aDone.includes(a.id))).join('') || '<div class="empty"><div class="empty-icon">' + iconHTML('i-monitor') + '</div><h3>No ads available</h3></div>';
+  $('allVideos').innerHTML = VIDEOS.map(v => videoTaskHTML(v, vDone.includes(v.id))).join('') || '<div class="empty"><div class="empty-icon">' + iconHTML('i-video') + '</div><h3>No videos</h3></div>';
+  $('allAds').innerHTML = ADS.map(a => adTaskHTML(a, aDone.includes(a.id))).join('') || '<div class="empty"><div class="empty-icon">' + iconHTML('i-monitor') + '</div><h3>No ads</h3></div>';
   const remaining = VIDEOS.length + ADS.length - tasks.length;
   $('tasksRemaining').textContent = Math.max(0, remaining) + ' remaining';
 }
@@ -1488,17 +1449,11 @@ function renderRefer(){
   $('refActive').textContent = (userData.pendingReferrals || []).filter(r => r.qualified).length;
   $('refEarned').textContent = 'Rs ' + (userData.referralEarned || 0);
   const refs = userData.pendingReferrals || [];
-  if (!refs.length){
-    $('refList').innerHTML = '<div class="empty"><div class="empty-icon">' + iconHTML('i-users') + '</div><h3>No referrals yet</h3><p>Share your link to start earning Rs 100 per friend</p></div>';
-    return;
-  }
+  if (!refs.length){ $('refList').innerHTML = '<div class="empty"><div class="empty-icon">' + iconHTML('i-users') + '</div><h3>No referrals yet</h3></div>'; return; }
   $('refList').innerHTML = refs.map(r => {
     const u = findUser(r.email);
     const days = (u && u.activeDays) ? u.activeDays.length : 0;
-    return '<div class="admin-item">' +
-      '<h4>' + (r.qualified ? iconHTML('i-check-circle','icon-sm') : iconHTML('i-clock','icon-sm')) + ' ' + escapeHtml(u ? u.name : r.email) + '</h4>' +
-      '<p>' + (r.qualified ? '<strong style="color:var(--success)">Qualified • Rs 100 earned</strong>' : 'Pending • ' + days + '/' + CONFIG.referralActiveDays + ' days active') + '</p>' +
-    '</div>';
+    return '<div class="admin-item"><h4>' + (r.qualified ? iconHTML('i-check-circle','icon-sm') : iconHTML('i-clock','icon-sm')) + ' ' + escapeHtml(u ? u.name : r.email) + '</h4><p>' + (r.qualified ? '<strong style="color:var(--success)">Qualified • Rs 100 earned</strong>' : 'Pending • ' + days + '/' + CONFIG.referralActiveDays + ' days active') + '</p></div>';
   }).join('');
 }
 
@@ -1506,31 +1461,18 @@ function renderWithdraw(){
   $('wdBalance').innerHTML = formatNum(userData.points) + ' <small>pts</small>';
   $('wdBalancePkr').textContent = '≈ ' + formatRupees(userData.points);
   const wds = userData.withdrawals || [];
-  if (!wds.length){
-    $('wdHistory').innerHTML = '<div class="empty"><div class="empty-icon">' + iconHTML('i-wallet') + '</div><h3>No withdrawals yet</h3><p>Earn 5000+ points to withdraw</p></div>';
-  } else {
+  if (!wds.length){ $('wdHistory').innerHTML = '<div class="empty"><div class="empty-icon">' + iconHTML('i-wallet') + '</div><h3>No withdrawals yet</h3></div>'; }
+  else {
     $('wdHistory').innerHTML = wds.slice().reverse().map(w => {
       const statusIcon = w.status === 'completed' ? 'i-check-circle' : w.status === 'rejected' ? 'i-x' : 'i-clock';
       const statusColor = w.status === 'completed' ? 'var(--success)' : w.status === 'rejected' ? 'var(--danger)' : 'var(--primary-dark)';
-      return '<div class="admin-item">' +
-        '<h4>' + iconHTML(statusIcon,'icon-sm') + ' Rs ' + toRupees(w.amount) + ' → ' + escapeHtml(w.method) + '</h4>' +
-        '<p>' + escapeHtml(w.account) + '</p>' +
-        '<p style="color:' + statusColor + ';font-weight:800">' + w.status.toUpperCase() + '</p>' +
-        '<p style="font-size:.68rem">' + timeAgo(w.ts) + '</p>' +
-      '</div>';
+      return '<div class="admin-item"><h4>' + iconHTML(statusIcon,'icon-sm') + ' Rs ' + toRupees(w.amount) + ' → ' + escapeHtml(w.method) + '</h4><p>' + escapeHtml(w.account) + '</p><p style="color:' + statusColor + ';font-weight:800">' + w.status.toUpperCase() + '</p><p style="font-size:.68rem">' + timeAgo(w.ts) + '</p></div>';
     }).join('');
   }
   const active = wds.find(w => w.status === 'pending' || w.status === 'processing');
   if (active){
-    $('wdStatusBox').innerHTML = '<div class="timer-box">' +
-      '<svg class="icon icon-top"><use href="#i-check-circle"/></svg>' +
-      '<h3>' + (active.status === 'processing' ? 'Aapka withdrawal process ho raha hai' : 'Aapka withdrawal approval ka intezar kar raha hai') + '</h3>' +
-      '<div class="timer-lbl">Complete hone par aapko notification milegi</div>' +
-    '</div>';
-  } else {
-    $('wdStatusBox').innerHTML = '';
-    clearInterval(wdTimer);
-  }
+    $('wdStatusBox').innerHTML = '<div class="timer-box"><svg class="icon icon-top"><use href="#i-check-circle"/></svg><h3>' + (active.status === 'processing' ? 'Aapka withdrawal process ho raha hai' : 'Aapka withdrawal approval ka intezar kar raha hai') + '</h3><div class="timer-lbl">Complete hone par aapko notification milegi</div></div>';
+  } else { $('wdStatusBox').innerHTML = ''; clearInterval(wdTimer); }
 }
 
 function renderProfile(){
@@ -1551,27 +1493,15 @@ function renderNotifications(){
   const badge = $('notifBadge');
   if (unread > 0){ badge.style.display = 'flex'; badge.textContent = unread; }
   else badge.style.display = 'none';
-  if (!notifs.length){
-    $('notifList').innerHTML = '<div class="empty"><div class="empty-icon">' + iconHTML('i-bell') + '</div><h3>No notifications</h3><p>Your activity will show here</p></div>';
-    return;
-  }
-  $('notifList').innerHTML = notifs.map(n => 
-    '<div class="admin-item" style="' + (n.read ? '' : 'background:var(--primary-bg-2);border-color:var(--border-3)') + '">' +
-      '<h4>' + iconHTML('i-bell','icon-sm') + ' ' + escapeHtml(n.title) + '</h4>' +
-      '<p>' + escapeHtml(n.body) + '</p>' +
-      '<p style="font-size:.68rem;color:var(--text-3)">' + timeAgo(n.ts) + '</p>' +
-    '</div>'
-  ).join('');
+  if (!notifs.length){ $('notifList').innerHTML = '<div class="empty"><div class="empty-icon">' + iconHTML('i-bell') + '</div><h3>No notifications</h3></div>'; return; }
+  $('notifList').innerHTML = notifs.map(n => '<div class="admin-item" style="' + (n.read ? '' : 'background:var(--primary-bg-2);border-color:var(--border-3)') + '"><h4>' + iconHTML('i-bell','icon-sm') + ' ' + escapeHtml(n.title) + '</h4><p>' + escapeHtml(n.body) + '</p><p style="font-size:.68rem;color:var(--text-3)">' + timeAgo(n.ts) + '</p></div>').join('');
 }
 
 function openNotifications(){
   (userData.notifications || []).forEach(n => n.read = true);
-  persistUser();
-  renderNotifications();
-  openModal('notifModal');
+  persistUser(); renderNotifications(); openModal('notifModal');
 }
 
-/* ⭐ FIX: Video open karne se pehle YouTube ID extract karo */
 function openVideo(id, type){
   const item = type === 'video' ? VIDEOS.find(v => v.id === id) : ADS.find(a => a.id === id);
   if (!item) return;
@@ -1585,27 +1515,19 @@ function openVideo(id, type){
   if (type === 'video' && item.youtubeId){
     const ytId = extractYouTubeId(item.youtubeId);
     if (!/^[a-zA-Z0-9_-]{11}$/.test(ytId)){
-      $('videoFrame').innerHTML = '<div style="position:absolute;inset:0;background:#111;color:#fff;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px">' +
-        '<div><p style="font-weight:800;font-size:1.1rem;margin-bottom:8px">Invalid YouTube Link</p><p style="font-size:.8rem;opacity:.7">Video ID: ' + escapeHtml(item.youtubeId || '(empty)') + '</p></div>' +
-      '</div>';
+      $('videoFrame').innerHTML = '<div style="position:absolute;inset:0;background:#111;color:#fff;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px"><div><p style="font-weight:800;font-size:1.1rem;margin-bottom:8px">Invalid YouTube Link</p><p style="font-size:.8rem;opacity:.7">ID: ' + escapeHtml(item.youtubeId || '(empty)') + '</p></div></div>';
     } else {
       $('videoFrame').innerHTML = '<iframe src="https://www.youtube.com/embed/' + ytId + '?autoplay=1&mute=1&controls=1&modestbranding=1&rel=0&playsinline=1" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
     }
   } else {
     const icon = item.icon || 'i-monitor';
-    $('videoFrame').innerHTML = '<div style="position:absolute;inset:0;background:linear-gradient(135deg,#1e3a8a,#3b82f6);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;padding:20px;text-align:center">' +
-      '<div style="margin-bottom:16px">' + iconHTML(icon,'icon-3xl') + '</div>' +
-      '<h3 style="font-size:1.2rem;font-weight:800">' + escapeHtml(item.title) + '</h3>' +
-      '<p style="opacity:.85;margin-top:8px;font-size:.85rem">Sponsored Content</p>' +
-      '<p style="opacity:.6;margin-top:20px;font-size:.75rem">Ad playing...</p>' +
-    '</div>';
+    $('videoFrame').innerHTML = '<div style="position:absolute;inset:0;background:linear-gradient(135deg,#1e3a8a,#3b82f6);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;padding:20px;text-align:center"><div style="margin-bottom:16px">' + iconHTML(icon,'icon-3xl') + '</div><h3 style="font-size:1.2rem;font-weight:800">' + escapeHtml(item.title) + '</h3><p style="opacity:.85;margin-top:8px;font-size:.85rem">Sponsored Content</p><p style="opacity:.6;margin-top:20px;font-size:.75rem">Ad playing...</p></div>';
   }
   let secs = item.duration;
   $('videoCount').textContent = secs;
   $('videoProgressFill').style.width = '0%';
   const btn = $('videoBtn');
-  btn.disabled = true;
-  btn.className = 'btn gray block lg';
+  btn.disabled = true; btn.className = 'btn gray block lg';
   btn.innerHTML = iconHTML('i-clock','icon-sm') + ' Please wait ' + secs + 's';
   btn.onclick = null;
   openModal('videoModal');
@@ -1613,19 +1535,15 @@ function openVideo(id, type){
   videoTimer = setInterval(() => {
     secs--;
     if (secs < 0) secs = 0;
-    const el = $('videoCount');
-    if (el) el.textContent = secs;
+    const el = $('videoCount'); if (el) el.textContent = secs;
     const pct = ((item.duration - secs) / item.duration) * 100;
-    const pf = $('videoProgressFill');
-    if (pf) pf.style.width = pct + '%';
-    const b = $('videoBtn');
-    if (b && secs > 0) b.innerHTML = iconHTML('i-clock','icon-sm') + ' Please wait ' + secs + 's';
+    const pf = $('videoProgressFill'); if (pf) pf.style.width = pct + '%';
+    const b = $('videoBtn'); if (b && secs > 0) b.innerHTML = iconHTML('i-clock','icon-sm') + ' Please wait ' + secs + 's';
     if (secs <= 0){
       clearInterval(videoTimer);
       const b2 = $('videoBtn');
       if (b2){
-        b2.disabled = false;
-        b2.className = 'btn green block lg';
+        b2.disabled = false; b2.className = 'btn green block lg';
         b2.innerHTML = iconHTML('i-check-circle','icon-sm') + ' Claim +' + reward + ' points';
         b2.onclick = () => { award(reward, type, id); closeVideo(); };
       }
@@ -1649,8 +1567,7 @@ function award(points, type, id){
   else userData.adsWatched = (userData.adsWatched || 0) + 1;
   if (userData.lastActiveDate !== today()){
     if (userData.lastActiveDate){
-      const last = new Date(userData.lastActiveDate);
-      const t = new Date(today());
+      const last = new Date(userData.lastActiveDate); const t = new Date(today());
       const diff = Math.floor((t - last) / 86400000);
       if (diff === 1) userData.streak = (userData.streak || 0) + 1;
       else if (diff > 1) userData.streak = 1;
@@ -1669,31 +1586,23 @@ function claimMission(id){
   const m = MISSIONS.find(x => x.id === id);
   if (!m) return;
   userData.missionsClaimedToday = userData.missionsClaimedToday || [];
-  if (userData.missionsClaimedDate !== today()){
-    userData.missionsClaimedToday = [];
-    userData.missionsClaimedDate = today();
-  }
+  if (userData.missionsClaimedDate !== today()){ userData.missionsClaimedToday = []; userData.missionsClaimedDate = today(); }
   if (userData.missionsClaimedToday.includes(id)){ showToast('Already claimed', 'warn'); return; }
   userData.points += m.reward;
   userData.totalEarned += m.reward;
   userData.missionsCompleted = (userData.missionsCompleted || 0) + 1;
   userData.missionsClaimedToday.push(id);
-  persistUser();
-  renderAll();
+  persistUser(); renderAll();
   showToast('Mission complete! +' + m.reward + ' points', 'success');
 }
 
 function copyRefLink(){
   const input = $('refLink');
-  input.select();
-  input.setSelectionRange(0, 99999);
+  input.select(); input.setSelectionRange(0, 99999);
   try {
     if (navigator.clipboard && navigator.clipboard.writeText){
       navigator.clipboard.writeText(input.value).then(() => showToast('Link copied to clipboard', 'success'));
-    } else {
-      document.execCommand('copy');
-      showToast('Link copied', 'success');
-    }
+    } else { document.execCommand('copy'); showToast('Link copied', 'success'); }
   } catch(e){ showToast('Please copy manually', 'warn'); }
 }
 
@@ -1732,19 +1641,15 @@ function submitWithdrawal(){
     userData.withdrawals = userData.withdrawals || [];
     userData.withdrawals.push(wd);
     userData.points -= amount;
-    userData.notifications.unshift({ id: uid(), title: 'Withdrawal Requested', body: 'Rs ' + toRupees(amount) + ' ka withdrawal request submit hua. Approval ke baad aapko notification milegi.', ts: now(), read: false });
+    userData.notifications.unshift({ id: uid(), title: 'Withdrawal Requested', body: 'Rs ' + toRupees(amount) + ' ka withdrawal request submit hua.', ts: now(), read: false });
     persistUser();
     $('wdName').value = ''; $('wdNumber').value = ''; $('wdAmount').value = '';
     $('wdAmountPkr').textContent = '≈ Rs 0';
     if (wdMethod === 'bank'){ $('wdBank').value = ''; $('wdIban').value = ''; }
-    renderAll();
-    renderWithdraw();
-    alert('Withdrawal Submitted!\n\nAmount: Rs ' + toRupees(amount) + '\nMethod: ' + wdMethod.toUpperCase() + '\nAccount: ' + account + '\n\nAapko notification milegi jab admin approve karega.');
+    renderAll(); renderWithdraw();
+    alert('Withdrawal Submitted!\n\nAmount: Rs ' + toRupees(amount) + '\nMethod: ' + wdMethod.toUpperCase() + '\nAccount: ' + account);
     showToast('Withdrawal submitted', 'success');
-  } catch(e){
-    console.error(e);
-    showToast('Error: ' + e.message, 'error');
-  }
+  } catch(e){ showToast('Error: ' + e.message, 'error'); }
 }
 
 function openEditProfile(){
@@ -1756,46 +1661,28 @@ function openEditProfile(){
   else { prev.style.display = 'none'; }
   openModal('editProfileModal');
 }
-
 function handleProfilePhoto(input){
-  const file = input.files[0];
-  if (!file) return;
+  const file = input.files[0]; if (!file) return;
   if (file.size > 2 * 1024 * 1024){ showToast('Max 2MB', 'error'); return; }
   const r = new FileReader();
-  r.onload = e => {
-    tempProfilePhoto = e.target.result;
-    const prev = $('epPhotoPreview');
-    prev.src = tempProfilePhoto;
-    prev.style.display = 'block';
-  };
+  r.onload = e => { tempProfilePhoto = e.target.result; const prev = $('epPhotoPreview'); prev.src = tempProfilePhoto; prev.style.display = 'block'; };
   r.readAsDataURL(file);
 }
-
 function saveEditProfile(){
-  const n = $('epName').value.trim();
-  const p = $('epPhone').value.trim();
+  const n = $('epName').value.trim(); const p = $('epPhone').value.trim();
   if (!n || !p){ showToast('All fields required', 'error'); return; }
-  userData.name = n;
-  userData.phone = p;
-  userData.photoDataUrl = tempProfilePhoto;
-  persistUser();
-  renderProfile();
-  closeModal('editProfileModal');
+  userData.name = n; userData.phone = p; userData.photoDataUrl = tempProfilePhoto;
+  persistUser(); renderProfile(); closeModal('editProfileModal');
   showToast('Profile updated', 'success');
 }
-
 function openChangePass(){ $('cpCurrent').value=''; $('cpNew').value=''; $('cpNew2').value=''; $('cpErr').textContent=''; openModal('changePassModal'); }
 function saveChangePass(){
-  const cur = $('cpCurrent').value;
-  const nw = $('cpNew').value;
-  const nw2 = $('cpNew2').value;
+  const cur = $('cpCurrent').value, nw = $('cpNew').value, nw2 = $('cpNew2').value;
   $('cpErr').textContent = '';
   if (cur !== userData.password){ $('cpErr').textContent = 'Current password incorrect'; return; }
   if (nw.length < 6){ $('cpErr').textContent = 'Minimum 6 characters'; return; }
   if (nw !== nw2){ $('cpErr').textContent = 'Passwords do not match'; return; }
-  userData.password = nw;
-  persistUser();
-  closeModal('changePassModal');
+  userData.password = nw; persistUser(); closeModal('changePassModal');
   showToast('Password updated', 'success');
 }
 
@@ -1808,7 +1695,6 @@ function openForgot(){
   $('resetSection').style.display = 'none';
   openModal('forgotModal');
 }
-
 function requestReset(){
   const email = $('fgEmail').value.trim().toLowerCase();
   $('fgErr').textContent = ''; $('fgOk').textContent = '';
@@ -1821,12 +1707,10 @@ function requestReset(){
   $('fgOk').innerHTML = 'Reset code: <strong style="font-size:1.2rem">' + code + '</strong>';
   $('resetSection').style.display = 'block';
 }
-
 function completeReset(){
   const email = $('fgEmail').value.trim().toLowerCase();
   const code = $('fgCode').value.trim();
-  const nw = $('fgNew').value;
-  const nw2 = $('fgNew2').value;
+  const nw = $('fgNew').value, nw2 = $('fgNew2').value;
   $('fgErr').textContent = '';
   const st = resetCodes[email];
   if (!st || st.code !== code){ $('fgErr').textContent = 'Invalid code'; return; }
@@ -1838,12 +1722,12 @@ function completeReset(){
   if (idx < 0){ $('fgErr').textContent = 'User not found'; return; }
   users[idx].password = nw;
   saveUsers(users);
+  fbPushUser(users[idx]);
   delete resetCodes[email];
   try { localStorage.setItem('eb_reset', JSON.stringify(resetCodes)); } catch(e){}
   closeModal('forgotModal');
   showToast('Password reset — please login', 'success');
-  $('loginEmail').value = email;
-  switchAuth('login');
+  $('loginEmail').value = email; switchAuth('login');
 }
 
 function sendContact(){
@@ -1855,7 +1739,6 @@ function sendContact(){
   showToast('Message sent successfully', 'success');
 }
 
-/* ============ ADMIN ============ */
 function secretClick(){
   const t = now();
   clickBuffer = clickBuffer.filter(x => t - x < 3000);
@@ -1865,7 +1748,7 @@ function secretClick(){
   if (clickBuffer.length >= 5){ clickBuffer = []; openModal('adminLoginModal'); }
 }
 
-function doAdminLogin(){
+async function doAdminLogin(){
   const u = $('admUser').value.trim();
   const p = $('admPass').value;
   $('admErr').textContent = '';
@@ -1873,11 +1756,11 @@ function doAdminLogin(){
     $('admUser').value = ''; $('admPass').value = '';
     closeModal('adminLoginModal');
     openModal('adminPanel');
+    $('adminContent').innerHTML = '<div class="empty"><div class="empty-icon">' + iconHTML('i-refresh') + '</div><h3>Cloud se data aa raha hai...</h3></div>';
+    await syncFromCloud(true);
     renderAdmin();
-    showToast('Admin logged in', 'success');
-  } else {
-    $('admErr').textContent = 'Invalid credentials';
-  }
+    showToast('Admin logged in — cloud synced ✓', 'success');
+  } else { $('admErr').textContent = 'Invalid credentials'; }
 }
 
 function switchAdminTab(tab){
@@ -1901,103 +1784,22 @@ function renderAdmin(){
   const c = $('adminContent');
   
   if (adminTab === 'wd'){
-    if (!allWd.length){
-      c.innerHTML = '<div class="empty"><div class="empty-icon">' + iconHTML('i-wallet') + '</div><h3>No withdrawals</h3></div>';
-      return;
-    }
+    if (!allWd.length){ c.innerHTML = '<div class="empty"><div class="empty-icon">' + iconHTML('i-wallet') + '</div><h3>No withdrawals</h3></div>'; return; }
     c.innerHTML = allWd.sort((a,b) => b.ts - a.ts).map(w =>
-      '<div class="admin-item">' +
-        '<h4>' + iconHTML('i-user','icon-sm') + ' ' + escapeHtml(w.name) + ' • Rs ' + toRupees(w.amount) + '</h4>' +
-        '<p>' + iconHTML('i-mail','icon-xs') + ' <strong>Email:</strong> ' + escapeHtml(w.email) + '</p>' +
-        '<p>' + iconHTML('i-wallet','icon-xs') + ' <strong>Method:</strong> ' + escapeHtml(w.method) + '</p>' +
-        '<p>' + iconHTML('i-credit-card','icon-xs') + ' <strong>Account:</strong> ' + escapeHtml(w.account) + '</p>' +
-        '<p>' + iconHTML('i-phone','icon-xs') + ' <strong>Phone:</strong> ' + escapeHtml(w.number) + '</p>' +
-        '<p><strong>Status:</strong> <span style="color:' + (w.status === 'completed' ? 'var(--success)' : w.status === 'rejected' ? 'var(--danger)' : 'var(--primary-dark)') + ';font-weight:800">' + w.status.toUpperCase() + '</span></p>' +
-        '<p style="font-size:.68rem">' + timeAgo(w.ts) + '</p>' +
-        '<div class="admin-actions">' +
-          (w.status === 'pending' ? '<button type="button" class="btn sm blue" onclick="adMarkProc(\'' + w.id + '\',\'' + w.email + '\')">' + iconHTML('i-play','icon-xs') + ' Process</button>' : '') +
-          (w.status !== 'completed' && w.status !== 'rejected' ? '<button type="button" class="btn sm green" onclick="adComplete(\'' + w.id + '\',\'' + w.email + '\')">' + iconHTML('i-check','icon-xs') + ' Complete</button>' : '') +
-          (w.status !== 'completed' && w.status !== 'rejected' ? '<button type="button" class="btn sm red" onclick="adReject(\'' + w.id + '\',\'' + w.email + '\')">' + iconHTML('i-x','icon-xs') + ' Reject</button>' : '') +
-        '</div>' +
-      '</div>'
+      '<div class="admin-item"><h4>' + iconHTML('i-user','icon-sm') + ' ' + escapeHtml(w.name) + ' • Rs ' + toRupees(w.amount) + '</h4><p>' + iconHTML('i-mail','icon-xs') + ' <strong>Email:</strong> ' + escapeHtml(w.email) + '</p><p>' + iconHTML('i-wallet','icon-xs') + ' <strong>Method:</strong> ' + escapeHtml(w.method) + '</p><p>' + iconHTML('i-credit-card','icon-xs') + ' <strong>Account:</strong> ' + escapeHtml(w.account) + '</p><p>' + iconHTML('i-phone','icon-xs') + ' <strong>Phone:</strong> ' + escapeHtml(w.number) + '</p><p><strong>Status:</strong> <span style="color:' + (w.status === 'completed' ? 'var(--success)' : w.status === 'rejected' ? 'var(--danger)' : 'var(--primary-dark)') + ';font-weight:800">' + w.status.toUpperCase() + '</span></p><p style="font-size:.68rem">' + timeAgo(w.ts) + '</p><div class="admin-actions">' + (w.status === 'pending' ? '<button type="button" class="btn sm blue" onclick="adMarkProc(\'' + w.id + '\',\'' + w.email + '\')">' + iconHTML('i-play','icon-xs') + ' Process</button>' : '') + (w.status !== 'completed' && w.status !== 'rejected' ? '<button type="button" class="btn sm green" onclick="adComplete(\'' + w.id + '\',\'' + w.email + '\')">' + iconHTML('i-check','icon-xs') + ' Complete</button>' : '') + (w.status !== 'completed' && w.status !== 'rejected' ? '<button type="button" class="btn sm red" onclick="adReject(\'' + w.id + '\',\'' + w.email + '\')">' + iconHTML('i-x','icon-xs') + ' Reject</button>' : '') + '</div></div>'
     ).join('');
   }
   else if (adminTab === 'usr'){
-    if (!users.length){
-      c.innerHTML = '<div class="empty"><div class="empty-icon">' + iconHTML('i-users') + '</div><h3>No users</h3></div>';
-      return;
-    }
+    if (!users.length){ c.innerHTML = '<div class="empty"><div class="empty-icon">' + iconHTML('i-users') + '</div><h3>No users</h3></div>'; return; }
     c.innerHTML = users.map(u =>
-      '<div class="admin-item">' +
-        '<h4>' + iconHTML('i-user','icon-sm') + ' ' + escapeHtml(u.name) + (u.banned ? ' <span style="background:var(--danger);color:#fff;padding:2px 8px;border-radius:10px;font-size:.65rem">BANNED</span>' : '') + '</h4>' +
-        '<p>' + iconHTML('i-mail','icon-xs') + ' ' + escapeHtml(u.email) + '</p>' +
-        '<p>' + iconHTML('i-phone','icon-xs') + ' ' + escapeHtml(u.phone) + '</p>' +
-        '<p>' + iconHTML('i-coin','icon-xs') + ' ' + formatNum(u.points) + ' pts (Rs ' + toRupees(u.points) + ')</p>' +
-        '<p>' + iconHTML('i-users','icon-xs') + ' Refs: ' + (u.referralCount || 0) + ' • Streak: ' + (u.streak || 0) + '</p>' +
-        '<div class="admin-actions">' +
-          '<button type="button" class="btn sm blue" onclick="adAddPoints(\'' + u.email + '\')">' + iconHTML('i-plus','icon-xs') + ' Points</button>' +
-          (u.banned ? '<button type="button" class="btn sm green" onclick="adUnban(\'' + u.email + '\')">' + iconHTML('i-check','icon-xs') + ' Unban</button>' : '<button type="button" class="btn sm red" onclick="adBan(\'' + u.email + '\')">' + iconHTML('i-ban','icon-xs') + ' Ban</button>') +
-        '</div>' +
-      '</div>'
+      '<div class="admin-item"><h4>' + iconHTML('i-user','icon-sm') + ' ' + escapeHtml(u.name) + (u.banned ? ' <span style="background:var(--danger);color:#fff;padding:2px 8px;border-radius:10px;font-size:.65rem">BANNED</span>' : '') + '</h4><p>' + iconHTML('i-mail','icon-xs') + ' ' + escapeHtml(u.email) + '</p><p>' + iconHTML('i-phone','icon-xs') + ' ' + escapeHtml(u.phone) + '</p><p>' + iconHTML('i-coin','icon-xs') + ' ' + formatNum(u.points) + ' pts (Rs ' + toRupees(u.points) + ')</p><p>' + iconHTML('i-users','icon-xs') + ' Refs: ' + (u.referralCount || 0) + ' • Streak: ' + (u.streak || 0) + '</p><div class="admin-actions"><button type="button" class="btn sm blue" onclick="adAddPoints(\'' + u.email + '\')">' + iconHTML('i-plus','icon-xs') + ' Points</button>' + (u.banned ? '<button type="button" class="btn sm green" onclick="adUnban(\'' + u.email + '\')">' + iconHTML('i-check','icon-xs') + ' Unban</button>' : '<button type="button" class="btn sm red" onclick="adBan(\'' + u.email + '\')">' + iconHTML('i-ban','icon-xs') + ' Ban</button>') + '</div></div>'
     ).join('');
   }
   else if (adminTab === 'vid'){
-    c.innerHTML =
-      '<div class="admin-item" style="background:var(--primary-bg);border-color:var(--border-3)">' +
-        '<h4>' + iconHTML('i-info','icon-sm') + ' Kaise Add Karein</h4>' +
-        '<p>YouTube ka <strong>full link</strong> ya sirf <strong>Video ID</strong> daal sakte ho. Code khud ID nikaal lega.</p>' +
-        '<p>Example: <strong>https://www.youtube.com/watch?v=dQw4w9WgXcQ</strong> ya <strong>dQw4w9WgXcQ</strong></p>' +
-      '</div>' +
-      '<h3 style="font-size:.95rem;margin:14px 0 10px">' + iconHTML('i-video') + ' Videos (' + VIDEOS.length + ')</h3>' +
-      VIDEOS.map(v =>
-        '<div class="admin-item">' +
-          '<h4>' + escapeHtml(v.title) + '</h4>' +
-          '<p>' + iconHTML('i-youtube','icon-xs') + ' <strong>ID:</strong> ' + escapeHtml(v.youtubeId || '—') + '</p>' +
-          '<p>' + iconHTML('i-clock','icon-xs') + ' Duration: ' + v.duration + 's • Reward: ' + CONFIG.videoReward + ' pts</p>' +
-          '<div class="admin-actions">' +
-            '<button type="button" class="btn sm blue" onclick="adEditVideo(\'' + v.id + '\')">' + iconHTML('i-edit','icon-xs') + ' Edit</button>' +
-            '<button type="button" class="btn sm red" onclick="adDelVideo(\'' + v.id + '\')">' + iconHTML('i-trash','icon-xs') + ' Delete</button>' +
-          '</div>' +
-        '</div>'
-      ).join('') +
-      '<button type="button" class="btn green block" onclick="adAddVideo()">' + iconHTML('i-plus','icon-sm') + ' Add New Video</button>' +
-      '<button type="button" class="btn red block" onclick="adClearVideos()" style="margin-top:8px">' + iconHTML('i-trash','icon-sm') + ' Clear ALL Videos</button>' +
-      '<h3 style="font-size:.95rem;margin:20px 0 10px">' + iconHTML('i-monitor') + ' Ads (' + ADS.length + ')</h3>' +
-      ADS.map(a =>
-        '<div class="admin-item">' +
-          '<h4>' + escapeHtml(a.title) + '</h4>' +
-          '<p>' + iconHTML('i-clock','icon-xs') + ' ' + a.duration + 's • Reward: ' + CONFIG.adReward + ' pts</p>' +
-          '<div class="admin-actions">' +
-            '<button type="button" class="btn sm red" onclick="adDelAd(\'' + a.id + '\')">' + iconHTML('i-trash','icon-xs') + ' Delete</button>' +
-          '</div>' +
-        '</div>'
-      ).join('') +
-      '<button type="button" class="btn blue block" onclick="adAddAd()" style="margin-top:12px">' + iconHTML('i-plus','icon-sm') + ' Add New Ad</button>';
+    c.innerHTML = '<div class="admin-item" style="background:var(--primary-bg);border-color:var(--border-3)"><h4>' + iconHTML('i-info','icon-sm') + ' Kaise Add Karein</h4><p>YouTube ka <strong>full link</strong> ya sirf <strong>Video ID</strong> daal sakte ho.</p></div><h3 style="font-size:.95rem;margin:14px 0 10px">' + iconHTML('i-video') + ' Videos (' + VIDEOS.length + ')</h3>' + VIDEOS.map(v => '<div class="admin-item"><h4>' + escapeHtml(v.title) + '</h4><p>' + iconHTML('i-youtube','icon-xs') + ' <strong>ID:</strong> ' + escapeHtml(v.youtubeId || '—') + '</p><p>' + iconHTML('i-clock','icon-xs') + ' Duration: ' + v.duration + 's • Reward: ' + CONFIG.videoReward + ' pts</p><div class="admin-actions"><button type="button" class="btn sm blue" onclick="adEditVideo(\'' + v.id + '\')">' + iconHTML('i-edit','icon-xs') + ' Edit</button><button type="button" class="btn sm red" onclick="adDelVideo(\'' + v.id + '\')">' + iconHTML('i-trash','icon-xs') + ' Delete</button></div></div>').join('') + '<button type="button" class="btn green block" onclick="adAddVideo()">' + iconHTML('i-plus','icon-sm') + ' Add New Video</button><button type="button" class="btn red block" onclick="adClearVideos()" style="margin-top:8px">' + iconHTML('i-trash','icon-sm') + ' Clear ALL Videos</button><h3 style="font-size:.95rem;margin:20px 0 10px">' + iconHTML('i-monitor') + ' Ads (' + ADS.length + ')</h3>' + ADS.map(a => '<div class="admin-item"><h4>' + escapeHtml(a.title) + '</h4><p>' + iconHTML('i-clock','icon-xs') + ' ' + a.duration + 's • Reward: ' + CONFIG.adReward + ' pts</p><div class="admin-actions"><button type="button" class="btn sm red" onclick="adDelAd(\'' + a.id + '\')">' + iconHTML('i-trash','icon-xs') + ' Delete</button></div></div>').join('') + '<button type="button" class="btn blue block" onclick="adAddAd()" style="margin-top:12px">' + iconHTML('i-plus','icon-sm') + ' Add New Ad</button>';
   }
   else if (adminTab === 'set'){
-    c.innerHTML =
-      '<div class="admin-item">' +
-        '<h4>' + iconHTML('i-settings','icon-sm') + ' Platform Config</h4>' +
-        '<p><strong>Video Reward:</strong> ' + CONFIG.videoReward + ' points per video</p>' +
-        '<p><strong>Ad Reward:</strong> ' + CONFIG.adReward + ' points per ad</p>' +
-        '<p><strong>Points Rate:</strong> 50 points = Rs 5</p>' +
-        '<p><strong>Min Withdrawal:</strong> ' + CONFIG.minWithdraw + ' pts (Rs ' + toRupees(CONFIG.minWithdraw) + ')</p>' +
-        '<p><strong>Referral Reward:</strong> Rs ' + CONFIG.referralReward + '</p>' +
-        '<p><strong>Referral Active Days:</strong> ' + CONFIG.referralActiveDays + '</p>' +
-        '<p><strong>Welcome Bonus:</strong> ' + CONFIG.welcomeBonus + ' pts</p>' +
-      '</div>' +
-      '<div class="admin-item">' +
-        '<h4>' + iconHTML('i-download','icon-sm') + ' Backup & Reset</h4>' +
-        '<div class="admin-actions">' +
-          '<button type="button" class="btn sm blue" onclick="exportData()">' + iconHTML('i-download','icon-xs') + ' Export JSON</button>' +
-          '<button type="button" class="btn sm red" onclick="resetAll()">' + iconHTML('i-trash','icon-xs') + ' Reset All</button>' +
-        '</div>' +
-      '</div>' +
-      '<div class="admin-item">' +
-        '<h4>' + iconHTML('i-lock','icon-sm') + ' Admin Credentials</h4>' +
-        '<p>Username: <strong>' + CONFIG.ADMIN_USER + '</strong></p>' +
-        '<p>Password: <strong>' + CONFIG.ADMIN_PASS + '</strong></p>' +
-      '</div>';
+    c.innerHTML = '<div class="admin-item"><h4>' + iconHTML('i-cloud','icon-sm') + ' Cloud Sync</h4><p><strong>URL:</strong> ' + RTDB_URL + '</p><p><strong>Status:</strong> ' + $('cloudStatusTextAdmin').textContent + '</p><div class="admin-actions"><button type="button" class="btn sm blue" onclick="manualCloudSync()">' + iconHTML('i-refresh','icon-xs') + ' Sync Now</button></div></div><div class="admin-item"><h4>' + iconHTML('i-settings','icon-sm') + ' Platform Config</h4><p><strong>Video Reward:</strong> ' + CONFIG.videoReward + ' points</p><p><strong>Ad Reward:</strong> ' + CONFIG.adReward + ' points</p><p><strong>Points Rate:</strong> 50 points = Rs 5</p><p><strong>Min Withdrawal:</strong> ' + CONFIG.minWithdraw + ' pts</p><p><strong>Referral Reward:</strong> Rs ' + CONFIG.referralReward + '</p></div><div class="admin-item"><h4>' + iconHTML('i-download','icon-sm') + ' Backup & Reset</h4><div class="admin-actions"><button type="button" class="btn sm blue" onclick="exportData()">' + iconHTML('i-download','icon-xs') + ' Export JSON</button><button type="button" class="btn sm red" onclick="resetAll()">' + iconHTML('i-trash','icon-xs') + ' Reset All</button></div></div><div class="admin-item"><h4>' + iconHTML('i-lock','icon-sm') + ' Admin Credentials</h4><p>Username: <strong>' + CONFIG.ADMIN_USER + '</strong></p><p>Password: <strong>' + CONFIG.ADMIN_PASS + '</strong></p></div>';
   }
 }
 
@@ -2009,25 +1811,20 @@ function adMarkProc(id, email){
   if (!w) return;
   w.status = 'processing';
   users[uIdx].notifications.unshift({ id: uid(), title: 'Withdrawal Processing', body: 'Aapka withdrawal process ho raha hai.', ts: now(), read: false });
-  saveUsers(users);
-  renderAdmin();
+  saveUsers(users); fbPushUser(users[uIdx]); renderAdmin();
   showToast('Marked as processing', 'success');
 }
-
 function adComplete(id, email){
   const users = getUsers();
   const uIdx = users.findIndex(u => u.email === email);
   if (uIdx < 0) return;
   const w = users[uIdx].withdrawals.find(x => x.id === id);
   if (!w) return;
-  w.status = 'completed';
-  w.completedAt = now();
+  w.status = 'completed'; w.completedAt = now();
   users[uIdx].notifications.unshift({ id: uid(), title: 'Withdrawal Completed', body: 'Rs ' + toRupees(w.amount) + ' aapke account mein bhej diye gaye.', ts: now(), read: false });
-  saveUsers(users);
-  renderAdmin();
+  saveUsers(users); fbPushUser(users[uIdx]); renderAdmin();
   showToast('Withdrawal completed', 'success');
 }
-
 function adReject(id, email){
   const reason = prompt('Rejection reason:', 'Invalid details');
   if (!reason) return;
@@ -2036,15 +1833,12 @@ function adReject(id, email){
   if (uIdx < 0) return;
   const w = users[uIdx].withdrawals.find(x => x.id === id);
   if (!w) return;
-  w.status = 'rejected';
-  w.reason = reason;
+  w.status = 'rejected'; w.reason = reason;
   users[uIdx].points += w.amount;
-  users[uIdx].notifications.unshift({ id: uid(), title: 'Withdrawal Rejected', body: 'Reason: ' + reason + '. Aapke points wapas kar diye gaye.', ts: now(), read: false });
-  saveUsers(users);
-  renderAdmin();
+  users[uIdx].notifications.unshift({ id: uid(), title: 'Withdrawal Rejected', body: 'Reason: ' + reason, ts: now(), read: false });
+  saveUsers(users); fbPushUser(users[uIdx]); renderAdmin();
   showToast('Withdrawal rejected', 'warn');
 }
-
 function adAddPoints(email){
   const a = prompt('Points to add:', '500');
   if (!a) return;
@@ -2055,36 +1849,28 @@ function adAddPoints(email){
   if (idx < 0) return;
   users[idx].points = (users[idx].points || 0) + pts;
   users[idx].totalEarned = (users[idx].totalEarned || 0) + pts;
-  saveUsers(users);
-  renderAdmin();
+  saveUsers(users); fbPushUser(users[idx]); renderAdmin();
   showToast('Added ' + pts + ' points', 'success');
 }
-
 function adBan(email){
   const r = prompt('Ban reason:', 'Violation of terms');
   if (!r) return;
   const users = getUsers();
   const idx = users.findIndex(u => u.email === email);
   if (idx < 0) return;
-  users[idx].banned = true;
-  users[idx].banReason = r;
-  saveUsers(users);
-  renderAdmin();
+  users[idx].banned = true; users[idx].banReason = r;
+  saveUsers(users); fbPushUser(users[idx]); renderAdmin();
   showToast('User banned', 'warn');
 }
-
 function adUnban(email){
   const users = getUsers();
   const idx = users.findIndex(u => u.email === email);
   if (idx < 0) return;
-  users[idx].banned = false;
-  users[idx].banReason = '';
-  saveUsers(users);
-  renderAdmin();
+  users[idx].banned = false; users[idx].banReason = '';
+  saveUsers(users); fbPushUser(users[idx]); renderAdmin();
   showToast('User unbanned', 'success');
 }
 
-/* ⭐ FIX: YouTube ID auto-extract karta hai */
 function adEditVideo(id){
   const v = VIDEOS.find(x => x.id === id);
   if (!v) return;
@@ -2093,59 +1879,37 @@ function adEditVideo(id){
   const input = prompt('YouTube Link ya Video ID:', v.youtubeId || '');
   if (input === null) return;
   const ytid = extractYouTubeId(input);
-  if (!/^[a-zA-Z0-9_-]{11}$/.test(ytid)){
-    showToast('Invalid YouTube link/ID', 'error');
-    return;
-  }
+  if (!/^[a-zA-Z0-9_-]{11}$/.test(ytid)){ showToast('Invalid YouTube link/ID', 'error'); return; }
   const dur = parseInt(prompt('Duration (seconds):', v.duration)) || v.duration;
-  v.title = title;
-  v.youtubeId = ytid;
-  v.duration = dur;
-  saveVideos();
-  renderAdmin();
-  renderAll();
+  v.title = title; v.youtubeId = ytid; v.duration = dur;
+  saveVideos(); renderAdmin(); renderAll();
   showToast('Video updated', 'success');
 }
-
 function adDelVideo(id){
   if (!confirm('Delete this video?')) return;
   VIDEOS = VIDEOS.filter(v => v.id !== id);
-  saveVideos();
-  renderAdmin();
-  renderAll();
+  saveVideos(); renderAdmin(); renderAll();
   showToast('Video deleted', 'warn');
 }
-
-/* ⭐ NEW: Poori video list clear karta hai */
 function adClearVideos(){
-  if (!confirm('Saari videos delete karni hain? (Defaults wapas nahi aayengi)')) return;
-  if (!confirm('Confirm: Sab videos hat jayengi. Aap naye add kar sakte ho.')) return;
+  if (!confirm('Saari videos delete karni hain?')) return;
+  if (!confirm('Confirm: Sab videos hat jayengi.')) return;
   VIDEOS = [];
-  saveVideos();
-  renderAdmin();
-  renderAll();
-  showToast('All videos cleared — ab naye add karo', 'success');
+  saveVideos(); renderAdmin(); renderAll();
+  showToast('All videos cleared', 'success');
 }
-
-/* ⭐ FIX: Full URL accept karta hai */
 function adAddVideo(){
   const title = prompt('Video title:');
   if (!title) return;
   const input = prompt('YouTube Link ya Video ID:\n\nExamples:\nhttps://www.youtube.com/watch?v=dQw4w9WgXcQ\nhttps://youtu.be/dQw4w9WgXcQ\ndQw4w9WgXcQ', '');
   if (!input) return;
   const ytid = extractYouTubeId(input);
-  if (!/^[a-zA-Z0-9_-]{11}$/.test(ytid)){
-    showToast('Invalid YouTube link/ID — 11 char ID chahiye', 'error');
-    return;
-  }
+  if (!/^[a-zA-Z0-9_-]{11}$/.test(ytid)){ showToast('Invalid YouTube link/ID', 'error'); return; }
   const dur = parseInt(prompt('Watch duration (seconds):', '30')) || 30;
   VIDEOS.push({ id: 'v' + now(), title, youtubeId: ytid, duration: dur });
-  saveVideos();
-  renderAdmin();
-  renderAll();
-  showToast('Video added — ' + CONFIG.videoReward + ' points reward', 'success');
+  saveVideos(); renderAdmin(); renderAll();
+  showToast('Video added ✓', 'success');
 }
-
 function adAddAd(){
   const title = prompt('Ad title:');
   if (!title) return;
@@ -2153,47 +1917,37 @@ function adAddAd(){
   const icons = ['i-credit-card','i-phone','i-gift','i-map-pin','i-monitor'];
   const icon = icons[Math.floor(Math.random()*icons.length)];
   ADS.push({ id: 'a' + now(), title, icon, duration: dur });
-  saveAds();
-  renderAdmin();
-  renderAll();
-  showToast('Ad added — ' + CONFIG.adReward + ' points reward', 'success');
+  saveAds(); renderAdmin(); renderAll();
+  showToast('Ad added ✓', 'success');
 }
-
 function adDelAd(id){
   if (!confirm('Delete this ad?')) return;
   ADS = ADS.filter(a => a.id !== id);
-  saveAds();
-  renderAdmin();
-  renderAll();
+  saveAds(); renderAdmin(); renderAll();
   showToast('Ad deleted', 'warn');
 }
-
 function exportData(){
   const data = { users: getUsers(), videos: VIDEOS, ads: ADS, exportedAt: new Date().toISOString() };
   const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
-  a.href = url;
-  a.download = 'earningsbee-backup.json';
-  a.click();
+  a.href = url; a.download = 'earningsbee-backup.json'; a.click();
   URL.revokeObjectURL(url);
   showToast('Data exported', 'success');
 }
-
 function resetAll(){
   if (!confirm('Delete ALL data?')) return;
   if (!confirm('This cannot be undone. REALLY sure?')) return;
   try { ['eb_users','eb_session','eb_videos','eb_ads','eb_reset'].forEach(k => localStorage.removeItem(k)); } catch(e){}
   location.reload();
 }
-
 function handleUrlRef(){
   const params = new URLSearchParams(location.search);
   const ref = params.get('ref');
   if (ref && $('suRef')){ setTimeout(() => { $('suRef').value = ref; switchAuth('signup'); }, 200); }
 }
 
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', async () => {
   try {
     loadVideos();
     loadAds();
@@ -2204,6 +1958,7 @@ window.addEventListener('DOMContentLoaded', () => {
       if (u) initApp(u);
       else setSession(null);
     }
+    await syncFromCloud(true);
     document.querySelectorAll('.modal-bg').forEach(m => {
       m.addEventListener('click', e => { if (e.target === m) closeModal(m.id); });
     });
@@ -2253,6 +2008,7 @@ window.adDelAd = adDelAd;
 window.exportData = exportData;
 window.resetAll = resetAll;
 window.secretClick = secretClick;
+window.manualCloudSync = manualCloudSync;
 </script>
 </body>
 </html>
